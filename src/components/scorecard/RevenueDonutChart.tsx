@@ -1,10 +1,10 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend, Tooltip } from 'recharts';
 
 const data = [
-  { name: 'Product A', value: 15000 },
-  { name: 'Product B', value: 12000 },
-  { name: 'Product C', value: 8000 },
-  { name: 'Product D', value: 5000 },
+  { name: 'AW24 suede boots', value: 15000 },
+  { name: 'accessories', value: 12000 },
+  { name: 'Collab A', value: 8000 },
+  { name: 'Collab GCC', value: 5000 },
 ];
 
 const COLORS = ['#FFD700', '#D4AF37', '#996515', '#B8860B'];
