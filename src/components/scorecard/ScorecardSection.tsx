@@ -49,7 +49,7 @@ export const ScorecardSection = ({
               contentStyle={{ 
                 backgroundColor: '#1A1A1A', 
                 border: '1px solid #B8860B',
-                color: '#B8860B'
+                color: '#FFD700'
               }}
               formatter={(value: number, name: string) => {
                 if (name === 'sales') {
@@ -57,6 +57,7 @@ export const ScorecardSection = ({
                 }
                 return [value, 'Inventory'];
               }}
+              labelStyle={{ color: '#FFD700' }}
             />
             <Bar 
               yAxisId="left"
