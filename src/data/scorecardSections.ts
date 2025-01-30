@@ -2,7 +2,7 @@ export const sections = [
   {
     id: 1,
     title: "Top 4 products by sales volume for last 2 quarters",
-    subtitle: "Track your monthly revenue performance",
+    subtitle: "January product leader board",
     chartData: [
       { date: "Jan", value: 30000 },
       { date: "Feb", value: 35000 },
