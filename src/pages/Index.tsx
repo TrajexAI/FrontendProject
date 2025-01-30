@@ -3,7 +3,6 @@ import ChartSection from "@/components/ChartSection";
 import MessageList from "@/components/MessageList";
 import InsightCards from "@/components/InsightCards";
 import ChatInput from "@/components/ChatInput";
-import Message from "@/components/Message";
 
 const mockData = [
   { date: "Jan", value: 4000 },
@@ -43,7 +42,11 @@ const Index = () => {
             alt="Logo" 
             className="h-24 object-contain"
           />
-          <h1 className="text-2xl font-bold text-gold-light text-right mb-2">D'NA Boutique</h1>
+          <img 
+            src="/lovable-uploads/874807e4-0847-42a4-a246-9be1c204296d.png" 
+            alt="Deena" 
+            className="h-12 object-contain"
+          />
         </div>
         <InsightCards />
       </div>
