@@ -68,8 +68,8 @@ export default {
       },
       keyframes: {
         "page-turn": {
-          "0%": { transform: "rotateX(0deg)" },
-          "100%": { transform: "rotateX(180deg)" },
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(180deg)" },
         },
         "fade-in": {
           "0%": { opacity: "0", transform: "translateY(10px)" },
@@ -86,7 +86,7 @@ export default {
         "slide-in": "slide-in 0.6s ease-out",
       },
       rotate: {
-        'x-180': '180deg',
+        'y-180': '180deg',
       },
       transformStyle: {
         '3d': 'preserve-3d',

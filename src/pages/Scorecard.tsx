@@ -87,13 +87,13 @@ const Scorecard = () => {
           >
             <div
               className={cn(
-                "relative w-full h-full transition-all duration-700 transform-style-3d cursor-pointer origin-top",
-                flippedSections.includes(section.id) ? "[transform:rotateX(180deg)]" : ""
+                "relative w-full h-full transition-all duration-700 transform-style-3d cursor-pointer",
+                flippedSections.includes(section.id) ? "[transform:rotateY(180deg)]" : ""
               )}
               onClick={() => toggleFlip(section.id)}
             >
               {/* Front of page */}
-              <div className="absolute w-full h-full backface-hidden">
+              <div className="absolute w-full h-full backface-hidden bg-obsidian-DEFAULT">
                 <div className="flex flex-col items-center justify-center p-8 h-full">
                   <h2 className="text-3xl font-bold text-gold mb-4">{section.title}</h2>
                   <p className="text-gold/80 text-lg">{section.frontContent}</p>
@@ -101,8 +101,8 @@ const Scorecard = () => {
               </div>
 
               {/* Back of page */}
-              <div className="absolute w-full h-full backface-hidden [transform:rotateX(180deg)]">
-                <div className="flex flex-col items-center justify-center p-8 h-full bg-obsidian-dark/40">
+              <div className="absolute w-full h-full backface-hidden [transform:rotateY(180deg)] bg-obsidian-dark">
+                <div className="flex flex-col items-center justify-center p-8 h-full">
                   <p className="text-gold/90 text-xl">{section.backContent}</p>
                 </div>
               </div>
