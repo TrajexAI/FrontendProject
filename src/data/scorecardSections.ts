@@ -10,7 +10,8 @@ export const sections = [
       { date: "Apr", value: 40000 },
       { date: "May", value: 50000 },
       { date: "Jun", value: 55000 },
-    ]
+    ],
+    showDonutChart: true
   },
   {
     id: 2,
