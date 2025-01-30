@@ -1,12 +1,11 @@
 import { cn } from "@/lib/utils";
 import { ScorecardChart } from "./ScorecardChart";
 import { RevenueDonutChart } from "./RevenueDonutChart";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 
 interface ScorecardSectionProps {
   id: number;
   title: string;
-  subtitle: string;
   chartData: Array<any>;
   isEven: boolean;
   showDonutChart?: boolean;
@@ -67,9 +66,15 @@ export const ScorecardSection = ({
             <Bar 
               yAxisId="right"
               dataKey="inventory" 
-              fill="#CD853F" 
               name="Inventory"
-            />
+            >
+              {chartData.map((entry, index) => (
+                <Cell 
+                  key={`cell-${index}`}
+                  fill={entry.date === 'Jan' && entry.inventory < 20 ? '#FF0000' : '#CD853F'}
+                />
+              ))}
+            </Bar>
           </BarChart>
         </ResponsiveContainer>
       );
