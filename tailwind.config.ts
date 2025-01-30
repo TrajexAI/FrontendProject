@@ -67,6 +67,10 @@ export default {
         },
       },
       keyframes: {
+        "page-turn": {
+          "0%": { transform: "rotateX(0deg)" },
+          "100%": { transform: "rotateX(180deg)" },
+        },
         "fade-in": {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
@@ -77,11 +81,12 @@ export default {
         },
       },
       animation: {
+        "page-turn": "page-turn 0.6s ease-in-out",
         "fade-in": "fade-in 0.5s ease-out",
         "slide-in": "slide-in 0.6s ease-out",
       },
       rotate: {
-        'y-180': '180deg',
+        'x-180': '180deg',
       },
       transformStyle: {
         '3d': 'preserve-3d',
