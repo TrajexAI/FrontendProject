@@ -12,10 +12,10 @@ interface FinancialChartProps {
 const FinancialChart = ({ data, className }: FinancialChartProps) => {
   const chartData = [
     { date: "Jul", value: 15_000 },
-    { date: "Aug", value: 25_000 },
-    { date: "Sep", value: 35_000 },
-    { date: "Oct", value: 45_000 },
-    { date: "Nov", value: 52_000 },
+    { date: "Aug", value: 30_000 },
+    { date: "Sep", value: 45_000 },
+    { date: "Oct", value: 20_000 },
+    { date: "Nov", value: 45_000 },
     { date: "Dec", value: 60_000 },
     { date: "Jan", value: 30_000 },
   ];
