@@ -24,7 +24,7 @@ export const ScorecardSection = ({
     if (id === 2) {
       return (
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={chartData}>
+          <BarChart data={chartData} margin={{ top: 10, right: 30, left: 20, bottom: 10 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#333" />
             <XAxis 
               dataKey="date" 
@@ -87,13 +87,12 @@ export const ScorecardSection = ({
       )}
     >
       <div className="relative w-full h-full">
-        <div className="flex flex-col items-center justify-center p-8 h-full">
+        <div className="flex flex-col items-center justify-center p-4 h-full">
           {id !== 1 && (
             <h2 className="bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4 w-full text-2xl font-bold">
               {title}
             </h2>
           )}
-          <p className="text-gold-light/80 text-lg mb-6">{subtitle}</p>
           {renderDualLineChart()}
         </div>
       </div>
