@@ -24,7 +24,7 @@ const Scorecard = () => {
             </Link>
           </div>
           <h1 className="text-2xl font-bold text-gold">D'NA Scorecard</h1>
-          <p className="text-gold/80 mt-2">Track your business health metrics</p>
+          <p className="text-gold/80 mt-2">Real-time performance tracker</p>
         </div>
       </div>
 
