@@ -20,6 +20,10 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
     { date: "Jan", value: 30_000 },
   ];
 
+  const formatYAxis = (value: number) => {
+    return new Intl.NumberFormat('en-US').format(value);
+  };
+
   return (
     <div className={cn("h-[200px] w-full p-4", className)}>
       <h2 className="mb-4 text-xl font-semibold text-gold-light">Sales, Q3 and Q4 2024</h2>
@@ -43,6 +47,7 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
             tickLine={false}
             axisLine={false}
             tick={{ fontSize: 12 }}
+            tickFormatter={formatYAxis}
           />
           <Tooltip
             contentStyle={{
@@ -51,6 +56,7 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
               borderRadius: "4px",
             }}
             labelStyle={{ color: "#D4AF37" }}
+            formatter={(value: number) => [new Intl.NumberFormat('en-US').format(value), "Sales"]}
           />
           <Area
             type="monotone"
