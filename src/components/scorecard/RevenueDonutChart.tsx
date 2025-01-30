@@ -52,14 +52,14 @@ export const RevenueDonutChart = () => {
       </ResponsiveContainer>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-        <DialogContent className="bg-obsidian-light border-gold/30 w-[600px] h-[400px] p-8">
+        <DialogContent className="bg-obsidian-light border-gold/30 w-[90vw] max-w-[600px] h-auto min-h-[300px] max-h-[90vh] p-4 sm:p-8">
           <button 
             onClick={() => setIsDialogOpen(false)}
             className="absolute right-4 top-4 text-gold hover:text-gold-light transition-colors"
           >
             <X className="h-4 w-4" />
           </button>
-          <div className="space-y-4 text-gold">
+          <div className="space-y-4 text-gold overflow-y-auto max-h-[calc(90vh-4rem)]">
             <h3 className="text-xl font-semibold">Revenue Breakdown Analysis</h3>
             <p>The AW24 suede boots collection remains our strongest performer, contributing 37.5% of total revenue. This is followed by our accessories line at 30%, showing strong market acceptance.</p>
             <p>Collaborations (Collab A and GCC) together make up 32.5% of revenue, indicating successful partnership strategies.</p>
