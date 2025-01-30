@@ -30,12 +30,11 @@ export const ScorecardSection = ({
     >
       <div className="relative w-full h-full">
         <div className="flex flex-col items-center justify-center p-8 h-full">
-          <h2 className={cn(
-            "bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4 w-full",
-            id === 1 ? "text-sm" : "text-2xl font-bold"
-          )}>
-            {title}
-          </h2>
+          {id !== 1 && (
+            <h2 className="bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4 w-full text-2xl font-bold">
+              {title}
+            </h2>
+          )}
           <p className="text-gold-light/80 text-lg mb-6">{subtitle}</p>
           {showDonutChart ? <RevenueDonutChart /> : <ScorecardChart data={chartData} sectionId={id} />}
         </div>
