@@ -4,14 +4,16 @@ interface MessageProps {
   content: string;
   isUser?: boolean;
   className?: string;
+  index: number; // Add index prop to calculate delay
 }
 
-const Message = ({ content, isUser = false, className }: MessageProps) => {
+const Message = ({ content, isUser = false, className, index }: MessageProps) => {
   return (
     <div
       className={cn(
-        "flex w-full animate-fade-in",
+        "flex w-full opacity-0",
         isUser ? "justify-end" : "justify-start",
+        `animate-fade-in [animation-delay:${index * 750}ms] [animation-fill-mode:forwards]`,
         className
       )}
     >

@@ -11,6 +11,7 @@ const MessageList = ({ messages }: MessageListProps) => (
         key={index}
         content={message.content}
         isUser={message.isUser}
+        index={index}
       />
     ))}
   </div>
