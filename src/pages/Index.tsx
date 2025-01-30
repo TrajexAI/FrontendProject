@@ -40,7 +40,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8 font-quicksand">
-      <div className="mx-auto max-w-4xl space-y-8">
+      <div className="mx-auto max-w-4xl space-y-6">
         <div className="rounded-xl bg-obsidian-light/30 p-6 backdrop-blur-lg">
           <h2 className="mb-4 text-xl font-semibold text-gold-light">Financial Overview</h2>
           <FinancialChart data={mockData} className="mb-6" />
@@ -55,40 +55,40 @@ const Index = () => {
           </div>
         </div>
 
-        <div className="mt-8">
+        <div className="mb-20">
           <Carousel className="w-full">
             <CarouselContent>
               <CarouselItem className="md:basis-1/3">
-                <Card className="glass-panel">
-                  <CardHeader>
-                    <CardTitle className="text-gold text-lg">Your profit, unlocked</CardTitle>
+                <Card className="glass-panel py-2">
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-gold text-base">Your profit, unlocked</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gold-light/80 text-sm">
+                  <CardContent className="py-2">
+                    <p className="text-gold-light/80 text-xs">
                       Discover hidden opportunities and maximize your returns
                     </p>
                   </CardContent>
                 </Card>
               </CarouselItem>
               <CarouselItem className="md:basis-1/3">
-                <Card className="glass-panel">
-                  <CardHeader>
-                    <CardTitle className="text-gold text-lg">Growth and trends</CardTitle>
+                <Card className="glass-panel py-2">
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-gold text-base">Growth and trends</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gold-light/80 text-sm">
+                  <CardContent className="py-2">
+                    <p className="text-gold-light/80 text-xs">
                       Analyze market patterns and growth trajectories
                     </p>
                   </CardContent>
                 </Card>
               </CarouselItem>
               <CarouselItem className="md:basis-1/3">
-                <Card className="glass-panel">
-                  <CardHeader>
-                    <CardTitle className="text-gold text-lg">Contribution margin</CardTitle>
+                <Card className="glass-panel py-2">
+                  <CardHeader className="py-2">
+                    <CardTitle className="text-gold text-base">Contribution margin</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p className="text-gold-light/80 text-sm">
+                  <CardContent className="py-2">
+                    <p className="text-gold-light/80 text-xs">
                       Track and optimize your profit margins
                     </p>
                   </CardContent>
