@@ -11,15 +11,15 @@ const COLORS = ['#FFD700', '#D4AF37', '#996515', '#B8860B'];
 
 export const RevenueDonutChart = () => {
   return (
-    <div className="h-[200px] w-full">
+    <div className="h-[180px] w-full">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={50}
+            outerRadius={70}
             fill="#D4AF37"
             paddingAngle={5}
             dataKey="value"
