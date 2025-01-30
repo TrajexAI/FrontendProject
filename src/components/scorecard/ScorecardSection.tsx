@@ -40,10 +40,10 @@ export const ScorecardSection = ({
             <YAxis 
               yAxisId="right"
               orientation="right"
-              stroke="#CD853F"
+              stroke="#F97316"
               domain={[0, 100]}
               tick={{ fontSize: 10 }}
-              label={{ value: 'Inventory (units)', angle: 90, position: 'insideRight', fill: '#CD853F', fontSize: 10 }}
+              label={{ value: 'Inventory (units)', angle: 90, position: 'insideRight', fill: '#F97316', fontSize: 10 }}
             />
             <Tooltip 
               contentStyle={{ 
@@ -73,7 +73,7 @@ export const ScorecardSection = ({
               {chartData.map((entry, index) => (
                 <Cell 
                   key={`cell-${index}`}
-                  fill={entry.date === 'Jan' && entry.inventory < 20 ? '#FF0000' : '#CD853F'}
+                  fill={entry.date === 'Jan' && entry.inventory < 20 ? '#ea384c' : '#F97316'}
                 />
               ))}
             </Bar>
