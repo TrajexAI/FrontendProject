@@ -1,7 +1,7 @@
 export const sections = [
   {
     id: 1,
-    title: "Revenue Overview",
+    title: "",
     subtitle: "Track your monthly revenue performance",
     chartData: [
       { date: "Jan", value: 30000 },
