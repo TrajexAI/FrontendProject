@@ -43,8 +43,6 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
             tickLine={false}
             axisLine={false}
             tick={{ fontSize: 12 }}
-            domain={[15000, 60000]}
-            tickFormatter={(value) => `${value} SAR`}
           />
           <Tooltip
             contentStyle={{
@@ -53,7 +51,6 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
               borderRadius: "4px",
             }}
             labelStyle={{ color: "#D4AF37" }}
-            formatter={(value: number) => [`${value} SAR`, "Value"]}
           />
           <Area
             type="monotone"
