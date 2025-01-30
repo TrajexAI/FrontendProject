@@ -18,10 +18,6 @@ export const sections = [
     title: "Inventory vs. Sales",
     subtitle: "",
     chartData: [
-      { date: "Jul", sales: 45000, inventory: 80 },
-      { date: "Aug", sales: 52000, inventory: 70 },
-      { date: "Sep", sales: 58000, inventory: 60 },
-      { date: "Oct", sales: 65000, inventory: 50 },
       { date: "Nov", sales: 72000, inventory: 40 },
       { date: "Dec", sales: 78000, inventory: 30 },
       { date: "Jan", sales: 85000, inventory: 20 },
