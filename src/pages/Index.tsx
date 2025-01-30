@@ -17,7 +17,7 @@ const mockData = [
 
 const messages = [
   { content: "How is my top line doing? Trends over last 2 quarters?", isUser: true },
-  { content: "Analysing CRM data...", isUser: false },
+  { content: "What happened in October?", isUser: false },
   { content: "Analysing marketing data....", isUser: false },
   { content: "Yes, there's been a 23% increase in overall performance.", isUser: false },
 ];
