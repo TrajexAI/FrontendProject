@@ -33,6 +33,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8 font-quicksand">
+      <h1 className="text-2xl font-bold text-gold text-left mb-8">D'NA Boutique Trajex SuperApp</h1>
       <div className="mx-auto max-w-4xl space-y-6">
         <Message content="How is my top line? Trends over the past 2 quarters?" isUser={true} />
         <ChartSection data={mockData} />
