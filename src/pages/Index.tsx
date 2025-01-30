@@ -20,6 +20,7 @@ const messages = [
   { content: "Analysing marketing data....", isUser: false },
   { content: "It looks like content creation and posting was down 23% in September, which may have impacted sales.", isUser: false },
   { content: "Analysing marketing data....", isUser: false },
+  { content: "Looking at the sales by product breakdown for October, it looks like the AW24 Suede boots sales volume was down 15% in October.", isUser: false },
 ];
 
 const Index = () => {
