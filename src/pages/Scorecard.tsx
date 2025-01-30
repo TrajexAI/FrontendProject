@@ -147,11 +147,11 @@ const Scorecard = () => {
               >
                 {/* Front of page */}
                 <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-obsidian-light via-obsidian-DEFAULT to-obsidian-dark before:absolute before:inset-0 before:bg-obsidian-dark/95">
-                  <div className="relative z-10 flex flex-col items-center justify-center p-8 h-full">
-                    <h2 className="text-3xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4">
+                  <div className="relative z-10 flex flex-col items-center justify-center p-8 h-full text-center">
+                    <h2 className="text-3xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4 w-full">
                       {section.title}
                     </h2>
-                    <p className="text-gold-light/80 text-lg text-center">{section.subtitle}</p>
+                    <p className="text-gold-light/80 text-lg">{section.subtitle}</p>
                   </div>
                 </div>
 
