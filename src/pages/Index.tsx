@@ -42,11 +42,6 @@ const Index = () => {
             alt="Logo" 
             className="h-24 object-contain"
           />
-          <img 
-            src="/lovable-uploads/874807e4-0847-42a4-a246-9be1c204296d.png" 
-            alt="Deena" 
-            className="h-12 object-contain"
-          />
         </div>
         <InsightCards />
       </div>
