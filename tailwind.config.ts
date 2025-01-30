@@ -80,6 +80,18 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "slide-in": "slide-in 0.6s ease-out",
       },
+      rotate: {
+        'y-180': '180deg',
+      },
+      transformStyle: {
+        '3d': 'preserve-3d',
+      },
+      perspective: {
+        '1000': '1000px',
+      },
+      backfaceVisibility: {
+        'hidden': 'hidden',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

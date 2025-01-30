@@ -1,11 +1,69 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+
+interface SectionData {
+  id: number;
+  title: string;
+  frontContent: string;
+  backContent: string;
+}
+
+const sections: SectionData[] = [
+  {
+    id: 1,
+    title: "Revenue Overview",
+    frontContent: "Track your monthly revenue trends and growth metrics",
+    backContent: "Detailed revenue analysis and forecasting tools will be available here"
+  },
+  {
+    id: 2,
+    title: "Profit Margins",
+    frontContent: "Monitor your profit margins across different business segments",
+    backContent: "In-depth profit margin analysis and optimization recommendations coming soon"
+  },
+  {
+    id: 3,
+    title: "Customer Metrics",
+    frontContent: "Analyze customer acquisition and retention rates",
+    backContent: "Detailed customer behavior analytics and engagement metrics will be displayed here"
+  },
+  {
+    id: 4,
+    title: "Operational Efficiency",
+    frontContent: "Track key operational performance indicators",
+    backContent: "Comprehensive operational efficiency metrics and improvement suggestions coming soon"
+  },
+  {
+    id: 5,
+    title: "Growth Indicators",
+    frontContent: "Monitor business growth and expansion metrics",
+    backContent: "Detailed growth analysis and market opportunity insights will be available here"
+  },
+  {
+    id: 6,
+    title: "Financial Health",
+    frontContent: "Review overall financial health and stability metrics",
+    backContent: "In-depth financial analysis and forecasting tools coming soon"
+  }
+];
 
 const Scorecard = () => {
+  const [flippedSections, setFlippedSections] = useState<number[]>([]);
+
+  const toggleFlip = (sectionId: number) => {
+    setFlippedSections(prev => 
+      prev.includes(sectionId) 
+        ? prev.filter(id => id !== sectionId)
+        : [...prev, sectionId]
+    );
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light font-quicksand">
       <div className="w-full px-4 py-2 bg-obsidian-dark/50">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <Link 
             to="/" 
             className="inline-flex items-center text-gold hover:text-gold/80 transition-colors mb-4"
@@ -17,13 +75,40 @@ const Scorecard = () => {
           <p className="text-gold/80 mt-2">Track your business health metrics</p>
         </div>
       </div>
-      <div className="p-4 md:p-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Placeholder for scorecard content */}
-          <div className="glass-panel p-6 text-gold">
-            Coming soon: Your business metrics and KPIs will be displayed here
+
+      <div className="flex flex-col w-full">
+        {sections.map((section, index) => (
+          <div 
+            key={section.id}
+            className={cn(
+              "w-full min-h-[300px] perspective-1000",
+              index % 2 === 0 ? "bg-obsidian-light/20" : "bg-obsidian-dark/20"
+            )}
+          >
+            <div
+              className={cn(
+                "relative w-full h-full transition-transform duration-700 transform-style-3d cursor-pointer",
+                flippedSections.includes(section.id) ? "rotate-y-180" : ""
+              )}
+              onClick={() => toggleFlip(section.id)}
+            >
+              {/* Front of card */}
+              <div className="absolute w-full h-full backface-hidden">
+                <div className="flex flex-col items-center justify-center p-8 h-full">
+                  <h2 className="text-3xl font-bold text-gold mb-4">{section.title}</h2>
+                  <p className="text-gold/80 text-lg">{section.frontContent}</p>
+                </div>
+              </div>
+
+              {/* Back of card */}
+              <div className="absolute w-full h-full backface-hidden rotate-y-180">
+                <div className="flex flex-col items-center justify-center p-8 h-full bg-obsidian-dark/40">
+                  <p className="text-gold/90 text-xl">{section.backContent}</p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );
