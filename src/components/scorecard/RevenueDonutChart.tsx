@@ -10,7 +10,7 @@ const data = [
   { name: 'Collab GCC', value: 5000 },
 ];
 
-const COLORS = ['#F97316', '#ea384c', '#DAA520', '#B8860B'];
+const COLORS = ['#F97316', '#8B5CF6', '#DAA520', '#B8860B'];
 
 export const RevenueDonutChart = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
