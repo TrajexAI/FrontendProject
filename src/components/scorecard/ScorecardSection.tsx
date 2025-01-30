@@ -15,7 +15,6 @@ interface ScorecardSectionProps {
 export const ScorecardSection = ({
   id,
   title,
-  subtitle,
   chartData,
   isEven,
   showDonutChart = false,
@@ -57,6 +56,7 @@ export const ScorecardSection = ({
                 name === 'sales' ? `$${value.toLocaleString()}` : value,
                 name === 'sales' ? 'Sales' : 'Inventory'
               ]}
+              itemSorter={(item) => (item.dataKey === 'sales' ? -1 : 1)}
             />
             <Bar 
               yAxisId="left"
