@@ -32,7 +32,7 @@ export const ScorecardSection = ({
         <div className="flex flex-col items-center justify-center p-8 h-full">
           <h2 className={cn(
             "bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4 w-full",
-            id === 1 ? "text-lg" : "text-2xl font-bold"
+            id === 1 ? "text-sm" : "text-2xl font-bold"
           )}>
             {title}
           </h2>
