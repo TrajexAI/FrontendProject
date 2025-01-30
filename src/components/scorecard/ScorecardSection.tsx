@@ -28,11 +28,11 @@ export const ScorecardSection = ({
     if (showBigNumber) {
       return (
         <div className="flex flex-col items-center justify-center h-full text-gold">
-          <div className="text-6xl font-bold mb-2">
+          <div className="text-6xl font-bold">
             {chartData[0].value}{numberSuffix}
           </div>
           {subtitle && (
-            <div className="text-gold/80 text-center text-sm max-w-md">
+            <div className="text-gold/80 text-center text-sm max-w-md mt-2">
               {subtitle}
             </div>
           )}
