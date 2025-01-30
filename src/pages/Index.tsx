@@ -38,7 +38,7 @@ const Index = () => {
           <img 
             src="/lovable-uploads/6c5c20fb-3d52-4d98-97b2-ba3643ee2f8d.png" 
             alt="Trajex Logo" 
-            className="h-12 object-contain [filter:brightness(0)_sepia(1)_saturate(10000%)_hue-rotate(330deg)_brightness(0.9)_contrast(1)"
+            className="h-12 object-contain [filter:brightness(0)_sepia(1)_saturate(10000%)_hue-rotate(45deg)_brightness(1.2)_contrast(1)]"
           />
           <h1 className="text-2xl font-bold text-gold text-right mb-2">D'NA Boutique</h1>
         </div>
