@@ -39,7 +39,7 @@ const Index = () => {
           <img 
             src="/lovable-uploads/4dbcaef5-d264-46bb-be86-c5f7e078ab71.png" 
             alt="Trajex Logo" 
-            className="h-8 object-contain"
+            className="h-10 object-contain"
           />
         </div>
         <InsightCards />
