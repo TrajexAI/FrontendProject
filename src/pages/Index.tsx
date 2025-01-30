@@ -34,7 +34,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light font-quicksand">
       <div className="w-full px-4 py-2 bg-obsidian-dark/50">
-        <h1 className="text-2xl font-bold text-gold text-left mb-2">D'NA Boutique Trajex SuperApp</h1>
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-gold text-left mb-2">D'NA Boutique</h1>
+          <img 
+            src="/lovable-uploads/4dbcaef5-d264-46bb-be86-c5f7e078ab71.png" 
+            alt="Trajex Logo" 
+            className="h-8 object-contain"
+          />
+        </div>
         <InsightCards />
       </div>
       <div className="p-4 md:p-8">
