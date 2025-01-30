@@ -14,8 +14,8 @@ export const InventorySalesChart = ({ data }: InventorySalesChartProps) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <div className="cursor-pointer hover:opacity-90 transition-opacity">
-          <ResponsiveContainer width="100%" height={300}>
+        <div className="w-full h-[300px] cursor-pointer hover:opacity-90 transition-opacity">
+          <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#333" />
               <XAxis 
