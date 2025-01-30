@@ -2,6 +2,7 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 interface SectionData {
   id: number;
@@ -78,32 +79,40 @@ const Scorecard = () => {
 
       <div className="flex flex-col w-full">
         {sections.map((section, index) => (
-          <div 
-            key={section.id}
-            className={cn(
-              "w-full min-h-[300px] perspective-1000",
-              index % 2 === 0 ? "bg-obsidian-light/20" : "bg-obsidian-dark/20"
+          <div key={section.id}>
+            {index > 0 && (
+              <Separator className="h-0.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark opacity-30" />
             )}
-          >
-            <div
+            <div 
               className={cn(
-                "relative w-full h-full transition-all duration-700 transform-style-3d cursor-pointer",
-                flippedSections.includes(section.id) ? "[transform:rotateY(180deg)]" : ""
+                "w-full min-h-[300px] perspective-1000",
+                index % 2 === 0 
+                  ? "bg-gradient-to-r from-obsidian-dark to-obsidian-light" 
+                  : "bg-gradient-to-l from-obsidian-DEFAULT to-obsidian-dark"
               )}
-              onClick={() => toggleFlip(section.id)}
             >
-              {/* Front of page */}
-              <div className="absolute w-full h-full backface-hidden bg-obsidian-DEFAULT">
-                <div className="flex flex-col items-center justify-center p-8 h-full">
-                  <h2 className="text-3xl font-bold text-gold mb-4">{section.title}</h2>
-                  <p className="text-gold/80 text-lg">{section.frontContent}</p>
+              <div
+                className={cn(
+                  "relative w-full h-full transition-all duration-700 transform-style-3d cursor-pointer",
+                  flippedSections.includes(section.id) ? "[transform:rotateY(180deg)]" : ""
+                )}
+                onClick={() => toggleFlip(section.id)}
+              >
+                {/* Front of page */}
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-obsidian-light via-obsidian-DEFAULT to-obsidian-dark">
+                  <div className="flex flex-col items-center justify-center p-8 h-full">
+                    <h2 className="text-3xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4">
+                      {section.title}
+                    </h2>
+                    <p className="text-gold-light/80 text-lg">{section.frontContent}</p>
+                  </div>
                 </div>
-              </div>
 
-              {/* Back of page */}
-              <div className="absolute w-full h-full backface-hidden [transform:rotateY(180deg)] bg-obsidian-dark">
-                <div className="flex flex-col items-center justify-center p-8 h-full">
-                  <p className="text-gold/90 text-xl">{section.backContent}</p>
+                {/* Back of page */}
+                <div className="absolute w-full h-full backface-hidden [transform:rotateY(180deg)] bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light">
+                  <div className="flex flex-col items-center justify-center p-8 h-full">
+                    <p className="text-gold/90 text-xl">{section.backContent}</p>
+                  </div>
                 </div>
               </div>
             </div>
