@@ -16,7 +16,6 @@ const mockData = [
 ];
 
 const messages = [
-  { content: "Here's the latest financial analysis for your portfolio.", isUser: false },
   { content: "I notice a significant uptrend in the last quarter.", isUser: true },
   { content: "Yes, there's been a 23% increase in overall performance.", isUser: false },
 ];
