@@ -21,6 +21,7 @@ const messages = [
   { content: "It looks like content creation and posting was down 23% in September, which may have impacted sales.", isUser: false },
   { content: "Analysing marketing data....", isUser: false },
   { content: "Looking at the sales by product breakdown for October, it looks like the AW24 Suede boots sales volume was down 15% in October.", isUser: false },
+  { content: "Looking at inventory for the period, the AW suede boots were out of stock from 25th September onwards for a period of 5 weeks. ", isUser: false },
 ];
 
 const Index = () => {
