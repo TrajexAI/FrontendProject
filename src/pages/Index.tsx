@@ -17,6 +17,9 @@ const mockData = [
 
 const messages = [
   { content: "What happened in October?", isUser: true },
+  { content: "Fetching your CRM data.....", isUser: false },
+  { content: "Analysing CRM data...", isUser: false },
+  { content: "Fetching marketing content data...", isUser: false },
   { content: "Yes, there's been a 23% increase in overall performance.", isUser: false },
 ];
 
