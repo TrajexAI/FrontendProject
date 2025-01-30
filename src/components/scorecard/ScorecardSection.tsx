@@ -1,12 +1,13 @@
 import { cn } from "@/lib/utils";
 import { ScorecardChart } from "./ScorecardChart";
 import { RevenueDonutChart } from "./RevenueDonutChart";
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface ScorecardSectionProps {
   id: number;
   title: string;
   subtitle: string;
-  chartData: Array<{ date: string; value: number }>;
+  chartData: Array<any>;
   isEven: boolean;
   showDonutChart?: boolean;
 }
@@ -19,6 +20,42 @@ export const ScorecardSection = ({
   isEven,
   showDonutChart = false,
 }: ScorecardSectionProps) => {
+  const renderDualLineChart = () => {
+    if (id === 2) {
+      return (
+        <ResponsiveContainer width="100%" height={300}>
+          <LineChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+            <XAxis dataKey="date" stroke="#B8860B" />
+            <YAxis stroke="#B8860B" />
+            <Tooltip 
+              contentStyle={{ 
+                backgroundColor: '#1A1A1A', 
+                border: '1px solid #B8860B',
+                color: '#B8860B'
+              }} 
+            />
+            <Line 
+              type="monotone" 
+              dataKey="sales" 
+              stroke="#DAA520" 
+              strokeWidth={2}
+              dot={{ fill: '#DAA520' }}
+            />
+            <Line 
+              type="monotone" 
+              dataKey="inventory" 
+              stroke="#CD853F" 
+              strokeWidth={2}
+              dot={{ fill: '#CD853F' }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      );
+    }
+    return showDonutChart ? <RevenueDonutChart /> : <ScorecardChart data={chartData} sectionId={id} />;
+  };
+
   return (
     <div 
       className={cn(
@@ -36,7 +73,7 @@ export const ScorecardSection = ({
             </h2>
           )}
           <p className="text-gold-light/80 text-lg mb-6">{subtitle}</p>
-          {showDonutChart ? <RevenueDonutChart /> : <ScorecardChart data={chartData} sectionId={id} />}
+          {renderDualLineChart()}
         </div>
       </div>
     </div>

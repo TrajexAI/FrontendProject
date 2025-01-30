@@ -15,15 +15,16 @@ export const sections = [
   },
   {
     id: 2,
-    title: "Profit Margins",
-    subtitle: "Monitor profit trends across segments",
+    title: "Inventory and sales",
+    subtitle: "",
     chartData: [
-      { date: "Jan", value: 15000 },
-      { date: "Feb", value: 18000 },
-      { date: "Mar", value: 22000 },
-      { date: "Apr", value: 20000 },
-      { date: "May", value: 25000 },
-      { date: "Jun", value: 28000 },
+      { date: "Jul", sales: 45000, inventory: 80000 },
+      { date: "Aug", sales: 52000, inventory: 70000 },
+      { date: "Sep", sales: 58000, inventory: 60000 },
+      { date: "Oct", sales: 65000, inventory: 50000 },
+      { date: "Nov", sales: 72000, inventory: 40000 },
+      { date: "Dec", sales: 78000, inventory: 30000 },
+      { date: "Jan", sales: 85000, inventory: 20000 },
     ]
   },
   {
