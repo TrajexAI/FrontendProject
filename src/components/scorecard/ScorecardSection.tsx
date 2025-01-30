@@ -6,19 +6,40 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 interface ScorecardSectionProps {
   id: number;
   title: string;
+  subtitle?: string;
   chartData: Array<any>;
   isEven: boolean;
   showDonutChart?: boolean;
+  showBigNumber?: boolean;
+  numberSuffix?: string;
 }
 
 export const ScorecardSection = ({
   id,
   title,
+  subtitle,
   chartData,
   isEven,
   showDonutChart = false,
+  showBigNumber = false,
+  numberSuffix = "",
 }: ScorecardSectionProps) => {
   const renderDualLineChart = () => {
+    if (showBigNumber) {
+      return (
+        <div className="flex flex-col items-center justify-center h-full text-gold">
+          <div className="text-6xl font-bold mb-2">
+            {chartData[0].value}{numberSuffix}
+          </div>
+          {subtitle && (
+            <div className="text-gold/80 text-center text-sm max-w-md">
+              {subtitle}
+            </div>
+          )}
+        </div>
+      );
+    }
+
     if (id === 2) {
       return (
         <ResponsiveContainer width="100%" height={300}>

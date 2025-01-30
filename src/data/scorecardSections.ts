@@ -25,16 +25,13 @@ export const sections = [
   },
   {
     id: 3,
-    title: "Customer Metrics",
-    subtitle: "Track customer acquisition rates",
+    title: "Return Rate",
+    subtitle: "From 1rst Oct. 2024 to today. Last quarter: 2.9%",
     chartData: [
-      { date: "Jan", value: 1000 },
-      { date: "Feb", value: 1200 },
-      { date: "Mar", value: 1500 },
-      { date: "Apr", value: 1800 },
-      { date: "May", value: 2000 },
-      { date: "Jun", value: 2200 },
-    ]
+      { value: 3 }
+    ],
+    showBigNumber: true,
+    numberSuffix: "%"
   },
   {
     id: 4,
