@@ -20,7 +20,7 @@ const InsightCards = () => {
     <div className="max-w-4xl mx-auto">
       <Select onValueChange={handleValueChange}>
         <SelectTrigger className="w-full glass-panel border-gold/30 text-gold hover:border-gold/50 focus:ring-gold/30">
-          <SelectValue placeholder="Select an insight" />
+          <SelectValue placeholder="View live business performance" />
         </SelectTrigger>
         <SelectContent className="bg-obsidian-light/95 border-gold/30">
           <SelectItem value="dna-scorecard" className="text-gold hover:bg-gold/10 focus:bg-gold/10">
