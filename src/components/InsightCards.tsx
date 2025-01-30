@@ -26,34 +26,19 @@ const InsightCards = () => {
         </SelectTrigger>
         <SelectContent className="bg-obsidian-light/95 border-gold/30">
           <SelectItem value="dna-scorecard" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
-            <div className="space-y-1">
-              <div className="font-semibold">D'NA scorecard</div>
-              <p className="text-gold-light/80 text-xs">Track your business health metrics</p>
-            </div>
+            <div className="font-semibold">D'NA scorecard</div>
           </SelectItem>
           <SelectItem value="investor-report" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
-            <div className="space-y-1">
-              <div className="font-semibold">Custom report for D'NA investors</div>
-              <p className="text-gold-light/80 text-xs">Detailed financial insights for investors</p>
-            </div>
+            <div className="font-semibold">Custom report for D'NA investors</div>
           </SelectItem>
           <SelectItem value="profit" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
-            <div className="space-y-1">
-              <div className="font-semibold">Your profit, unlocked</div>
-              <p className="text-gold-light/80 text-xs">Discover hidden opportunities and maximize your returns</p>
-            </div>
+            <div className="font-semibold">Your profit, unlocked</div>
           </SelectItem>
           <SelectItem value="growth" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
-            <div className="space-y-1">
-              <div className="font-semibold">Growth and trends</div>
-              <p className="text-gold-light/80 text-xs">Analyze market patterns and growth trajectories</p>
-            </div>
+            <div className="font-semibold">Growth and trends</div>
           </SelectItem>
           <SelectItem value="margin" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
-            <div className="space-y-1">
-              <div className="font-semibold">Contribution margin</div>
-              <p className="text-gold-light/80 text-xs">Track and optimize your profit margins</p>
-            </div>
+            <div className="font-semibold">Contribution margin</div>
           </SelectItem>
         </SelectContent>
       </Select>
