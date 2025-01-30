@@ -16,7 +16,7 @@ const mockData = [
 ];
 
 const messages = [
-  { content: "What happened in October?", isUser: true },
+  { content: "How is my top line doing? Trends over last 2 quarters?", isUser: true },
   { content: "Analysing CRM data...", isUser: false },
   { content: "Analysing marketing data....", isUser: false },
   { content: "Yes, there's been a 23% increase in overall performance.", isUser: false },
@@ -47,7 +47,7 @@ const Index = () => {
       </div>
       <div className="p-4 md:p-8">
         <div className="mx-auto max-w-4xl space-y-6">
-          <Message content="What happened in October?" isUser={true} />
+          <Message content="How is my top line doing? Trends over last 2 quarters?" isUser={true} />
           <ChartSection data={mockData} />
           <MessageList messages={messages} />
           <ChatInput
