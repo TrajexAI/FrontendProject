@@ -3,6 +3,7 @@ import ChartSection from "@/components/ChartSection";
 import MessageList from "@/components/MessageList";
 import InsightCards from "@/components/InsightCards";
 import ChatInput from "@/components/ChatInput";
+import Message from "@/components/Message";
 
 const mockData = [
   { date: "Jan", value: 4000 },
@@ -33,6 +34,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8 font-quicksand">
       <div className="mx-auto max-w-4xl space-y-6">
+        <Message content="How is my top line? Trends over the past 2 quarters?" isUser={true} />
         <ChartSection data={mockData} />
         <MessageList messages={messages} />
         <InsightCards />
