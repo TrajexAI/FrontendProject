@@ -1,6 +1,6 @@
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
-import { Separator } from "@/components/ui/separator";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScorecardSection } from "@/components/scorecard/ScorecardSection";
 import { sections } from "@/data/scorecardSections";
 
@@ -28,16 +28,20 @@ const Scorecard = () => {
         </div>
       </div>
 
-      <div className="flex flex-col w-full">
+      <div className="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
         {sections.map((section, index) => (
           <div key={section.id}>
-            {index > 0 && (
-              <Separator className="h-0.5 bg-gradient-to-r from-gold-dark via-gold to-gold-dark opacity-30" />
-            )}
-            <ScorecardSection
-              {...section}
-              isEven={index % 2 === 0}
-            />
+            <Card className="glass-panel">
+              <CardHeader>
+                <CardTitle className="text-gold">{section.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ScorecardSection
+                  {...section}
+                  isEven={index % 2 === 0}
+                />
+              </CardContent>
+            </Card>
           </div>
         ))}
       </div>
