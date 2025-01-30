@@ -22,7 +22,7 @@ export const ScorecardSection = ({
     if (id === 2) {
       return (
         <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={chartData} margin={{ top: 10, right: 30, left: 20, bottom: 10 }}>
+          <BarChart data={chartData} margin={{ top: 10, right: 0, left: 0, bottom: 10 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#333" />
             <XAxis 
               dataKey="date" 
