@@ -99,8 +99,8 @@ const Scorecard = () => {
                 onClick={() => toggleFlip(section.id)}
               >
                 {/* Front of page */}
-                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-obsidian-light via-obsidian-DEFAULT to-obsidian-dark">
-                  <div className="flex flex-col items-center justify-center p-8 h-full">
+                <div className="absolute w-full h-full backface-hidden bg-gradient-to-br from-obsidian-light via-obsidian-DEFAULT to-obsidian-dark before:absolute before:inset-0 before:bg-obsidian-dark/95">
+                  <div className="relative z-10 flex flex-col items-center justify-center p-8 h-full">
                     <h2 className="text-3xl font-bold bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4">
                       {section.title}
                     </h2>
@@ -109,8 +109,8 @@ const Scorecard = () => {
                 </div>
 
                 {/* Back of page */}
-                <div className="absolute w-full h-full backface-hidden [transform:rotateY(180deg)] bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light">
-                  <div className="flex flex-col items-center justify-center p-8 h-full">
+                <div className="absolute w-full h-full backface-hidden [transform:rotateY(180deg)] bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light before:absolute before:inset-0 before:bg-obsidian-dark/95">
+                  <div className="relative z-10 flex flex-col items-center justify-center p-8 h-full">
                     <p className="text-gold/90 text-xl">{section.backContent}</p>
                   </div>
                 </div>
