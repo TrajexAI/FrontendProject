@@ -31,15 +31,6 @@ const InvestorReport = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Card className="glass-panel">
             <CardHeader>
-              <CardTitle className="text-gold">Revenue Growth</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <FinancialChart data={[]} className="h-[300px]" />
-            </CardContent>
-          </Card>
-
-          <Card className="glass-panel">
-            <CardHeader>
               <CardTitle className="text-gold">Key Performance Metrics</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -59,6 +50,15 @@ const InvestorReport = () => {
                 <span className="text-gold-light">Return on Investment</span>
                 <span className="text-gold font-semibold">32%</span>
               </div>
+            </CardContent>
+          </Card>
+
+          <Card className="glass-panel">
+            <CardHeader>
+              <CardTitle className="text-gold">Revenue Growth</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <FinancialChart data={[]} className="h-[300px]" />
             </CardContent>
           </Card>
         </div>
