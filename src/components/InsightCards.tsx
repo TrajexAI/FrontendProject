@@ -13,6 +13,8 @@ const InsightCards = () => {
   const handleValueChange = (value: string) => {
     if (value === "dna-scorecard") {
       navigate("/scorecard");
+    } else if (value === "investor-report") {
+      navigate("/investor-report");
     }
   };
 
