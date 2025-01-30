@@ -6,7 +6,6 @@ import FinancialChart from "@/components/FinancialChart";
 
 const InvestorReport = () => {
   const handleExport = () => {
-    // For now just log the action
     console.log("Exporting report...");
   };
 
@@ -18,8 +17,8 @@ const InvestorReport = () => {
             <div className="space-y-4">
               <div className="h-24 flex items-center">
                 <img 
-                  src="/lovable-uploads/f824e481-f31c-4e45-8dae-43f9616aa4d9.png" 
-                  alt="Trajex Logo" 
+                  src="/lovable-uploads/d1aeb0e9-c67b-4f1b-96e0-94fd3225b22c.png" 
+                  alt="Logo" 
                   className="h-24 object-contain"
                 />
               </div>

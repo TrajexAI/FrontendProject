@@ -39,8 +39,8 @@ const Index = () => {
       <div className="w-full px-4 py-2 bg-obsidian-dark/50">
         <div className="flex justify-between items-center">
           <img 
-            src="/lovable-uploads/f824e481-f31c-4e45-8dae-43f9616aa4d9.png" 
-            alt="Trajex Logo" 
+            src="/lovable-uploads/d1aeb0e9-c67b-4f1b-96e0-94fd3225b22c.png" 
+            alt="Logo" 
             className="h-24 object-contain"
           />
           <h1 className="text-2xl font-bold text-gold text-right mb-2">D'NA Boutique</h1>

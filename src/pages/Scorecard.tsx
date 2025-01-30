@@ -11,8 +11,8 @@ const Scorecard = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center mb-4">
             <img 
-              src="/lovable-uploads/f824e481-f31c-4e45-8dae-43f9616aa4d9.png" 
-              alt="Trajex Logo" 
+              src="/lovable-uploads/d1aeb0e9-c67b-4f1b-96e0-94fd3225b22c.png" 
+              alt="Logo" 
               className="h-24 object-contain"
             />
             <Link 
