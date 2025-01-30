@@ -19,6 +19,7 @@ const messages = [
   { content: "What happened in October?", isUser: true },
   { content: "Analysing marketing data....", isUser: false },
   { content: "Yes, there's been a 23% increase in overall performance.", isUser: false },
+  { content: "Analysing marketing data....", isUser: false },
 ];
 
 const Index = () => {
