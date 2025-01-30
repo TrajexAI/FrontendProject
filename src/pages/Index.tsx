@@ -39,7 +39,7 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8 font-playfair">
+    <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8 font-quicksand">
       <div className="mx-auto max-w-4xl space-y-8">
         <div className="rounded-xl bg-obsidian-light/30 p-6 backdrop-blur-lg">
           <h2 className="mb-4 text-xl font-semibold text-gold-light">Financial Overview</h2>

@@ -19,7 +19,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        playfair: ['Playfair Display', 'serif'],
+        quicksand: ['Quicksand', 'sans-serif'],
       },
       colors: {
         gold: {
