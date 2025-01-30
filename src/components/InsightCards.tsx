@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/select";
 
 const InsightCards = () => (
-  <div className="mb-20">
+  <div className="max-w-4xl mx-auto">
     <Select>
       <SelectTrigger className="w-full glass-panel border-gold/30 text-gold hover:border-gold/50 focus:ring-gold/30">
         <SelectValue placeholder="Select an insight" />
