@@ -15,6 +15,8 @@ const InsightCards = () => {
       navigate("/scorecard");
     } else if (value === "investor-report") {
       navigate("/investor-report");
+    } else if (value === "margin") {
+      navigate("/contribution-margin");
     }
   };
 

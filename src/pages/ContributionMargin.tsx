@@ -1,0 +1,56 @@
+import { Card } from "@/components/ui/card";
+
+const ContributionMargin = () => {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light font-quicksand p-4 md:p-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-3xl font-bold text-gold">Contribution Margin Analysis</h1>
+            <p className="text-gold-light/80 mt-2">Track and optimize your profit margins across products and services</p>
+          </div>
+          <img 
+            src="/lovable-uploads/874807e4-0847-42a4-a246-9be1c204296d.png" 
+            alt="Deena" 
+            className="h-12 object-contain"
+          />
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="p-6 bg-obsidian-light/50 border-gold/30">
+            <h2 className="text-xl font-semibold text-gold mb-4">Overall Margin Performance</h2>
+            <div className="h-[300px] flex items-center justify-center text-gold-light/50">
+              Chart coming soon
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-obsidian-light/50 border-gold/30">
+            <h2 className="text-xl font-semibold text-gold mb-4">Product Breakdown</h2>
+            <div className="h-[300px] flex items-center justify-center text-gold-light/50">
+              Chart coming soon
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-obsidian-light/50 border-gold/30">
+            <h2 className="text-xl font-semibold text-gold mb-4">Margin Trends</h2>
+            <div className="h-[300px] flex items-center justify-center text-gold-light/50">
+              Chart coming soon
+            </div>
+          </Card>
+
+          <Card className="p-6 bg-obsidian-light/50 border-gold/30">
+            <h2 className="text-xl font-semibold text-gold mb-4">Optimization Opportunities</h2>
+            <div className="space-y-4 text-gold-light">
+              <p>• Review pricing strategy for low-margin products</p>
+              <p>• Analyze cost structure of key product lines</p>
+              <p>• Identify high-performing product categories</p>
+              <p>• Optimize inventory management</p>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ContributionMargin;
