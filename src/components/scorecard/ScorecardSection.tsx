@@ -32,7 +32,7 @@ export const ScorecardSection = ({
             {chartData[0].value}{numberSuffix}
           </div>
           {subtitle && (
-            <div className="text-gold/80 text-center text-sm max-w-md mt-2">
+            <div className="text-gold/80 text-center text-sm max-w-md">
               {subtitle}
             </div>
           )}
