@@ -23,9 +23,9 @@ export default {
       },
       colors: {
         gold: {
-          light: "#FFD700",
-          DEFAULT: "#D4AF37",
-          dark: "#996515",
+          light: "#FFE55C",
+          DEFAULT: "#FFD700",
+          dark: "#D4AF37",
         },
         obsidian: {
           light: "#2D2D2D",

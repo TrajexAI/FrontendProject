@@ -5,26 +5,26 @@
 @layer base {
   :root {
     --background: 45 40% 20%;
-    --foreground: 45 40% 90%;
+    --foreground: 45 40% 95%;
     
-    --primary: 45 40% 50%;
+    --primary: 45 40% 60%;
     --primary-foreground: 45 40% 10%;
     
     --secondary: 45 40% 30%;
-    --secondary-foreground: 45 40% 90%;
+    --secondary-foreground: 45 40% 95%;
     
     --muted: 45 40% 30%;
-    --muted-foreground: 45 40% 70%;
+    --muted-foreground: 45 40% 80%;
     
-    --accent: 45 40% 50%;
+    --accent: 45 40% 60%;
     --accent-foreground: 45 40% 10%;
     
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 45 40% 90%;
+    --destructive-foreground: 45 40% 95%;
     
     --border: 45 40% 30%;
     --input: 45 40% 30%;
-    --ring: 45 40% 50%;
+    --ring: 45 40% 60%;
     
     --radius: 0.5rem;
   }
