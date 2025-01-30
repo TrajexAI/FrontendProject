@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ScorecardChart } from "./ScorecardChart";
 import { RevenueDonutChart } from "./RevenueDonutChart";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 interface ScorecardSectionProps {
   id: number;
@@ -24,32 +24,47 @@ export const ScorecardSection = ({
     if (id === 2) {
       return (
         <ResponsiveContainer width="100%" height={300}>
-          <LineChart data={chartData}>
+          <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#333" />
             <XAxis dataKey="date" stroke="#B8860B" />
-            <YAxis stroke="#B8860B" />
+            <YAxis 
+              yAxisId="left"
+              orientation="left"
+              stroke="#DAA520"
+              domain={[0, 90000]}
+              label={{ value: 'Sales ($)', angle: -90, position: 'insideLeft', fill: '#DAA520' }}
+            />
+            <YAxis 
+              yAxisId="right"
+              orientation="right"
+              stroke="#CD853F"
+              domain={[0, 100]}
+              label={{ value: 'Inventory (units)', angle: 90, position: 'insideRight', fill: '#CD853F' }}
+            />
             <Tooltip 
               contentStyle={{ 
                 backgroundColor: '#1A1A1A', 
                 border: '1px solid #B8860B',
                 color: '#B8860B'
-              }} 
+              }}
+              formatter={(value: number, name: string) => [
+                name === 'sales' ? `$${value.toLocaleString()}` : value,
+                name === 'sales' ? 'Sales' : 'Inventory'
+              ]}
             />
-            <Line 
-              type="monotone" 
+            <Bar 
+              yAxisId="left"
               dataKey="sales" 
-              stroke="#DAA520" 
-              strokeWidth={2}
-              dot={{ fill: '#DAA520' }}
+              fill="#DAA520" 
+              name="Sales"
             />
-            <Line 
-              type="monotone" 
+            <Bar 
+              yAxisId="right"
               dataKey="inventory" 
-              stroke="#CD853F" 
-              strokeWidth={2}
-              dot={{ fill: '#CD853F' }}
+              fill="#CD853F" 
+              name="Inventory"
             />
-          </LineChart>
+          </BarChart>
         </ResponsiveContainer>
       );
     }
