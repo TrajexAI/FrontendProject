@@ -18,7 +18,7 @@ const mockData = [
 const messages = [
   { content: "What happened in October?", isUser: true },
   { content: "Analysing marketing data....", isUser: false },
-  { content: "Yes, there's been a 23% increase in overall performance.", isUser: false },
+  { content: "It looks like content creation and posting was down 23% in September, which may have impacted sales.", isUser: false },
   { content: "Analysing marketing data....", isUser: false },
 ];
 
