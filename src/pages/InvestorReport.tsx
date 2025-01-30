@@ -1,9 +1,15 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import FinancialChart from "@/components/FinancialChart";
 
 const InvestorReport = () => {
+  const handleExport = () => {
+    // For now just log the action
+    console.log("Exporting report...");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light font-quicksand">
       <div className="w-full px-4 py-2 bg-obsidian-dark/50">
@@ -14,13 +20,23 @@ const InvestorReport = () => {
               alt="Trajex Logo" 
               className="h-24 object-contain"
             />
-            <Link 
-              to="/" 
-              className="inline-flex items-center text-gold hover:text-gold/80 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Dashboard
-            </Link>
+            <div className="flex items-center gap-4">
+              <Button
+                onClick={handleExport}
+                variant="outline"
+                className="text-gold hover:text-gold-dark hover:bg-gold/10"
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Export Report
+              </Button>
+              <Link 
+                to="/" 
+                className="inline-flex items-center text-gold hover:text-gold/80 transition-colors"
+              >
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Dashboard
+              </Link>
+            </div>
           </div>
           <h1 className="text-2xl font-bold text-gold">D'NA Investor Report</h1>
           <p className="text-gold/80 mt-2">Detailed financial insights for investors</p>
