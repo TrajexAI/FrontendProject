@@ -1,8 +1,8 @@
 export const sections = [
   {
     id: 1,
-    title: "",
-    subtitle: "January product leader board",
+    title: "January leader board",
+    subtitle: "",
     chartData: [
       { date: "Jan", value: 30000 },
       { date: "Feb", value: 35000 },
