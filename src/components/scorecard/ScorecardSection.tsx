@@ -27,7 +27,7 @@ export const ScorecardSection = ({
   const renderDualLineChart = () => {
     if (showBigNumber) {
       return (
-        <div className="flex flex-col items-center justify-center h-full text-gold">
+        <div className="flex flex-col items-center justify-center min-h-[300px] text-gold">
           <div className="text-6xl font-bold">
             {chartData[0].value}{numberSuffix}
           </div>
@@ -115,7 +115,7 @@ export const ScorecardSection = ({
       )}
     >
       <div className="relative w-full h-full">
-        <div className="flex flex-col items-center justify-center p-4 h-full">
+        <div className="flex flex-col items-center justify-center h-full">
           {renderDualLineChart()}
         </div>
       </div>
