@@ -29,6 +29,12 @@ const InsightCards = () => {
               <p className="text-gold-light/80 text-xs">Track your business health metrics</p>
             </div>
           </SelectItem>
+          <SelectItem value="investor-report" className="text-gold hover:bg-gold/10 focus:bg-gold/10">
+            <div className="space-y-1">
+              <div className="font-semibold">Custom report for D'NA investors</div>
+              <p className="text-gold-light/80 text-xs">Detailed financial insights for investors</p>
+            </div>
+          </SelectItem>
           <SelectItem value="profit" className="text-gold hover:bg-gold/10 focus:bg-gold/10">
             <div className="space-y-1">
               <div className="font-semibold">Your profit, unlocked</div>
