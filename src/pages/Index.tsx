@@ -43,7 +43,7 @@ const Index = () => {
             alt="Logo" 
             className="h-24 object-contain"
           />
-          <h1 className="text-2xl font-bold text-gold text-right mb-2">D'NA Boutique</h1>
+          <h1 className="text-2xl font-bold text-gold-light text-right mb-2">D'NA Boutique</h1>
         </div>
         <InsightCards />
       </div>
