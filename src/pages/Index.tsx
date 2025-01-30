@@ -28,7 +28,7 @@ const messages = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8 font-montserrat">
       <div className="mx-auto max-w-4xl space-y-8">
         <div className="rounded-xl bg-obsidian-light/30 p-6 backdrop-blur-lg">
           <h2 className="mb-4 text-xl font-semibold text-gold-light">Financial Overview</h2>
@@ -50,10 +50,10 @@ const Index = () => {
               <CarouselItem className="md:basis-1/3">
                 <Card className="glass-panel">
                   <CardHeader>
-                    <CardTitle className="text-gold">Your profit, unlocked</CardTitle>
+                    <CardTitle className="text-gold text-lg">Your profit, unlocked</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gold-light/80">
+                    <p className="text-gold-light/80 text-sm">
                       Discover hidden opportunities and maximize your returns
                     </p>
                   </CardContent>
@@ -62,10 +62,10 @@ const Index = () => {
               <CarouselItem className="md:basis-1/3">
                 <Card className="glass-panel">
                   <CardHeader>
-                    <CardTitle className="text-gold">Growth and trends</CardTitle>
+                    <CardTitle className="text-gold text-lg">Growth and trends</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gold-light/80">
+                    <p className="text-gold-light/80 text-sm">
                       Analyze market patterns and growth trajectories
                     </p>
                   </CardContent>
@@ -74,10 +74,10 @@ const Index = () => {
               <CarouselItem className="md:basis-1/3">
                 <Card className="glass-panel">
                   <CardHeader>
-                    <CardTitle className="text-gold">Contribution margin calculations</CardTitle>
+                    <CardTitle className="text-gold text-lg">Contribution margin</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gold-light/80">
+                    <p className="text-gold-light/80 text-sm">
                       Track and optimize your profit margins
                     </p>
                   </CardContent>
