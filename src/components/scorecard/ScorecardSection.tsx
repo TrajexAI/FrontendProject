@@ -95,11 +95,6 @@ export const ScorecardSection = ({
     >
       <div className="relative w-full h-full">
         <div className="flex flex-col items-center justify-center p-4 h-full">
-          {id !== 1 && (
-            <h2 className="bg-gradient-to-r from-gold-light via-gold to-gold-dark bg-clip-text text-transparent mb-4 w-full text-2xl font-bold">
-              {title}
-            </h2>
-          )}
           {renderDualLineChart()}
         </div>
       </div>
