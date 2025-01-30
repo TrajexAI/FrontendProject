@@ -11,36 +11,48 @@ const InsightCards = () => (
   <div className="mb-20">
     <Carousel className="w-full">
       <CarouselContent>
-        <CarouselItem className="md:basis-1/3">
-          <Card className="glass-panel py-2">
-            <CardHeader className="py-2">
-              <CardTitle className="text-gold text-base">Your profit, unlocked</CardTitle>
+        <CarouselItem className="md:basis-1/4">
+          <Card className="glass-panel py-1">
+            <CardHeader className="py-1">
+              <CardTitle className="text-gold text-sm">D'NA scorecard</CardTitle>
             </CardHeader>
-            <CardContent className="py-2">
+            <CardContent className="py-1">
+              <p className="text-gold-light/80 text-xs">
+                Track your business health metrics
+              </p>
+            </CardContent>
+          </Card>
+        </CarouselItem>
+        <CarouselItem className="md:basis-1/4">
+          <Card className="glass-panel py-1">
+            <CardHeader className="py-1">
+              <CardTitle className="text-gold text-sm">Your profit, unlocked</CardTitle>
+            </CardHeader>
+            <CardContent className="py-1">
               <p className="text-gold-light/80 text-xs">
                 Discover hidden opportunities and maximize your returns
               </p>
             </CardContent>
           </Card>
         </CarouselItem>
-        <CarouselItem className="md:basis-1/3">
-          <Card className="glass-panel py-2">
-            <CardHeader className="py-2">
-              <CardTitle className="text-gold text-base">Growth and trends</CardTitle>
+        <CarouselItem className="md:basis-1/4">
+          <Card className="glass-panel py-1">
+            <CardHeader className="py-1">
+              <CardTitle className="text-gold text-sm">Growth and trends</CardTitle>
             </CardHeader>
-            <CardContent className="py-2">
+            <CardContent className="py-1">
               <p className="text-gold-light/80 text-xs">
                 Analyze market patterns and growth trajectories
               </p>
             </CardContent>
           </Card>
         </CarouselItem>
-        <CarouselItem className="md:basis-1/3">
-          <Card className="glass-panel py-2">
-            <CardHeader className="py-2">
-              <CardTitle className="text-gold text-base">Contribution margin</CardTitle>
+        <CarouselItem className="md:basis-1/4">
+          <Card className="glass-panel py-1">
+            <CardHeader className="py-1">
+              <CardTitle className="text-gold text-sm">Contribution margin</CardTitle>
             </CardHeader>
-            <CardContent className="py-2">
+            <CardContent className="py-1">
               <p className="text-gold-light/80 text-xs">
                 Track and optimize your profit margins
               </p>
