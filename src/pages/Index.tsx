@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Message from "@/components/Message";
 import FinancialChart from "@/components/FinancialChart";
+import { Input } from "@/components/ui/input";
 import {
   Carousel,
   CarouselContent,
@@ -27,6 +28,16 @@ const messages = [
 ];
 
 const Index = () => {
+  const [inputMessage, setInputMessage] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputMessage.trim()) return;
+    
+    console.log("Message submitted:", inputMessage);
+    setInputMessage("");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light p-4 md:p-8 font-playfair">
       <div className="mx-auto max-w-4xl space-y-8">
@@ -88,6 +99,19 @@ const Index = () => {
             <CarouselNext className="hidden md:flex" />
           </Carousel>
         </div>
+
+        {/* Chat Input Section */}
+        <form onSubmit={handleSubmit} className="fixed bottom-0 left-0 right-0 p-4 bg-obsidian-dark/80 backdrop-blur-md">
+          <div className="max-w-4xl mx-auto flex gap-2">
+            <Input
+              type="text"
+              placeholder="Ask a question..."
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              className="flex-1 bg-obsidian-light/50 border-gold/30 text-gold-light placeholder:text-gold-light/50"
+            />
+          </div>
+        </form>
       </div>
     </div>
   );
