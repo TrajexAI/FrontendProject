@@ -22,7 +22,7 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
 
   return (
     <div className={cn("h-[200px] w-full p-4", className)}>
-      <h2 className="mb-4 text-xl font-semibold text-gold-light">Sales overview, last two quarters</h2>
+      <h2 className="mb-4 text-xl font-semibold text-gold-light">Sales, Q3 and Q4 2024</h2>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={chartData}>
           <defs>
