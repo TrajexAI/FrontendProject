@@ -18,7 +18,7 @@ export const RevenueDonutChart = () => {
   return (
     <>
       <ResponsiveContainer width="100%" height={200}>
-        <PieChart onClick={() => setIsDialogOpen(true)} style={{ cursor: 'pointer' }}>
+        <PieChart onClick={() => setIsDialogOpen(true)} style={{ cursor: 'pointer', background: 'transparent' }}>
           <Pie
             data={data}
             cx="50%"
