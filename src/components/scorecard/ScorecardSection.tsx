@@ -26,20 +26,26 @@ export const ScorecardSection = ({
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={chartData}>
             <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-            <XAxis dataKey="date" stroke="#B8860B" />
+            <XAxis 
+              dataKey="date" 
+              stroke="#B8860B" 
+              tick={{ fontSize: 10 }}
+            />
             <YAxis 
               yAxisId="left"
               orientation="left"
               stroke="#DAA520"
               domain={[0, 90000]}
-              label={{ value: 'Sales ($)', angle: -90, position: 'insideLeft', fill: '#DAA520' }}
+              tick={{ fontSize: 10 }}
+              label={{ value: 'Sales ($)', angle: -90, position: 'insideLeft', fill: '#DAA520', fontSize: 10 }}
             />
             <YAxis 
               yAxisId="right"
               orientation="right"
               stroke="#CD853F"
               domain={[0, 100]}
-              label={{ value: 'Inventory (units)', angle: 90, position: 'insideRight', fill: '#CD853F' }}
+              tick={{ fontSize: 10 }}
+              label={{ value: 'Inventory (units)', angle: 90, position: 'insideRight', fill: '#CD853F', fontSize: 10 }}
             />
             <Tooltip 
               contentStyle={{ 
