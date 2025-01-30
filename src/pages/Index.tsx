@@ -1,6 +1,14 @@
 import { useState } from "react";
 import Message from "@/components/Message";
 import FinancialChart from "@/components/FinancialChart";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const mockData = [
   { date: "Jan", value: 4000 },
@@ -34,6 +42,51 @@ const Index = () => {
               />
             ))}
           </div>
+        </div>
+
+        <div className="mt-8">
+          <Carousel className="w-full">
+            <CarouselContent>
+              <CarouselItem className="md:basis-1/3">
+                <Card className="glass-panel">
+                  <CardHeader>
+                    <CardTitle className="text-gold">Your profit, unlocked</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gold-light/80">
+                      Discover hidden opportunities and maximize your returns
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem className="md:basis-1/3">
+                <Card className="glass-panel">
+                  <CardHeader>
+                    <CardTitle className="text-gold">Growth and trends</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gold-light/80">
+                      Analyze market patterns and growth trajectories
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+              <CarouselItem className="md:basis-1/3">
+                <Card className="glass-panel">
+                  <CardHeader>
+                    <CardTitle className="text-gold">Contribution margin calculations</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gold-light/80">
+                      Track and optimize your profit margins
+                    </p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
         </div>
       </div>
     </div>
