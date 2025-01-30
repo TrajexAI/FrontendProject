@@ -10,10 +10,21 @@ interface FinancialChartProps {
 }
 
 const FinancialChart = ({ data, className }: FinancialChartProps) => {
+  const chartData = [
+    { date: "Jul", value: 34900 },
+    { date: "Aug", value: 42000 },
+    { date: "Sep", value: 38500 },
+    { date: "Oct", value: 45780 },
+    { date: "Nov", value: 51890 },
+    { date: "Dec", value: 55390 },
+    { date: "Jan", value: 58490 },
+  ];
+
   return (
     <div className={cn("h-[200px] w-full p-4", className)}>
+      <h2 className="mb-4 text-xl font-semibold text-gold-light">Sales overview, last two quarters</h2>
       <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={data}>
+        <AreaChart data={chartData}>
           <defs>
             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.8} />
@@ -32,6 +43,8 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
             tickLine={false}
             axisLine={false}
             tick={{ fontSize: 12 }}
+            domain={[15000, 60000]}
+            tickFormatter={(value) => `${value} SAR`}
           />
           <Tooltip
             contentStyle={{
@@ -40,6 +53,7 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
               borderRadius: "4px",
             }}
             labelStyle={{ color: "#D4AF37" }}
+            formatter={(value: number) => [`${value} SAR`, "Value"]}
           />
           <Area
             type="monotone"
