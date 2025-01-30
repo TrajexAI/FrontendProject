@@ -51,22 +51,23 @@ export const ScorecardSection = ({
                 border: '1px solid #B8860B',
                 color: '#B8860B'
               }}
-              formatter={(value: number, name: string) => [
-                name === 'sales' ? `$${value.toLocaleString()}` : value,
-                name === 'sales' ? 'Sales' : 'Inventory'
-              ]}
-              itemSorter={(item) => (item.dataKey === 'sales' ? -1 : 1)}
+              formatter={(value: number, name: string) => {
+                if (name === 'sales') {
+                  return [`$${value.toLocaleString()}`, 'Sales'];
+                }
+                return [value, 'Inventory'];
+              }}
             />
             <Bar 
               yAxisId="left"
               dataKey="sales" 
               fill="#DAA520" 
-              name="Sales"
+              name="sales"
             />
             <Bar 
               yAxisId="right"
               dataKey="inventory" 
-              name="Inventory"
+              name="inventory"
             >
               {chartData.map((entry, index) => (
                 <Cell 
