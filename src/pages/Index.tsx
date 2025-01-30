@@ -38,7 +38,7 @@ const Index = () => {
           <img 
             src="/lovable-uploads/f824e481-f31c-4e45-8dae-43f9616aa4d9.png" 
             alt="Trajex Logo" 
-            className="h-12 object-contain"
+            className="h-24 object-contain"
           />
           <h1 className="text-2xl font-bold text-gold text-right mb-2">D'NA Boutique</h1>
         </div>

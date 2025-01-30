@@ -13,7 +13,7 @@ const Scorecard = () => {
             <img 
               src="/lovable-uploads/f824e481-f31c-4e45-8dae-43f9616aa4d9.png" 
               alt="Trajex Logo" 
-              className="h-12 object-contain"
+              className="h-24 object-contain"
             />
             <Link 
               to="/" 
