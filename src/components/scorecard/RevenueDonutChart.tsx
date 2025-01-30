@@ -34,7 +34,8 @@ export const RevenueDonutChart = () => {
               border: "1px solid #D4AF37",
               borderRadius: "4px",
             }}
-            labelStyle={{ color: "#D4AF37" }}
+            labelStyle={{ color: "#FFFFFF" }}
+            itemStyle={{ color: "#FFFFFF" }}
             formatter={(value: number) => [new Intl.NumberFormat('en-US').format(value), "Revenue"]}
           />
           <Legend 
