@@ -1,7 +1,36 @@
 import { Card } from "@/components/ui/card";
 import InsightCards from "@/components/InsightCards";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const ContributionMargin = () => {
+  const costData = [
+    {
+      category: 'Labor',
+      fixed: 45000,
+      variable: 65000,
+    },
+    {
+      category: 'Materials',
+      fixed: 20000,
+      variable: 85000,
+    },
+    {
+      category: 'Overhead',
+      fixed: 35000,
+      variable: 25000,
+    },
+    {
+      category: 'Equipment',
+      fixed: 55000,
+      variable: 15000,
+    },
+    {
+      category: 'Marketing',
+      fixed: 25000,
+      variable: 45000,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light font-quicksand">
       <div className="w-full px-4 py-2 bg-obsidian-dark/50">
@@ -25,8 +54,44 @@ const ContributionMargin = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="p-6 bg-obsidian-light/50 border-gold/30">
               <h2 className="text-xl font-semibold text-gold mb-4">Fixed vs Variable Cost Analysis</h2>
-              <div className="h-[300px] flex items-center justify-center text-gold-light/50">
-                Chart coming soon
+              <div className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <BarChart
+                    data={costData}
+                    margin={{
+                      top: 20,
+                      right: 30,
+                      left: 20,
+                      bottom: 5,
+                    }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" stroke="#D4AF37" opacity={0.2} />
+                    <XAxis 
+                      dataKey="category" 
+                      stroke="#D4AF37"
+                      tick={{ fill: '#D4AF37' }}
+                    />
+                    <YAxis 
+                      stroke="#D4AF37"
+                      tick={{ fill: '#D4AF37' }}
+                      tickFormatter={(value) => `$${value.toLocaleString()}`}
+                    />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: '#1A1A1A',
+                        border: '1px solid #D4AF37',
+                        borderRadius: '4px',
+                      }}
+                      labelStyle={{ color: '#D4AF37' }}
+                      formatter={(value: number) => [`$${value.toLocaleString()}`, '']}
+                    />
+                    <Legend 
+                      wrapperStyle={{ color: '#D4AF37' }}
+                    />
+                    <Bar dataKey="fixed" name="Fixed Costs" fill="#D4AF37" />
+                    <Bar dataKey="variable" name="Variable Costs" fill="#8B7355" />
+                  </BarChart>
+                </ResponsiveContainer>
               </div>
             </Card>
 
