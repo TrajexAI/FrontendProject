@@ -19,6 +19,8 @@ const InsightCards = () => {
       navigate("/investor-report");
     } else if (value === "margin") {
       navigate("/contribution-margin");
+    } else if (value === "notifications") {
+      navigate("/notifications");
     }
   };
 

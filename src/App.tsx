@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Scorecard from "./pages/Scorecard";
 import InvestorReport from "./pages/InvestorReport";
 import ContributionMargin from "./pages/ContributionMargin";
+import Notifications from "./pages/Notifications";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/scorecard" element={<Scorecard />} />
           <Route path="/investor-report" element={<InvestorReport />} />
           <Route path="/contribution-margin" element={<ContributionMargin />} />
+          <Route path="/notifications" element={<Notifications />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
