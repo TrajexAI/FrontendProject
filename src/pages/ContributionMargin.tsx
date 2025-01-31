@@ -24,7 +24,7 @@ const ContributionMargin = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="p-6 bg-obsidian-light/50 border-gold/30">
-              <h2 className="text-xl font-semibold text-gold mb-4">Overall Margin Performance</h2>
+              <h2 className="text-xl font-semibold text-gold mb-4">Fixed vs Variable Cost Analysis</h2>
               <div className="h-[300px] flex items-center justify-center text-gold-light/50">
                 Chart coming soon
               </div>
