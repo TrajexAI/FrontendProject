@@ -35,6 +35,12 @@ const InsightCards = () => {
               <p className="text-gold-light/80 text-xs">Query your business data with Trajex SuperApp</p>
             </div>
           </SelectItem>
+          <SelectItem value="notifications" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
+            <div className="space-y-1">
+              <div className="font-semibold">Custom notifications and live opportunities</div>
+              <p className="text-gold-light/80 text-xs">Course correct in real-time and never miss a growth opportunity</p>
+            </div>
+          </SelectItem>
           <SelectItem value="dna-scorecard" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
             <div className="space-y-1">
               <div className="font-semibold">D'NA scorecard</div>
