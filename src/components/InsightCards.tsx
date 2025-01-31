@@ -21,6 +21,8 @@ const InsightCards = () => {
       navigate("/contribution-margin");
     } else if (value === "notifications") {
       navigate("/notifications");
+    } else if (value === "forecast") {
+      navigate("/forecast");
     }
   };
 
@@ -55,10 +57,10 @@ const InsightCards = () => {
               <p className="text-gold-light/80 text-xs">Detailed financial insights for investors</p>
             </div>
           </SelectItem>
-          <SelectItem value="profit" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
+          <SelectItem value="forecast" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
             <div className="space-y-1">
-              <div className="font-semibold">Your profit, unlocked</div>
-              <p className="text-gold-light/80 text-xs">Discover hidden opportunities and maximize your returns</p>
+              <div className="font-semibold">Forecast</div>
+              <p className="text-gold-light/80 text-xs">Discover future trends and opportunities</p>
             </div>
           </SelectItem>
           <SelectItem value="growth" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">

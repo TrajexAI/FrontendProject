@@ -8,6 +8,7 @@ import Scorecard from "./pages/Scorecard";
 import InvestorReport from "./pages/InvestorReport";
 import ContributionMargin from "./pages/ContributionMargin";
 import Notifications from "./pages/Notifications";
+import Forecast from "./pages/Forecast";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/investor-report" element={<InvestorReport />} />
           <Route path="/contribution-margin" element={<ContributionMargin />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/forecast" element={<Forecast />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
