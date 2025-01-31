@@ -1,4 +1,6 @@
 import { Card } from "@/components/ui/card";
+import { ArrowLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Notifications = () => {
   const notifications = [
@@ -48,6 +50,13 @@ const Notifications = () => {
             alt="Logo" 
             className="h-24 object-contain"
           />
+          <Link 
+            to="/" 
+            className="inline-flex items-center text-gold hover:text-gold/80 transition-colors"
+          >
+            <ArrowLeft className="mr-2 h-4 w-4" />
+            Back to Dashboard
+          </Link>
         </div>
       </div>
 
