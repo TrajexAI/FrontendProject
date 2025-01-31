@@ -11,7 +11,9 @@ const InsightCards = () => {
   const navigate = useNavigate();
 
   const handleValueChange = (value: string) => {
-    if (value === "dna-scorecard") {
+    if (value === "home") {
+      navigate("/");
+    } else if (value === "dna-scorecard") {
       navigate("/scorecard");
     } else if (value === "investor-report") {
       navigate("/investor-report");
@@ -27,6 +29,12 @@ const InsightCards = () => {
           <SelectValue placeholder="View live business performance" />
         </SelectTrigger>
         <SelectContent className="bg-obsidian-light/95 border-gold/30">
+          <SelectItem value="home" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
+            <div className="space-y-1">
+              <div className="font-semibold">Home</div>
+              <p className="text-gold-light/80 text-xs">Query your business data with Trajex SuperApp</p>
+            </div>
+          </SelectItem>
           <SelectItem value="dna-scorecard" className="text-gold hover:bg-gold/20 focus:bg-gold/20 focus:text-gold-light hover:text-gold-light">
             <div className="space-y-1">
               <div className="font-semibold">D'NA scorecard</div>
