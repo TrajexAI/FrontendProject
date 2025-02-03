@@ -9,7 +9,7 @@ interface BigNumberDisplayProps {
 
 export const BigNumberDisplay = ({ value, suffix = "", subtitle }: BigNumberDisplayProps) => {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[300px] text-gold">
+    <div className="flex flex-col items-center justify-center min-h-[300px] text-gold relative">
       <Dialog>
         <DialogTrigger asChild>
           <div className="text-6xl font-bold cursor-pointer hover:opacity-90 transition-opacity">
@@ -37,10 +37,17 @@ export const BigNumberDisplay = ({ value, suffix = "", subtitle }: BigNumberDisp
         </DialogContent>
       </Dialog>
       {subtitle && (
-        <div className="text-gold/80 text-center text-sm max-w-md">
+        <div className="text-gold/80 text-center text-sm max-w-md mb-8">
           {subtitle}
         </div>
       )}
+      <div className="absolute bottom-4 left-4">
+        <img 
+          src="/lovable-uploads/a96456a3-b525-4406-aaaf-353af1316972.png" 
+          alt="Geidea Logo" 
+          className="h-8 object-contain"
+        />
+      </div>
     </div>
   );
 };
