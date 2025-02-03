@@ -56,6 +56,15 @@ export const ScorecardSection = ({
         <div className="flex flex-col items-center justify-center h-full">
           {renderChart()}
         </div>
+        {id === 1 && (
+          <div className="absolute bottom-4 left-8">
+            <img 
+              src="/lovable-uploads/58ed5510-5e9b-402f-b6cc-502c08cd4921.png" 
+              alt="Shopify Logo"
+              className="h-8 object-contain"
+            />
+          </div>
+        )}
       </div>
     </div>
   );
