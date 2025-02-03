@@ -4,7 +4,7 @@ interface MessageProps {
   content: string;
   isUser?: boolean;
   className?: string;
-  index: number; // Add index prop to calculate delay
+  index: number;
 }
 
 const Message = ({ content, isUser = false, className, index }: MessageProps) => {
@@ -21,8 +21,8 @@ const Message = ({ content, isUser = false, className, index }: MessageProps) =>
         className={cn(
           "max-w-[80%] rounded-2xl px-4 py-2 shadow-lg backdrop-blur-sm",
           isUser
-            ? "bg-gold-dark/90 text-obsidian-dark"
-            : "bg-obsidian-light/90 text-gold-light",
+            ? "bg-gold text-black"
+            : "bg-forest-light text-white",
         )}
       >
         <p className="text-sm md:text-base">{content}</p>
