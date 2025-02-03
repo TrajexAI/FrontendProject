@@ -26,42 +26,42 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
 
   return (
     <div className={cn("h-[200px] w-full p-4", className)}>
-      <h2 className="mb-4 text-xl font-semibold text-gold-light">Sales, Q3 and Q4 2024</h2>
+      <h2 className="mb-4 text-xl font-semibold text-black">Sales, Q3 and Q4 2024</h2>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={chartData}>
           <defs>
             <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#D4AF37" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#D4AF37" stopOpacity={0} />
+              <stop offset="5%" stopColor="#B8860B" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="#B8860B" stopOpacity={0} />
             </linearGradient>
           </defs>
           <XAxis
             dataKey="date"
-            stroke="#D4AF37"
+            stroke="#B8860B"
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 12, fill: "#000000" }}
           />
           <YAxis
-            stroke="#D4AF37"
+            stroke="#B8860B"
             tickLine={false}
             axisLine={false}
-            tick={{ fontSize: 12 }}
+            tick={{ fontSize: 12, fill: "#000000" }}
             tickFormatter={formatYAxis}
           />
           <Tooltip
             contentStyle={{
               backgroundColor: "#1A1A1A",
-              border: "1px solid #D4AF37",
+              border: "1px solid #B8860B",
               borderRadius: "4px",
             }}
-            labelStyle={{ color: "#D4AF37" }}
+            labelStyle={{ color: "#B8860B" }}
             formatter={(value: number) => [new Intl.NumberFormat('en-US').format(value), "Sales"]}
           />
           <Area
             type="monotone"
             dataKey="value"
-            stroke="#D4AF37"
+            stroke="#B8860B"
             fillOpacity={1}
             fill="url(#colorValue)"
           />
