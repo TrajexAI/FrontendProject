@@ -23,14 +23,14 @@ export default {
       },
       colors: {
         gold: {
-          light: "#FFE55C",
-          DEFAULT: "#FFD700",
-          dark: "#D4AF37",
+          light: "#FFD700",
+          DEFAULT: "#DAA520",
+          dark: "#B8860B",
         },
-        obsidian: {
-          light: "#2D2D2D",
-          DEFAULT: "#1A1A1A",
-          dark: "#000000",
+        forest: {
+          light: "#2F4F4F",
+          DEFAULT: "#1B4D3E",
+          dark: "#0B3B2C",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

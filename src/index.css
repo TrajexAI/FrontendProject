@@ -4,27 +4,27 @@
 
 @layer base {
   :root {
-    --background: 45 40% 20%;
-    --foreground: 45 40% 95%;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
     
-    --primary: 45 40% 60%;
-    --primary-foreground: 45 40% 10%;
+    --primary: 41 100% 50%;
+    --primary-foreground: 0 0% 0%;
     
-    --secondary: 45 40% 30%;
-    --secondary-foreground: 45 40% 95%;
+    --secondary: 158 47% 20%;
+    --secondary-foreground: 0 0% 100%;
     
-    --muted: 45 40% 30%;
-    --muted-foreground: 45 40% 80%;
+    --muted: 41 100% 95%;
+    --muted-foreground: 0 0% 40%;
     
-    --accent: 45 40% 60%;
-    --accent-foreground: 45 40% 10%;
+    --accent: 41 100% 50%;
+    --accent-foreground: 0 0% 0%;
     
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 45 40% 95%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 45 40% 30%;
-    --input: 45 40% 30%;
-    --ring: 45 40% 60%;
+    --border: 41 100% 80%;
+    --input: 41 100% 80%;
+    --ring: 41 100% 50%;
     
     --radius: 0.5rem;
   }
@@ -41,6 +41,6 @@
 
 @layer utilities {
   .glass-panel {
-    @apply backdrop-blur-lg bg-obsidian-light/30 border border-gold/10;
+    @apply backdrop-blur-lg bg-white/30 border border-gold/10;
   }
 }
