@@ -2,6 +2,7 @@ import { Download } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import FinancialChart from "@/components/FinancialChart";
+import InsightCards from "@/components/InsightCards";
 
 const InvestorReport = () => {
   const handleExport = () => {
@@ -31,6 +32,7 @@ const InvestorReport = () => {
               </Button>
             </div>
           </div>
+          <InsightCards />
           <h1 className="text-2xl font-bold text-gold">D'NA Investor Report</h1>
           <p className="text-black mt-2">Detailed financial insights for investors</p>
         </div>

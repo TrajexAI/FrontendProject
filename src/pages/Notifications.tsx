@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Menu } from "lucide-react";
 import { Link } from "react-router-dom";
+import InsightCards from "@/components/InsightCards";
 
 const Notifications = () => {
   const notifications = [
@@ -57,6 +58,7 @@ const Notifications = () => {
             className="h-24 object-contain"
           />
         </div>
+        <InsightCards />
         <h1 className="text-2xl font-bold text-gold">Notifications</h1>
         <p className="text-black mt-2">Stay updated with real-time alerts and insights</p>
       </div>

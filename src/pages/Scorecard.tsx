@@ -1,6 +1,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ScorecardSection } from "@/components/scorecard/ScorecardSection";
 import { sections } from "@/data/scorecardSections";
+import InsightCards from "@/components/InsightCards";
 
 const Scorecard = () => {
   return (
@@ -13,8 +14,7 @@ const Scorecard = () => {
             className="h-24 object-contain"
           />
         </div>
-        <h1 className="text-2xl font-bold text-gold">D'NA Scorecard</h1>
-        <p className="text-black mt-2">Real-time performance tracker</p>
+        <InsightCards />
       </div>
 
       <div className="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
