@@ -50,7 +50,7 @@ const ContributionMargin = () => {
         <div className="mx-auto max-w-7xl space-y-6">
           <div className="mb-8">
             <h2 className="text-xl font-semibold text-gold mb-4">Fixed vs Variable Cost Analysis</h2>
-            <div className="h-[300px]">
+            <div className="relative h-[300px]">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={costData}
@@ -88,6 +88,18 @@ const ContributionMargin = () => {
                   <Bar dataKey="variable" name="Variable Costs" fill="#8B7355" />
                 </BarChart>
               </ResponsiveContainer>
+              <div className="absolute bottom-0 left-4 flex items-center gap-4">
+                <img 
+                  src="/lovable-uploads/c3fb9e39-1d26-4891-b9bf-c9c1a1b22da2.png" 
+                  alt="Wafeq Logo" 
+                  className="h-6 object-contain"
+                />
+                <img 
+                  src="/lovable-uploads/9145ccdc-a9c3-483f-bf74-3a38371b42a0.png" 
+                  alt="QOYOD Logo" 
+                  className="h-6 object-contain"
+                />
+              </div>
             </div>
           </div>
 
