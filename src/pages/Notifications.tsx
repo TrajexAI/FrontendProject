@@ -73,9 +73,9 @@ const Notifications = () => {
                 <div className="flex justify-between items-start">
                   <div>
                     <h3 className="text-gold font-semibold">{notification.title}</h3>
-                    <p className="text-gold-light/80 mt-1">{notification.message}</p>
+                    <p className="text-black mt-1">{notification.message}</p>
                   </div>
-                  <span className="text-xs text-gold-light/60">{notification.time}</span>
+                  <span className="text-xs text-black/60">{notification.time}</span>
                 </div>
               </div>
             ))}
@@ -98,9 +98,9 @@ const Notifications = () => {
                       {opportunity.potential}
                     </span>
                   </div>
-                  <p className="text-gold-light/80">{opportunity.description}</p>
+                  <p className="text-black">{opportunity.description}</p>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm text-gold-light">Potential Impact:</span>
+                    <span className="text-sm text-black">Potential Impact:</span>
                     <span className="text-gold font-semibold">{opportunity.impact}</span>
                   </div>
                 </div>
