@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import InsightCards from "@/components/InsightCards";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 
 const ContributionMargin = () => {
   const costData = [
@@ -37,6 +37,21 @@ const ContributionMargin = () => {
     { name: 'Limited Edition Watch', value: 35 },
     { name: 'Luxury Wallet', value: 32 },
     { name: 'Premium Scarf', value: 28 },
+  ];
+
+  const marginTrendsData = [
+    { month: 'Apr', 'AW24 Suede Boots': 38, 'Designer Handbag': 35, 'Limited Edition Watch': 32, 'Luxury Wallet': 30, 'Premium Scarf': 25 },
+    { month: 'May', 'AW24 Suede Boots': 40, 'Designer Handbag': 36, 'Limited Edition Watch': 34, 'Luxury Wallet': 31, 'Premium Scarf': 26 },
+    { month: 'Jun', 'AW24 Suede Boots': 39, 'Designer Handbag': 37, 'Limited Edition Watch': 33, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
+    { month: 'Jul', 'AW24 Suede Boots': 41, 'Designer Handbag': 38, 'Limited Edition Watch': 35, 'Luxury Wallet': 33, 'Premium Scarf': 28 },
+    { month: 'Aug', 'AW24 Suede Boots': 40, 'Designer Handbag': 37, 'Limited Edition Watch': 34, 'Luxury Wallet': 31, 'Premium Scarf': 27 },
+    { month: 'Sep', 'AW24 Suede Boots': 42, 'Designer Handbag': 39, 'Limited Edition Watch': 36, 'Luxury Wallet': 32, 'Premium Scarf': 28 },
+    { month: 'Oct', 'AW24 Suede Boots': 41, 'Designer Handbag': 38, 'Limited Edition Watch': 35, 'Luxury Wallet': 33, 'Premium Scarf': 29 },
+    { month: 'Nov', 'AW24 Suede Boots': 43, 'Designer Handbag': 40, 'Limited Edition Watch': 37, 'Luxury Wallet': 34, 'Premium Scarf': 30 },
+    { month: 'Dec', 'AW24 Suede Boots': 42, 'Designer Handbag': 39, 'Limited Edition Watch': 36, 'Luxury Wallet': 33, 'Premium Scarf': 29 },
+    { month: 'Jan', 'AW24 Suede Boots': 44, 'Designer Handbag': 41, 'Limited Edition Watch': 38, 'Luxury Wallet': 35, 'Premium Scarf': 31 },
+    { month: 'Feb', 'AW24 Suede Boots': 43, 'Designer Handbag': 40, 'Limited Edition Watch': 37, 'Luxury Wallet': 34, 'Premium Scarf': 30 },
+    { month: 'Mar', 'AW24 Suede Boots': 42, 'Designer Handbag': 38, 'Limited Edition Watch': 35, 'Luxury Wallet': 32, 'Premium Scarf': 28 },
   ];
 
   const COLORS = ['#D4AF37', '#B8860B', '#DAA520', '#FFD700', '#F4C430'];
@@ -150,8 +165,44 @@ const ContributionMargin = () => {
 
             <Card className="p-6 bg-obsidian-light/50 border-gold/30">
               <h2 className="text-xl font-semibold text-gold mb-4">Margin Trends</h2>
-              <div className="h-[300px] flex items-center justify-center text-gold-light/50">
-                Chart coming soon
+              <div className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <LineChart data={marginTrendsData}>
+                    <CartesianGrid strokeDasharray="3 3" stroke="#D4AF37" opacity={0.2} />
+                    <XAxis 
+                      dataKey="month" 
+                      stroke="#D4AF37"
+                      tick={{ fill: '#D4AF37' }}
+                    />
+                    <YAxis 
+                      stroke="#D4AF37"
+                      tick={{ fill: '#D4AF37' }}
+                      tickFormatter={(value) => `${value}%`}
+                    />
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "#1A1A1A",
+                        border: "1px solid #D4AF37",
+                        borderRadius: "4px",
+                      }}
+                      labelStyle={{ color: "#D4AF37" }}
+                      formatter={(value: number) => [`${value}%`, "Contribution Margin"]}
+                    />
+                    <Legend 
+                      wrapperStyle={{ color: '#D4AF37' }}
+                    />
+                    {contributionMarginData.map((product, index) => (
+                      <Line
+                        key={product.name}
+                        type="monotone"
+                        dataKey={product.name}
+                        stroke={COLORS[index % COLORS.length]}
+                        strokeWidth={2}
+                        dot={{ fill: COLORS[index % COLORS.length] }}
+                      />
+                    ))}
+                  </LineChart>
+                </ResponsiveContainer>
               </div>
             </Card>
 
