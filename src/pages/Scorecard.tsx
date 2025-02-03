@@ -1,4 +1,4 @@
-import { Card } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ScorecardSection } from "@/components/scorecard/ScorecardSection";
 import { sections } from "@/data/scorecardSections";
 
