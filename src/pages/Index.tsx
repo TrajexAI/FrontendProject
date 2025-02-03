@@ -35,7 +35,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white font-quicksand">
-      <div className="w-full px-4 py-2 bg-forest-dark">
+      <div className="w-full px-4 py-2 bg-white">
         <div className="flex justify-between items-center">
           <img 
             src="/lovable-uploads/d1aeb0e9-c67b-4f1b-96e0-94fd3225b22c.png" 
