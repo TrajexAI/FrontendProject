@@ -57,7 +57,7 @@ export const ScorecardSection = ({
           {renderChart()}
         </div>
         {id === 1 && (
-          <div className="absolute bottom-4 left-8">
+          <div className="absolute bottom-4 left-4">
             <img 
               src="/lovable-uploads/58ed5510-5e9b-402f-b6cc-502c08cd4921.png" 
               alt="Shopify Logo"
