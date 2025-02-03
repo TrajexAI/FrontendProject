@@ -25,49 +25,51 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
   };
 
   return (
-    <div className={cn("h-[200px] w-full p-4 relative", className)}>
+    <div className={cn("w-full p-4", className)}>
       <h2 className="mb-4 text-xl font-semibold text-black">Sales, Q3 and Q4 2024</h2>
-      <ResponsiveContainer width="100%" height="100%">
-        <AreaChart data={chartData}>
-          <defs>
-            <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#B8860B" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#B8860B" stopOpacity={0} />
-            </linearGradient>
-          </defs>
-          <XAxis
-            dataKey="date"
-            stroke="#B8860B"
-            tickLine={false}
-            axisLine={false}
-            tick={{ fontSize: 12, fill: "#000000" }}
-          />
-          <YAxis
-            stroke="#B8860B"
-            tickLine={false}
-            axisLine={false}
-            tick={{ fontSize: 12, fill: "#000000" }}
-            tickFormatter={formatYAxis}
-          />
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "#1A1A1A",
-              border: "1px solid #B8860B",
-              borderRadius: "4px",
-            }}
-            labelStyle={{ color: "#B8860B" }}
-            formatter={(value: number) => [new Intl.NumberFormat('en-US').format(value), "Sales"]}
-          />
-          <Area
-            type="monotone"
-            dataKey="value"
-            stroke="#B8860B"
-            fillOpacity={1}
-            fill="url(#colorValue)"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
-      <div className="absolute bottom-2 left-4 flex items-center gap-4">
+      <div className="h-[200px]">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={chartData}>
+            <defs>
+              <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#B8860B" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#B8860B" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+            <XAxis
+              dataKey="date"
+              stroke="#B8860B"
+              tickLine={false}
+              axisLine={false}
+              tick={{ fontSize: 12, fill: "#000000" }}
+            />
+            <YAxis
+              stroke="#B8860B"
+              tickLine={false}
+              axisLine={false}
+              tick={{ fontSize: 12, fill: "#000000" }}
+              tickFormatter={formatYAxis}
+            />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: "#1A1A1A",
+                border: "1px solid #B8860B",
+                borderRadius: "4px",
+              }}
+              labelStyle={{ color: "#B8860B" }}
+              formatter={(value: number) => [new Intl.NumberFormat('en-US').format(value), "Sales"]}
+            />
+            <Area
+              type="monotone"
+              dataKey="value"
+              stroke="#B8860B"
+              fillOpacity={1}
+              fill="url(#colorValue)"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
+      <div className="mt-4 flex items-center gap-4">
         <img 
           src="/lovable-uploads/c3fb9e39-1d26-4891-b9bf-c9c1a1b22da2.png" 
           alt="Wafeq Logo" 
