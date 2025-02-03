@@ -63,12 +63,6 @@ const InsightCards = () => {
               <p className="text-white/80 text-xs">Discover future trends and opportunities</p>
             </div>
           </SelectItem>
-          <SelectItem value="growth" className="text-white hover:bg-forest-light focus:bg-forest-light">
-            <div className="space-y-1">
-              <div className="font-semibold">Growth and trends</div>
-              <p className="text-white/80 text-xs">Analyze market patterns and growth trajectories</p>
-            </div>
-          </SelectItem>
           <SelectItem value="margin" className="text-white hover:bg-forest-light focus:bg-forest-light">
             <div className="space-y-1">
               <div className="font-semibold">Contribution margin</div>
