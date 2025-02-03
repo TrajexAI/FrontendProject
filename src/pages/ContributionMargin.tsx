@@ -40,18 +40,18 @@ const ContributionMargin = () => {
   ];
 
   const marginTrendsData = [
-    { month: 'Apr', 'AW24 Suede Boots': 38, 'Designer Handbag': 35, 'Limited Edition Watch': 32, 'Luxury Wallet': 30, 'Premium Scarf': 25 },
-    { month: 'May', 'AW24 Suede Boots': 40, 'Designer Handbag': 36, 'Limited Edition Watch': 34, 'Luxury Wallet': 31, 'Premium Scarf': 26 },
-    { month: 'Jun', 'AW24 Suede Boots': 39, 'Designer Handbag': 37, 'Limited Edition Watch': 33, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
-    { month: 'Jul', 'AW24 Suede Boots': 41, 'Designer Handbag': 38, 'Limited Edition Watch': 35, 'Luxury Wallet': 33, 'Premium Scarf': 28 },
-    { month: 'Aug', 'AW24 Suede Boots': 40, 'Designer Handbag': 37, 'Limited Edition Watch': 34, 'Luxury Wallet': 31, 'Premium Scarf': 27 },
-    { month: 'Sep', 'AW24 Suede Boots': 42, 'Designer Handbag': 39, 'Limited Edition Watch': 36, 'Luxury Wallet': 32, 'Premium Scarf': 28 },
-    { month: 'Oct', 'AW24 Suede Boots': 41, 'Designer Handbag': 38, 'Limited Edition Watch': 35, 'Luxury Wallet': 33, 'Premium Scarf': 29 },
-    { month: 'Nov', 'AW24 Suede Boots': 43, 'Designer Handbag': 40, 'Limited Edition Watch': 37, 'Luxury Wallet': 34, 'Premium Scarf': 30 },
-    { month: 'Dec', 'AW24 Suede Boots': 42, 'Designer Handbag': 39, 'Limited Edition Watch': 36, 'Luxury Wallet': 33, 'Premium Scarf': 29 },
-    { month: 'Jan', 'AW24 Suede Boots': 44, 'Designer Handbag': 41, 'Limited Edition Watch': 38, 'Luxury Wallet': 35, 'Premium Scarf': 31 },
-    { month: 'Feb', 'AW24 Suede Boots': 43, 'Designer Handbag': 40, 'Limited Edition Watch': 37, 'Luxury Wallet': 34, 'Premium Scarf': 30 },
-    { month: 'Mar', 'AW24 Suede Boots': 42, 'Designer Handbag': 38, 'Limited Edition Watch': 35, 'Luxury Wallet': 32, 'Premium Scarf': 28 },
+    { month: 'Apr', 'AW24 Suede Boots': 35, 'Designer Handbag': 37, 'Limited Edition Watch': 42, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
+    { month: 'May', 'AW24 Suede Boots': 36, 'Designer Handbag': 38, 'Limited Edition Watch': 41, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
+    { month: 'Jun', 'AW24 Suede Boots': 37, 'Designer Handbag': 37, 'Limited Edition Watch': 40, 'Luxury Wallet': 31, 'Premium Scarf': 28 },
+    { month: 'Jul', 'AW24 Suede Boots': 38, 'Designer Handbag': 38, 'Limited Edition Watch': 39, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
+    { month: 'Aug', 'AW24 Suede Boots': 38, 'Designer Handbag': 37, 'Limited Edition Watch': 38, 'Luxury Wallet': 31, 'Premium Scarf': 28 },
+    { month: 'Sep', 'AW24 Suede Boots': 39, 'Designer Handbag': 38, 'Limited Edition Watch': 37, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
+    { month: 'Oct', 'AW24 Suede Boots': 40, 'Designer Handbag': 37, 'Limited Edition Watch': 36, 'Luxury Wallet': 31, 'Premium Scarf': 28 },
+    { month: 'Nov', 'AW24 Suede Boots': 41, 'Designer Handbag': 38, 'Limited Edition Watch': 35, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
+    { month: 'Dec', 'AW24 Suede Boots': 41, 'Designer Handbag': 37, 'Limited Edition Watch': 34, 'Luxury Wallet': 31, 'Premium Scarf': 28 },
+    { month: 'Jan', 'AW24 Suede Boots': 42, 'Designer Handbag': 38, 'Limited Edition Watch': 33, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
+    { month: 'Feb', 'AW24 Suede Boots': 43, 'Designer Handbag': 37, 'Limited Edition Watch': 32, 'Luxury Wallet': 31, 'Premium Scarf': 28 },
+    { month: 'Mar', 'AW24 Suede Boots': 44, 'Designer Handbag': 38, 'Limited Edition Watch': 31, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
   ];
 
   const COLORS = ['#D4AF37', '#B8860B', '#DAA520', '#FFD700', '#F4C430'];
