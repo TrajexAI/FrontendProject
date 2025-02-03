@@ -56,37 +56,14 @@ const Notifications = () => {
             alt="Logo" 
             className="h-24 object-contain"
           />
-          <DropdownMenu>
-            <DropdownMenuTrigger className="p-2">
-              <Menu className="h-6 w-6 text-gold" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="bg-forest-dark">
-              <DropdownMenuItem className="text-gold">
-                <Link to="/">Dashboard</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-gold">
-                <Link to="/scorecard">Scorecard</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-gold">
-                <Link to="/investor-report">Investor Report</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-gold">
-                <Link to="/contribution-margin">Contribution Margin</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-gold">
-                <Link to="/notifications">Notifications</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem className="text-gold">
-                <Link to="/forecast">Forecast</Link>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
         </div>
+        <h1 className="text-2xl font-bold text-gold">Notifications</h1>
+        <p className="text-black mt-2">Stay updated with real-time alerts and insights</p>
       </div>
 
       <div className="container mx-auto px-4 py-8 space-y-8">
         <section className="space-y-4">
-          <h2 className="text-2xl font-semibold text-gold">Notifications</h2>
+          <h2 className="text-2xl font-semibold text-gold">Recent Notifications</h2>
           <div className="space-y-3">
             {notifications.map((notification) => (
               <div

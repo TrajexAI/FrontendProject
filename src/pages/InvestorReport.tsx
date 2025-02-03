@@ -1,14 +1,7 @@
-import { Download, Menu } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Download } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import FinancialChart from "@/components/FinancialChart";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
 const InvestorReport = () => {
   const handleExport = () => {
@@ -37,31 +30,6 @@ const InvestorReport = () => {
                 Export Report
               </Button>
             </div>
-            <DropdownMenu>
-              <DropdownMenuTrigger className="p-2">
-                <Menu className="h-6 w-6 text-gold" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-forest-dark">
-                <DropdownMenuItem className="text-gold">
-                  <Link to="/">Dashboard</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-gold">
-                  <Link to="/scorecard">Scorecard</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-gold">
-                  <Link to="/investor-report">Investor Report</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-gold">
-                  <Link to="/contribution-margin">Contribution Margin</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-gold">
-                  <Link to="/notifications">Notifications</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="text-gold">
-                  <Link to="/forecast">Forecast</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
           </div>
           <h1 className="text-2xl font-bold text-gold">D'NA Investor Report</h1>
           <p className="text-black mt-2">Detailed financial insights for investors</p>
