@@ -1,8 +1,14 @@
-import { ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ScorecardSection } from "@/components/scorecard/ScorecardSection";
 import { sections } from "@/data/scorecardSections";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Scorecard = () => {
   return (
@@ -15,16 +21,34 @@ const Scorecard = () => {
               alt="Logo" 
               className="h-24 object-contain"
             />
-            <Link 
-              to="/" 
-              className="inline-flex items-center text-gold hover:text-gold/80 transition-colors"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Dashboard
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="p-2">
+                <Menu className="h-6 w-6 text-gold" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-forest-dark">
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/">Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/scorecard">Scorecard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/investor-report">Investor Report</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/contribution-margin">Contribution Margin</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/notifications">Notifications</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/forecast">Forecast</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
           <h1 className="text-2xl font-bold text-gold">D'NA Scorecard</h1>
-          <p className="text-gold/80 mt-2">Real-time performance tracker</p>
+          <p className="text-black mt-2">Real-time performance tracker</p>
         </div>
       </div>
 

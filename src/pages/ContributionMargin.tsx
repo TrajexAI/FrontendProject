@@ -1,6 +1,14 @@
 import { Card } from "@/components/ui/card";
 import InsightCards from "@/components/InsightCards";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const ContributionMargin = () => {
   const costData = [
@@ -40,6 +48,31 @@ const ContributionMargin = () => {
             alt="Logo" 
             className="h-24 object-contain"
           />
+          <DropdownMenu>
+            <DropdownMenuTrigger className="p-2">
+              <Menu className="h-6 w-6 text-gold" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="bg-forest-dark">
+              <DropdownMenuItem className="text-gold">
+                <Link to="/">Dashboard</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-gold">
+                <Link to="/scorecard">Scorecard</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-gold">
+                <Link to="/investor-report">Investor Report</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-gold">
+                <Link to="/contribution-margin">Contribution Margin</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-gold">
+                <Link to="/notifications">Notifications</Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-gold">
+                <Link to="/forecast">Forecast</Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
         <InsightCards />
       </div>
@@ -48,7 +81,7 @@ const ContributionMargin = () => {
         <div className="mx-auto max-w-7xl space-y-6">
           <div className="mb-8">
             <h1 className="text-3xl font-bold text-gold">Contribution Margin Analysis</h1>
-            <p className="text-gold-light/80 mt-2">Track and optimize your profit margins across products and services</p>
+            <p className="text-black mt-2">Track and optimize your profit margins across products and services</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -1,8 +1,14 @@
-import { ArrowLeft, Download } from "lucide-react";
+import { Download, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import FinancialChart from "@/components/FinancialChart";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const InvestorReport = () => {
   const handleExport = () => {
@@ -31,16 +37,34 @@ const InvestorReport = () => {
                 Export Report
               </Button>
             </div>
-            <Link 
-              to="/" 
-              className="inline-flex items-center text-gold hover:text-gold/80 transition-colors h-24 flex items-center"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Dashboard
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="p-2">
+                <Menu className="h-6 w-6 text-gold" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-forest-dark">
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/">Dashboard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/scorecard">Scorecard</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/investor-report">Investor Report</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/contribution-margin">Contribution Margin</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/notifications">Notifications</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-gold">
+                  <Link to="/forecast">Forecast</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
           <h1 className="text-2xl font-bold text-gold">D'NA Investor Report</h1>
-          <p className="text-gold/80 mt-2">Detailed financial insights for investors</p>
+          <p className="text-black mt-2">Detailed financial insights for investors</p>
         </div>
       </div>
 
@@ -52,19 +76,19 @@ const InvestorReport = () => {
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-gold-light">Gross Margin</span>
+                <span className="text-black">Gross Margin</span>
                 <span className="text-gold font-semibold">42%</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gold-light">Operating Margin</span>
+                <span className="text-black">Operating Margin</span>
                 <span className="text-gold font-semibold">28%</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gold-light">Net Profit Margin</span>
+                <span className="text-black">Net Profit Margin</span>
                 <span className="text-gold font-semibold">18%</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gold-light">Return on Investment</span>
+                <span className="text-black">Return on Investment</span>
                 <span className="text-gold font-semibold">32%</span>
               </div>
             </CardContent>
