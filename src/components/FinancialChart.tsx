@@ -25,7 +25,7 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
   };
 
   return (
-    <div className={cn("h-[200px] w-full p-4", className)}>
+    <div className={cn("h-[200px] w-full p-4 relative", className)}>
       <h2 className="mb-4 text-xl font-semibold text-black">Sales, Q3 and Q4 2024</h2>
       <ResponsiveContainer width="100%" height="100%">
         <AreaChart data={chartData}>
@@ -67,6 +67,18 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
           />
         </AreaChart>
       </ResponsiveContainer>
+      <div className="absolute bottom-2 left-4 flex items-center gap-4">
+        <img 
+          src="/lovable-uploads/c3fb9e39-1d26-4891-b9bf-c9c1a1b22da2.png" 
+          alt="Wafeq Logo" 
+          className="h-6 object-contain"
+        />
+        <img 
+          src="/lovable-uploads/9145ccdc-a9c3-483f-bf74-3a38371b42a0.png" 
+          alt="QOYOD Logo" 
+          className="h-6 object-contain"
+        />
+      </div>
     </div>
   );
 };
