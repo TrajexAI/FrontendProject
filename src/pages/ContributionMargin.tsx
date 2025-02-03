@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import InsightCards from "@/components/InsightCards";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 const ContributionMargin = () => {
   const costData = [
@@ -30,6 +30,16 @@ const ContributionMargin = () => {
       variable: 45000,
     },
   ];
+
+  const contributionMarginData = [
+    { name: 'AW24 Suede Boots', value: 42 },
+    { name: 'Designer Handbag', value: 38 },
+    { name: 'Limited Edition Watch', value: 35 },
+    { name: 'Luxury Wallet', value: 32 },
+    { name: 'Premium Scarf', value: 28 },
+  ];
+
+  const COLORS = ['#D4AF37', '#B8860B', '#DAA520', '#FFD700', '#F4C430'];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light font-quicksand">
@@ -105,9 +115,36 @@ const ContributionMargin = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="p-6 bg-obsidian-light/50 border-gold/30">
-              <h2 className="text-xl font-semibold text-gold mb-4">Product Breakdown</h2>
-              <div className="h-[300px] flex items-center justify-center text-gold-light/50">
-                Chart coming soon
+              <h2 className="text-xl font-semibold text-gold mb-4">Contribution Margin by Product</h2>
+              <div className="h-[300px]">
+                <ResponsiveContainer width="100%" height="100%">
+                  <PieChart>
+                    <Pie
+                      data={contributionMarginData}
+                      cx="50%"
+                      cy="50%"
+                      innerRadius={60}
+                      outerRadius={80}
+                      fill="#D4AF37"
+                      paddingAngle={5}
+                      dataKey="value"
+                      label={({ name, value }) => `${name}: ${value}%`}
+                    >
+                      {contributionMarginData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip
+                      contentStyle={{
+                        backgroundColor: "#1A1A1A",
+                        border: "1px solid #D4AF37",
+                        borderRadius: "4px",
+                      }}
+                      labelStyle={{ color: "#FFFFFF" }}
+                      formatter={(value: number) => [`${value}%`, "Contribution Margin"]}
+                    />
+                  </PieChart>
+                </ResponsiveContainer>
               </div>
             </Card>
 
