@@ -47,18 +47,18 @@ export const ScorecardSection = ({
   return (
     <div 
       className={cn(
-        "w-full min-h-[300px]",
+        "w-full min-h-[300px] relative",
         isEven 
           ? "bg-gradient-to-r from-obsidian-dark to-obsidian-light" 
           : "bg-gradient-to-l from-obsidian-DEFAULT to-obsidian-dark"
       )}
     >
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-full py-8">
         <div className="flex flex-col items-center justify-center h-full">
           {renderChart()}
         </div>
         {id === 1 && (
-          <div className="absolute bottom-4 left-4">
+          <div className="absolute -bottom-4 left-4">
             <img 
               src="/lovable-uploads/58ed5510-5e9b-402f-b6cc-502c08cd4921.png" 
               alt="Shopify Logo"
