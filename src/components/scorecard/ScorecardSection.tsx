@@ -1,8 +1,10 @@
+
 import { cn } from "@/lib/utils";
 import { ScorecardChart } from "./ScorecardChart";
 import { RevenueDonutChart } from "./RevenueDonutChart";
 import { BigNumberDisplay } from "./BigNumberDisplay";
 import { InventorySalesChart } from "./InventorySalesChart";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ScorecardSectionProps {
   id: number;
@@ -25,6 +27,8 @@ export const ScorecardSection = ({
   showBigNumber = false,
   numberSuffix = "",
 }: ScorecardSectionProps) => {
+  const isMobile = useIsMobile();
+
   const renderChart = () => {
     if (showBigNumber) {
       return (
@@ -57,7 +61,10 @@ export const ScorecardSection = ({
           {renderChart()}
         </div>
         {id === 1 && (
-          <div className="absolute bottom-4 left-4">
+          <div className={cn(
+            "absolute left-4",
+            isMobile ? "top-4" : "bottom-4"
+          )}>
             <img 
               src="/lovable-uploads/58ed5510-5e9b-402f-b6cc-502c08cd4921.png" 
               alt="Shopify Logo"
