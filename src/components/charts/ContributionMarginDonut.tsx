@@ -17,10 +17,10 @@ const ContributionMarginDonut = ({ data, colors }: ContributionMarginDonutProps)
     if (active && payload && payload.length) {
       const item = payload[0].payload;
       return (
-        <div className="bg-obsidian-dark p-4 border border-gold/30 rounded-md">
+        <div className="bg-obsidian-dark text-gold shadow-lg p-4 border border-gold/30 rounded-md">
           <p className="text-gold font-semibold">{item.name}</p>
-          <p className="text-gold-light">{item.value}% Contribution Margin</p>
-          <div className="mt-2 text-sm text-gold-light">
+          <p className="text-gold/90">{item.value}% Contribution Margin</p>
+          <div className="mt-2 text-sm text-gold/90">
             <p>Optimization Opportunity:</p>
             <p>{item.opportunities}</p>
           </div>
