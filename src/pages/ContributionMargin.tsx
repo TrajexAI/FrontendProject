@@ -9,27 +9,27 @@ import { costData, marginTrendsData, COLORS } from "@/data/contributionMarginDat
 const contributionMarginData = [
   { 
     name: 'AW24 Suede Boots', 
-    value: 42,
+    value: 65,
     opportunities: 'Consider premium pricing strategy and seasonal promotions to maximize margins.'
   },
   { 
     name: 'Designer Handbag', 
-    value: 38,
+    value: 55,
     opportunities: 'Review material costs and explore bulk purchasing options.'
   },
   { 
     name: 'Limited Edition Watch', 
-    value: 35,
+    value: 48,
     opportunities: 'Analyze production efficiency and consider limited batch releases.'
   },
   { 
     name: 'Luxury Wallet', 
-    value: 32,
+    value: 42,
     opportunities: 'Evaluate manufacturing processes and material alternatives.'
   },
   { 
     name: 'Premium Scarf', 
-    value: 28,
+    value: 35,
     opportunities: 'Review pricing strategy and production costs to improve margins.'
   },
 ];
