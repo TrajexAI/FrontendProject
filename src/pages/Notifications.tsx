@@ -13,6 +13,12 @@ import InsightCards from "@/components/InsightCards";
 const Notifications = () => {
   const notifications = [
     {
+      id: 3,
+      title: "Customer Insight",
+      message: "Product A and B have been bought together in one transaction 26 times this month, resulting in a profit increase of 12% in comparison with January 2024. Are there other products in your portfolio that could be presented together to replicate this success?",
+      time: "1 day ago"
+    },
+    {
       id: 1,
       title: "Revenue Alert",
       message: "Monthly revenue is 15% above target. Great performance!",
@@ -23,12 +29,6 @@ const Notifications = () => {
       title: "Inventory Warning",
       message: "Stock levels for 'Product X' are below threshold. Consider reordering.",
       time: "5 hours ago"
-    },
-    {
-      id: 3,
-      title: "Customer Insight",
-      message: "Product A and B have been bought together in one transaction 26 times this month, resulting in a profit increase of 12% in comparison with January 2024. Are there other products in your portfolio that could be presented together to replicate this success?",
-      time: "1 day ago"
     }
   ];
 
