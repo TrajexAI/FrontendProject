@@ -15,7 +15,7 @@ const Notifications = () => {
     {
       id: 3,
       title: "Customer Insight",
-      message: "Product A and B have been bought together in one transaction 26 times this month, resulting in a profit increase of 12% in comparison with January 2024. Are there other products in your portfolio that could be presented together to replicate this success?",
+      message: "Product A and B have been bought together in one transaction 26 times this month, resulting in a revenue increase of 12% in comparison with January 2024. Are there other products in your portfolio that could be presented together to replicate this success?",
       time: "1 day ago"
     },
     {
