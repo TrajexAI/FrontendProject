@@ -14,22 +14,22 @@ const contributionMarginData = [
   },
   { 
     name: 'Designer Handbag', 
-    value: 55,
+    value: 28,
     opportunities: 'Review material costs and explore bulk purchasing options.'
   },
   { 
     name: 'Limited Edition Watch', 
-    value: 48,
+    value: 25,
     opportunities: 'Analyze production efficiency and consider limited batch releases.'
   },
   { 
     name: 'Luxury Wallet', 
-    value: 42,
+    value: 22,
     opportunities: 'Evaluate manufacturing processes and material alternatives.'
   },
   { 
     name: 'Premium Scarf', 
-    value: 35,
+    value: 18,
     opportunities: 'Review pricing strategy and production costs to improve margins.'
   },
 ];
