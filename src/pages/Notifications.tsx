@@ -75,7 +75,7 @@ const Notifications = () => {
               >
                 <div className="flex justify-between items-start">
                   <div>
-                    <h3 className="text-gold font-semibold">{notification.title}</h3>
+                    <h3 className="text-[#F97316] font-semibold">{notification.title}</h3>
                     <p className="text-black mt-1">{notification.message}</p>
                   </div>
                   <span className="text-xs text-black/60">{notification.time}</span>
