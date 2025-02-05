@@ -1,8 +1,10 @@
+
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 
 interface ContributionMarginData {
   name: string;
   value: number;
+  opportunities: string;
 }
 
 interface ContributionMarginDonutProps {
@@ -11,6 +13,23 @@ interface ContributionMarginDonutProps {
 }
 
 const ContributionMarginDonut = ({ data, colors }: ContributionMarginDonutProps) => {
+  const CustomTooltip = ({ active, payload }: any) => {
+    if (active && payload && payload.length) {
+      const item = payload[0].payload;
+      return (
+        <div className="bg-obsidian-dark p-4 border border-gold/30 rounded-md">
+          <p className="text-gold font-semibold">{item.name}</p>
+          <p className="text-gold-light">{item.value}% Contribution Margin</p>
+          <div className="mt-2 text-sm text-gold-light">
+            <p>Optimization Opportunity:</p>
+            <p>{item.opportunities}</p>
+          </div>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <div className="h-[300px]">
       <ResponsiveContainer width="100%" height="100%">
@@ -30,15 +49,7 @@ const ContributionMarginDonut = ({ data, colors }: ContributionMarginDonutProps)
               <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
             ))}
           </Pie>
-          <Tooltip
-            contentStyle={{
-              backgroundColor: "#1A1A1A",
-              border: "1px solid #D4AF37",
-              borderRadius: "4px",
-            }}
-            labelStyle={{ color: "#FFFFFF" }}
-            formatter={(value: number) => [`${value}%`, "Contribution Margin"]}
-          />
+          <Tooltip content={<CustomTooltip />} />
         </PieChart>
       </ResponsiveContainer>
     </div>

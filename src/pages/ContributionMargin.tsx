@@ -1,9 +1,38 @@
+
 import { Card } from "@/components/ui/card";
 import InsightCards from "@/components/InsightCards";
 import CostAnalysisChart from "@/components/charts/CostAnalysisChart";
 import ContributionMarginDonut from "@/components/charts/ContributionMarginDonut";
 import MarginTrendsChart from "@/components/charts/MarginTrendsChart";
-import { costData, contributionMarginData, marginTrendsData, COLORS } from "@/data/contributionMarginData";
+import { costData, marginTrendsData, COLORS } from "@/data/contributionMarginData";
+
+const contributionMarginData = [
+  { 
+    name: 'AW24 Suede Boots', 
+    value: 42,
+    opportunities: 'Consider premium pricing strategy and seasonal promotions to maximize margins.'
+  },
+  { 
+    name: 'Designer Handbag', 
+    value: 38,
+    opportunities: 'Review material costs and explore bulk purchasing options.'
+  },
+  { 
+    name: 'Limited Edition Watch', 
+    value: 35,
+    opportunities: 'Analyze production efficiency and consider limited batch releases.'
+  },
+  { 
+    name: 'Luxury Wallet', 
+    value: 32,
+    opportunities: 'Evaluate manufacturing processes and material alternatives.'
+  },
+  { 
+    name: 'Premium Scarf', 
+    value: 28,
+    opportunities: 'Review pricing strategy and production costs to improve margins.'
+  },
+];
 
 const ContributionMargin = () => {
   return (
@@ -41,16 +70,6 @@ const ContributionMargin = () => {
                 products={contributionMarginData.map(item => item.name)}
                 colors={COLORS}
               />
-            </Card>
-
-            <Card className="p-6 bg-obsidian-light/50 border-gold/30">
-              <h2 className="text-xl font-semibold text-gold mb-4">Optimization Opportunities</h2>
-              <div className="space-y-4 text-gold-light">
-                <p>• Review pricing strategy for low-margin products</p>
-                <p>• Analyze cost structure of key product lines</p>
-                <p>• Identify high-performing product categories</p>
-                <p>• Optimize inventory management</p>
-              </div>
             </Card>
           </div>
         </div>
