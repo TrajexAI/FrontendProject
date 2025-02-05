@@ -49,4 +49,4 @@ export const marginTrendsData = [
   { month: 'Mar', 'AW24 Suede Boots': 44, 'Designer Handbag': 38, 'Limited Edition Watch': 31, 'Luxury Wallet': 32, 'Premium Scarf': 27 },
 ];
 
-export const COLORS = ['#D4AF37', '#B8860B', '#DAA520', '#FFD700', '#F4C430'];
+export const COLORS = ['#1A1F2C', '#B8860B', '#DAA520', '#FFD700', '#F4C430'];
