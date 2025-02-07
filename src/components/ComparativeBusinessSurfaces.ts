@@ -1,4 +1,3 @@
-
 import * as THREE from 'three';
 import { ComparativeBusiness } from '../types/business';
 
@@ -12,25 +11,19 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     const position = business.positions[0];
     
     if (index === 0) {
-      // Create diagonal volume for hypergrowth area
-      const points = [];
-      points.push(new THREE.Vector3(0, 0, 0));
-      points.push(new THREE.Vector3(5, 5, 5));
-      points.push(new THREE.Vector3(-2, 0, -2));
-      points.push(new THREE.Vector3(3, 5, 3));
-
+      // Create steeper diagonal volume for hypergrowth area
       const geometry = new THREE.BufferGeometry();
       const vertices = new Float32Array([
-        // Front face
+        // Front face - made steeper by increasing y values
         8, 0, 0,
-        13, 5, 5,
+        13, 7, 7,    // Increased y and z values for steeper slope
         6, 0, -2,
-        11, 5, 3,
+        11, 7, 5,    // Increased y and z values for steeper slope
         // Add more vertices for volume
         8, 0, 2,
-        13, 5, 7,
+        13, 7, 9,    // Increased y and z values for steeper slope
         6, 0, 0,
-        11, 5, 5,
+        11, 7, 7     // Increased y and z values for steeper slope
       ]);
 
       const indices = new Uint16Array([
@@ -100,9 +93,9 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
       const sprite = new THREE.Sprite(spriteMaterial);
       
-      // Position the label
+      // Position the label - bringing hypergrowth label closer to volume
       const xPos = index === 0 ? 2 : (index === 1 ? position.sales / 100 + 5 : position.sales / 100);
-      const yPos = index === 0 ? 6 : position.netProfit / 100 + height/2 + 1;
+      const yPos = index === 0 ? 4 : position.netProfit / 100 + height/2 + 1; // Lowered y position for hypergrowth label
       const zPos = index === 0 ? 2 : (index === 2 ? position.grossProfit / 100 + 5 : position.grossProfit / 100);
       
       sprite.position.set(xPos, yPos, zPos);
@@ -111,4 +104,3 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     }
   });
 };
-
