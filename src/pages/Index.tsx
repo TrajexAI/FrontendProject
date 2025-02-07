@@ -58,7 +58,7 @@ const Index = () => {
           <Card>
             <CardHeader>
               <CardTitle className="text-xl font-bold text-gold">
-                Scenario Forecasting
+                Scenario Forecasting - Multidimensional modelling
               </CardTitle>
             </CardHeader>
             <CardContent>
