@@ -38,8 +38,8 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       0.1,
       1000
     );
-    camera.position.set(25, 10, 0); // Moved camera more to the left side
-    camera.lookAt(new THREE.Vector3(10, 5, 0)); // Adjust look-at point
+    camera.position.set(25, 10, 0);
+    camera.lookAt(new THREE.Vector3(10, 5, 0));
 
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -49,7 +49,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     // Controls with adjusted target
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
-    controls.target.set(10, 5, 0); // Set the orbit center
+    controls.target.set(10, 5, 0);
     controls.update();
 
     // Lighting
@@ -189,22 +189,54 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       }
     });
 
-    // Add comparative business trajectories
-    comparativeBusinesses.forEach((business) => {
-      // Create line geometry for trajectory
-      const points = business.positions.map(pos => 
-        new THREE.Vector3(pos.sales / 100, pos.grossProfit / 100, pos.netProfit / 100)
-      );
-      const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
-      const lineMaterial = new THREE.LineBasicMaterial({ color: business.positions[0].color });
-      const line = new THREE.Line(lineGeometry, lineMaterial);
-      scene.add(line);
+    // Add comparative business surfaces
+    comparativeBusinesses.forEach((business, index) => {
+      const positions = business.positions;
+      const color = positions[0].color;
+      
+      // Create a parametric surface
+      const generateSurface = (u: number, v: number, target: THREE.Vector3) => {
+        const timeSpan = positions.length - 1;
+        const t = v * timeSpan;
+        const timeIndex = Math.floor(t);
+        const alpha = t - timeIndex;
+        
+        const pos1 = positions[timeIndex];
+        const pos2 = positions[Math.min(timeIndex + 1, positions.length - 1)];
+        
+        const x = (pos1.sales + (pos2.sales - pos1.sales) * alpha) / 100;
+        const y = (pos1.grossProfit + (pos2.grossProfit - pos1.grossProfit) * alpha) / 100;
+        const z = (pos1.netProfit + (pos2.netProfit - pos1.netProfit) * alpha) / 100;
+        
+        // Add wave effect
+        const width = index === 0 ? 1 : 2; // Similar growth has smaller width
+        const waveHeight = 0.5;
+        const frequency = 2;
+        const offset = Math.sin(u * Math.PI * frequency) * waveHeight;
+        
+        target.set(
+          x + Math.cos(u * Math.PI * 2) * width,
+          y + offset,
+          z
+        );
+      };
 
-      // Add smaller spheres for each point in trajectory
-      business.positions.forEach((pos) => {
-        const geometry = new THREE.SphereGeometry(0.15);
-        const material = new THREE.MeshPhongMaterial({ color: pos.color });
-        const sphere = new THREE.Mesh(geometry, material);
+      const geometry = new THREE.ParametricBufferGeometry(generateSurface, 50, 50);
+      const material = new THREE.MeshPhongMaterial({ 
+        color: color,
+        transparent: true,
+        opacity: 0.6,
+        side: THREE.DoubleSide
+      });
+      
+      const surface = new THREE.Mesh(geometry, material);
+      scene.add(surface);
+
+      // Add small spheres for data points
+      positions.forEach((pos) => {
+        const sphereGeometry = new THREE.SphereGeometry(0.15);
+        const sphereMaterial = new THREE.MeshPhongMaterial({ color: pos.color });
+        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
         sphere.position.set(
           pos.sales / 100,
           pos.grossProfit / 100,
