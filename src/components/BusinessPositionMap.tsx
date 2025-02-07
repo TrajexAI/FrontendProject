@@ -13,9 +13,9 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Scene setup
+    // Scene setup with light gold background
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#F1F0FB');
+    scene.background = new THREE.Color('#FEF7CD');  // Light gold background
 
     // Camera setup
     const camera = new THREE.PerspectiveCamera(
@@ -50,14 +50,14 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     const grid = createGrid();
     scene.add(grid);
 
-    // Add axes helper
+    // Add axes helper with gold/black colors
     const axesHelper = new THREE.AxesHelper(15);
     scene.add(axesHelper);
 
-    // Add axis labels
+    // Add axis labels - swapped grossProfit and netProfit
     createAxisLabel('Sales', new THREE.Vector3(16, 0, 0), scene);
-    createAxisLabel('Gross Profit', new THREE.Vector3(0, 16, 0), scene);
-    createAxisLabel('Net Profit', new THREE.Vector3(0, 0, 16), scene);
+    createAxisLabel('Net Profit', new THREE.Vector3(0, 16, 0), scene);  // Swapped from Gross Profit
+    createAxisLabel('Gross Profit', new THREE.Vector3(0, 0, 16), scene);  // Swapped from Net Profit
 
     // Add numeric labels
     for (let i = 5; i <= 25; i += 5) {
@@ -71,10 +71,8 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       }
     }
 
-    // Add business markers
+    // Add business markers and comparative surfaces
     addBusinessMarkers(positions, scene);
-
-    // Add comparative business surfaces
     addComparativeBusinessSurfaces(comparativeBusinesses, scene);
 
     // Animation loop
