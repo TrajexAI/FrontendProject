@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 interface Position {
   year: string;
@@ -9,13 +9,20 @@ interface Position {
   grossProfit: number;
   netProfit: number;
   color: string;
+  isCurrent?: boolean;
+}
+
+interface ComparativeBusiness {
+  name: string;
+  positions: Position[];
 }
 
 interface BusinessPositionMapProps {
   positions: Position[];
+  comparativeBusinesses: ComparativeBusiness[];
 }
 
-const BusinessPositionMap = ({ positions }: BusinessPositionMapProps) => {
+const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPositionMapProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -59,7 +66,7 @@ const BusinessPositionMap = ({ positions }: BusinessPositionMapProps) => {
     const axesHelper = new THREE.AxesHelper(10);
     scene.add(axesHelper);
 
-    // Add position markers
+    // Add current business position markers
     positions.forEach((pos) => {
       const geometry = new THREE.SphereGeometry(0.3);
       const material = new THREE.MeshPhongMaterial({ color: pos.color });
@@ -95,6 +102,31 @@ const BusinessPositionMap = ({ positions }: BusinessPositionMapProps) => {
       }
     });
 
+    // Add comparative business trajectories
+    comparativeBusinesses.forEach((business) => {
+      // Create line geometry for trajectory
+      const points = business.positions.map(pos => 
+        new THREE.Vector3(pos.sales / 100, pos.grossProfit / 100, pos.netProfit / 100)
+      );
+      const lineGeometry = new THREE.BufferGeometry().setFromPoints(points);
+      const lineMaterial = new THREE.LineBasicMaterial({ color: business.positions[0].color });
+      const line = new THREE.Line(lineGeometry, lineMaterial);
+      scene.add(line);
+
+      // Add smaller spheres for each point in trajectory
+      business.positions.forEach((pos) => {
+        const geometry = new THREE.SphereGeometry(0.15);
+        const material = new THREE.MeshPhongMaterial({ color: pos.color });
+        const sphere = new THREE.Mesh(geometry, material);
+        sphere.position.set(
+          pos.sales / 100,
+          pos.grossProfit / 100,
+          pos.netProfit / 100
+        );
+        scene.add(sphere);
+      });
+    });
+
     // Animation loop
     const animate = () => {
       requestAnimationFrame(animate);
@@ -119,7 +151,7 @@ const BusinessPositionMap = ({ positions }: BusinessPositionMapProps) => {
       containerRef.current?.removeChild(renderer.domElement);
       renderer.dispose();
     };
-  }, [positions]);
+  }, [positions, comparativeBusinesses]);
 
   return <div ref={containerRef} className="w-full h-[600px] rounded-lg shadow-lg" />;
 };
