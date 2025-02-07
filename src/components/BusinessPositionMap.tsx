@@ -73,8 +73,8 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       canvas.height = 128;
       const context = canvas.getContext('2d');
       if (context) {
-        context.fillStyle = '#0EA5E9'; // Ocean Blue for better visibility
-        context.font = 'bold 48px Arial';
+        context.fillStyle = '#000000'; // Changed to black
+        context.font = 'bold 64px Arial'; // Increased font size for better visibility
         context.textAlign = 'center';
         context.textBaseline = 'middle';
         context.fillText(text, 128, 64);
@@ -83,7 +83,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
         const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
         const sprite = new THREE.Sprite(spriteMaterial);
         sprite.position.copy(position);
-        sprite.scale.set(4, 2, 1);
+        sprite.scale.set(5, 2.5, 1); // Increased scale for better visibility
         scene.add(sprite);
       }
     };
@@ -113,7 +113,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       const context = canvas.getContext('2d');
       if (context) {
         context.font = '48px Arial';
-        context.fillStyle = '#0EA5E9'; // Ocean Blue for better visibility
+        context.fillStyle = '#000000'; // Changed to black
         context.fillText(pos.year, 0, 48);
         
         const texture = new THREE.CanvasTexture(canvas);
