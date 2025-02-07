@@ -3,6 +3,11 @@ import * as THREE from 'three';
 import { ComparativeBusiness } from '../types/business';
 
 export const addComparativeBusinessSurfaces = (comparativeBusinesses: ComparativeBusiness[], scene: THREE.Scene) => {
+  // Define common dimensions
+  const width = 4.0;
+  const height = 3.0;
+  const depth = 3.0;
+
   comparativeBusinesses.forEach((business, index) => {
     const position = business.positions[0];
     
@@ -59,11 +64,7 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       scene.add(volume);
 
     } else {
-      // Create box geometry for other business areas
-      const width = 4.0;
-      const height = 3.0;
-      const depth = 3.0;
-      
+      // Create box geometry for other business areas      
       const xOffset = index === 1 ? 5 : 0;
       const zOffset = index === 2 ? 5 : 0;
 
