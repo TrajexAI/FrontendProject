@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -13,9 +12,9 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
   useEffect(() => {
     if (!containerRef.current) return;
 
-    // Scene setup with light gold background
+    // Scene setup with white background
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color('#FEF7CD');  // Light gold background
+    scene.background = new THREE.Color('#FFFFFF');
 
     // Camera setup
     const camera = new THREE.PerspectiveCamera(
@@ -56,8 +55,8 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
 
     // Add axis labels - swapped grossProfit and netProfit
     createAxisLabel('Sales', new THREE.Vector3(16, 0, 0), scene);
-    createAxisLabel('Net Profit', new THREE.Vector3(0, 16, 0), scene);  // Swapped from Gross Profit
-    createAxisLabel('Gross Profit', new THREE.Vector3(0, 0, 16), scene);  // Swapped from Net Profit
+    createAxisLabel('Net Profit', new THREE.Vector3(0, 16, 0), scene);
+    createAxisLabel('Gross Profit', new THREE.Vector3(0, 0, 16), scene);
 
     // Add numeric labels
     for (let i = 5; i <= 25; i += 5) {
