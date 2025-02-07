@@ -31,23 +31,26 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#F1F0FB');
 
-    // Camera setup
+    // Camera setup with adjusted position
     const camera = new THREE.PerspectiveCamera(
       75,
       containerRef.current.clientWidth / containerRef.current.clientHeight,
       0.1,
       1000
     );
-    camera.position.set(15, 15, 15);
+    camera.position.set(25, 10, 0); // Moved camera more to the left side
+    camera.lookAt(new THREE.Vector3(10, 5, 0)); // Adjust look-at point
 
     // Renderer setup
     const renderer = new THREE.WebGLRenderer({ antialias: true });
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
     containerRef.current.appendChild(renderer.domElement);
 
-    // Controls
+    // Controls with adjusted target
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
+    controls.target.set(10, 5, 0); // Set the orbit center
+    controls.update();
 
     // Lighting
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
