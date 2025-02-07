@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -58,7 +57,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     directionalLight.position.set(10, 10, 10);
     scene.add(directionalLight);
 
-    // Create a custom grid that only shows in positive quadrants
+    // Create a custom grid that shows negative values only for z-axis (net profit)
     const gridSize = 30;
     const divisions = 30;
     const gridGeometry = new THREE.BufferGeometry();
@@ -68,12 +67,12 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     
     // Create vertical lines (parallel to z-axis)
     for (let i = 0; i <= gridSize; i++) {
-      vertices.push(i, 0, 0);
-      vertices.push(i, 0, gridSize);
+      vertices.push(i, 0, -gridSize/2); // Start from negative z
+      vertices.push(i, 0, gridSize/2);  // End at positive z
     }
     
     // Create horizontal lines (parallel to x-axis)
-    for (let i = 0; i <= gridSize; i++) {
+    for (let i = -gridSize/2; i <= gridSize/2; i++) { // Allow negative z values
       vertices.push(0, 0, i);
       vertices.push(gridSize, 0, i);
     }
@@ -139,7 +138,13 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     for (let i = 5; i <= 25; i += 5) {
       addNumericLabel(i * 100, new THREE.Vector3(i, -0.5, 0)); // Sales axis
       addNumericLabel(i * 100, new THREE.Vector3(0, i, -0.5)); // Gross Profit axis
-      addNumericLabel(i * 100, new THREE.Vector3(-0.5, 0, i)); // Net Profit axis
+    }
+
+    // Add negative and positive labels for net profit axis
+    for (let i = -15; i <= 25; i += 5) {
+      if (i !== 0) { // Skip zero to avoid duplicate label
+        addNumericLabel(i * 100, new THREE.Vector3(-0.5, 0, i));
+      }
     }
 
     // Add current business position markers with consistent bright orange color
@@ -236,4 +241,3 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
 };
 
 export default BusinessPositionMap;
-
