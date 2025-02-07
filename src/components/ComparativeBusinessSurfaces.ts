@@ -8,38 +8,66 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
   const height = 3.0;
   const depth = 3.0;
 
+  // Create extended sales axis line and label
+  const axisGeometry = new THREE.BufferGeometry();
+  const axisVertices = new Float32Array([
+    0, 0, 0,    // Start point
+    25, 0, 0    // End point - extended further
+  ]);
+  axisGeometry.setAttribute('position', new THREE.BufferAttribute(axisVertices, 3));
+  const axisMaterial = new THREE.LineBasicMaterial({ color: '#DAA520' });
+  const axisLine = new THREE.Line(axisGeometry, axisMaterial);
+  scene.add(axisLine);
+
+  // Add "Sales" label at the end of the axis
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  if (context) {
+    canvas.width = 256;
+    canvas.height = 64;
+    context.fillStyle = '#000000';
+    context.font = 'bold 40px Arial';
+    context.textAlign = 'left';
+    context.fillText('Sales', 0, 40);
+    
+    const texture = new THREE.CanvasTexture(canvas);
+    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+    const sprite = new THREE.Sprite(spriteMaterial);
+    sprite.position.set(26, 0, 0);  // Position at end of axis
+    sprite.scale.set(3, 0.75, 1);
+    scene.add(sprite);
+  }
+
   comparativeBusinesses.forEach((business, index) => {
     const position = business.positions[0];
     
     if (index === 0) {
-      // Create steeper diagonal volume for hypergrowth area starting from origin
+      // Create diagonal triangular volume for hypergrowth area
       const geometry = new THREE.BufferGeometry();
       const vertices = new Float32Array([
-        // Front face - made steeper by increasing y values and starting from 0
-        0, 0, 0,     // Starting from origin
-        13, 10, 7,   // Increased height (y) for steeper slope
-        -2, 0, -2,   // Starting from origin
-        11, 10, 5,   // Increased height (y) for steeper slope
-        // Add more vertices for volume
-        2, 0, 2,     // Starting from origin
-        13, 10, 9,   // Increased height (y) for steeper slope
-        0, 0, 0,     // Starting from origin
-        11, 10, 7    // Increased height (y) for steeper slope
+        // Base triangle
+        0, 0, 0,       // Origin
+        15, 0, 7.5,    // Point along diagonal on base
+        7.5, 0, 15,    // Point along diagonal on base
+        
+        // Top triangle (offset diagonally)
+        0, 15, 0,      // Top point at origin
+        15, 15, 7.5,   // Top point along diagonal
+        7.5, 15, 15,   // Top point along diagonal
       ]);
 
       const indices = new Uint16Array([
+        // Base triangle
         0, 1, 2,
-        1, 3, 2,
-        4, 5, 6,
-        5, 7, 6,
-        0, 4, 1,
-        4, 5, 1,
-        2, 3, 6,
-        3, 7, 6,
-        0, 2, 4,
-        2, 6, 4,
-        1, 5, 3,
-        5, 7, 3
+        // Top triangle
+        3, 4, 5,
+        // Side faces
+        0, 1, 4,
+        0, 4, 3,
+        1, 2, 5,
+        1, 5, 4,
+        0, 2, 5,
+        0, 5, 3
       ]);
 
       geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
@@ -47,34 +75,30 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       geometry.computeVertexNormals();
 
       const material = new THREE.MeshPhongMaterial({
-        color: '#FEC6A1',
+        color: '#DAA520',  // Gold color
         transparent: true,
         opacity: 0.6,
         side: THREE.DoubleSide
       });
 
       const volume = new THREE.Mesh(geometry, material);
-      volume.position.set(0, 0, 0); // Position at origin
+      volume.position.set(0, 0, 0);
       scene.add(volume);
 
     } else {
-      // Create box geometry for other business areas      
-      const xOffset = index === 1 ? 5 : 0;
-      const zOffset = index === 2 ? 5 : 0;
-      const yOffset = index === 1 ? 5 : 0; // Added y-offset for steady state area
-
+      // Create box geometry for steady state area      
       const geometry = new THREE.BoxGeometry(width, height, depth);
       const material = new THREE.MeshPhongMaterial({ 
-        color: index === 1 ? '#C8C8C9' : '#DAA520',
+        color: '#FEC6A1',  // Light orange
         transparent: true,
         opacity: 0.6
       });
       
       const box = new THREE.Mesh(geometry, material);
       box.position.set(
-        position.sales / 100 + xOffset,
-        position.netProfit / 100 + yOffset, // Added yOffset for steady state
-        position.grossProfit / 100 + zOffset
+        position.sales / 100,
+        position.netProfit / 100 + 5, // Elevated position for steady state
+        position.grossProfit / 100
       );
       
       scene.add(box);
@@ -95,10 +119,10 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
       const sprite = new THREE.Sprite(spriteMaterial);
       
-      // Position the label - bringing hypergrowth label closer to volume
-      const xPos = index === 0 ? 2 : (index === 1 ? position.sales / 100 + 5 : position.sales / 100);
-      const yPos = index === 0 ? 6 : (index === 1 ? position.netProfit / 100 + height/2 + 6 : position.netProfit / 100 + height/2 + 1); // Adjusted label heights
-      const zPos = index === 0 ? 2 : (index === 2 ? position.grossProfit / 100 + 5 : position.grossProfit / 100);
+      // Position the label
+      const xPos = index === 0 ? 7 : position.sales / 100;
+      const yPos = index === 0 ? 8 : (position.netProfit / 100 + height/2 + 6);
+      const zPos = index === 0 ? 7 : position.grossProfit / 100;
       
       sprite.position.set(xPos, yPos, zPos);
       sprite.scale.set(5, 1.25, 1);
@@ -106,4 +130,3 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     }
   });
 };
-
