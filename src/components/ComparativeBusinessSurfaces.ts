@@ -32,7 +32,7 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       );
     };
 
-    const geometry = new THREE.ParametricBufferGeometry(generateSurface, 50, 50);
+    const geometry = new THREE.ParametricGeometry(generateSurface, 50, 50);
     const material = new THREE.MeshPhongMaterial({ 
       color: color,
       transparent: true,
