@@ -58,9 +58,29 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     directionalLight.position.set(10, 10, 10);
     scene.add(directionalLight);
 
-    // Extended grid helper with more divisions
-    const gridHelper = new THREE.GridHelper(30, 30, '#8E9196', '#C8C8C9');
-    scene.add(gridHelper);
+    // Create a custom grid that only shows in positive quadrants
+    const gridSize = 30;
+    const divisions = 30;
+    const gridGeometry = new THREE.BufferGeometry();
+    const gridMaterial = new THREE.LineBasicMaterial({ color: '#C8C8C9' });
+    
+    const vertices = [];
+    
+    // Create vertical lines (parallel to z-axis)
+    for (let i = 0; i <= gridSize; i++) {
+      vertices.push(i, 0, 0);
+      vertices.push(i, 0, gridSize);
+    }
+    
+    // Create horizontal lines (parallel to x-axis)
+    for (let i = 0; i <= gridSize; i++) {
+      vertices.push(0, 0, i);
+      vertices.push(gridSize, 0, i);
+    }
+    
+    gridGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    const grid = new THREE.LineSegments(gridGeometry, gridMaterial);
+    scene.add(grid);
 
     // Axes
     const axesHelper = new THREE.AxesHelper(15);
@@ -216,3 +236,4 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
 };
 
 export default BusinessPositionMap;
+
