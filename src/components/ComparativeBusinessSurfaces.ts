@@ -1,5 +1,6 @@
 
 import * as THREE from 'three';
+import { ParametricGeometry } from 'three/examples/jsm/geometries/ParametricGeometry';
 import { ComparativeBusiness } from '../types/business';
 
 export const addComparativeBusinessSurfaces = (comparativeBusinesses: ComparativeBusiness[], scene: THREE.Scene) => {
@@ -32,7 +33,7 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       );
     };
 
-    const geometry = new THREE.ParametricGeometry(generateSurface, 50, 50);
+    const geometry = new ParametricGeometry(generateSurface, 50, 50);
     const material = new THREE.MeshPhongMaterial({ 
       color: color,
       transparent: true,
