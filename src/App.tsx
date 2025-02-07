@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -9,6 +10,7 @@ import InvestorReport from "./pages/InvestorReport";
 import ContributionMargin from "./pages/ContributionMargin";
 import Notifications from "./pages/Notifications";
 import Forecast from "./pages/Forecast";
+import AskAnything from "./pages/AskAnything";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,12 +23,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/ask-anything" element={<AskAnything />} />
           <Route path="/scorecard" element={<Scorecard />} />
           <Route path="/investor-report" element={<InvestorReport />} />
           <Route path="/contribution-margin" element={<ContributionMargin />} />
           <Route path="/notifications" element={<Notifications />} />
           <Route path="/forecast" element={<Forecast />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
