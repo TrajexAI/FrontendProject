@@ -4,78 +4,60 @@ import { ComparativeBusiness } from '../types/business';
 
 export const addComparativeBusinessSurfaces = (comparativeBusinesses: ComparativeBusiness[], scene: THREE.Scene) => {
   comparativeBusinesses.forEach((business, index) => {
-    const positions = business.positions;
-    // Using gold/black color scheme
-    const baseColor = positions[0].color;
+    const position = business.positions[0];
     
-    // Create path points for the volume
-    positions.forEach((pos, timeIndex) => {
-      const width = 1.5;  // Width of the volume
-      const height = 1.0; // Height of the volume
-      const depth = 1.0;  // Depth of the volume
-      
-      // Offset the volumes to the sides based on index
-      const xOffset = index === 0 ? -5 : (index === 1 ? 5 : 0);
-      const zOffset = index === 2 ? 5 : 0;
+    // Create larger volume for each business area
+    const width = 4.0;  // Width of the volume
+    const height = 3.0; // Height of the volume
+    const depth = 3.0;  // Depth of the volume
+    
+    // Offset positions for each business area
+    const xOffset = index === 0 ? -5 : (index === 1 ? 5 : 0);
+    const zOffset = index === 2 ? 5 : 0;
 
-      // Create box geometry for each position
-      const geometry = new THREE.BoxGeometry(width, height, depth);
-      const material = new THREE.MeshPhongMaterial({ 
-        color: baseColor,
-        transparent: true,
-        opacity: 0.6
-      });
+    // Create box geometry for each business area
+    const geometry = new THREE.BoxGeometry(width, height, depth);
+    const material = new THREE.MeshPhongMaterial({ 
+      color: position.color,
+      transparent: true,
+      opacity: 0.6
+    });
+    
+    const box = new THREE.Mesh(geometry, material);
+    
+    // Position the box
+    box.position.set(
+      position.sales / 100 + xOffset,
+      position.netProfit / 100,  // Swapped from previous
+      position.grossProfit / 100  // Swapped from previous
+    );
+    
+    scene.add(box);
+
+    // Add text label for business name
+    const canvas = document.createElement('canvas');
+    const context = canvas.getContext('2d');
+    if (context) {
+      canvas.width = 512;
+      canvas.height = 128;
+      context.fillStyle = '#000000';
+      context.font = 'bold 40px Arial';
+      context.textAlign = 'center';
+      context.fillText(business.name, 256, 64);
       
-      const box = new THREE.Mesh(geometry, material);
+      const texture = new THREE.CanvasTexture(canvas);
+      const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+      const sprite = new THREE.Sprite(spriteMaterial);
       
-      // Position the box - swapped grossProfit and netProfit
-      box.position.set(
-        pos.sales / 100 + xOffset,
-        pos.netProfit / 100,  // Swapped from grossProfit
-        pos.grossProfit / 100 + zOffset  // Swapped from netProfit
+      // Position the label above the box
+      sprite.position.set(
+        box.position.x,
+        box.position.y + height/2 + 1,
+        box.position.z
       );
       
-      scene.add(box);
-
-      // Add connecting lines between boxes
-      if (timeIndex > 0) {
-        const prevPos = positions[timeIndex - 1];
-        const lineGeometry = new THREE.BufferGeometry().setFromPoints([
-          new THREE.Vector3(
-            prevPos.sales / 100 + xOffset,
-            prevPos.netProfit / 100,  // Swapped
-            prevPos.grossProfit / 100 + zOffset  // Swapped
-          ),
-          new THREE.Vector3(
-            pos.sales / 100 + xOffset,
-            pos.netProfit / 100,  // Swapped
-            pos.grossProfit / 100 + zOffset  // Swapped
-          )
-        ]);
-        
-        const lineMaterial = new THREE.LineBasicMaterial({ color: baseColor });
-        const line = new THREE.Line(lineGeometry, lineMaterial);
-        scene.add(line);
-      }
-    });
-
-    // Add small spheres for data points
-    positions.forEach((pos) => {
-      const sphereGeometry = new THREE.SphereGeometry(0.15);
-      const sphereMaterial = new THREE.MeshPhongMaterial({ color: pos.color });
-      const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-      
-      // Apply the same offset as the boxes
-      const xOffset = index === 0 ? -5 : (index === 1 ? 5 : 0);
-      const zOffset = index === 2 ? 5 : 0;
-      
-      // Swapped grossProfit and netProfit positions
-      sphere.position.set(
-        pos.sales / 100 + xOffset,
-        pos.netProfit / 100,  // Swapped
-        pos.grossProfit / 100 + zOffset  // Swapped
-      );
-      scene.add(sphere);
-    });
+      sprite.scale.set(5, 1.25, 1);
+      scene.add(sprite);
+    }
   });
 };
