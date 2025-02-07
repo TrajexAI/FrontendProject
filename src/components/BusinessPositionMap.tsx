@@ -66,6 +66,33 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     const axesHelper = new THREE.AxesHelper(10);
     scene.add(axesHelper);
 
+    // Add floating axis labels
+    const createAxisLabel = (text: string, position: THREE.Vector3) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 256;
+      canvas.height = 128;
+      const context = canvas.getContext('2d');
+      if (context) {
+        context.fillStyle = '#0EA5E9'; // Ocean Blue for better visibility
+        context.font = 'bold 48px Arial';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(text, 128, 64);
+        
+        const texture = new THREE.CanvasTexture(canvas);
+        const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+        const sprite = new THREE.Sprite(spriteMaterial);
+        sprite.position.copy(position);
+        sprite.scale.set(4, 2, 1);
+        scene.add(sprite);
+      }
+    };
+
+    // Add axis labels with positions adjusted for better visibility
+    createAxisLabel('Sales', new THREE.Vector3(11, 0, 0));
+    createAxisLabel('Gross Profit', new THREE.Vector3(0, 11, 0));
+    createAxisLabel('Net Profit', new THREE.Vector3(0, 0, 11));
+
     // Add current business position markers
     positions.forEach((pos) => {
       const geometry = new THREE.SphereGeometry(0.3);
@@ -86,7 +113,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       const context = canvas.getContext('2d');
       if (context) {
         context.font = '48px Arial';
-        context.fillStyle = 'black';
+        context.fillStyle = '#0EA5E9'; // Ocean Blue for better visibility
         context.fillText(pos.year, 0, 48);
         
         const texture = new THREE.CanvasTexture(canvas);
