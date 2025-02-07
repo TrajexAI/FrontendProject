@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import BusinessPositionMap from "@/components/BusinessPositionMap";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -20,15 +21,21 @@ const businessPositions = [
 
 const comparativeBusinesses = [
   {
-    name: "Hypergrowth",
+    name: "Hypergrowth, small fashion brand",
     positions: [
       { year: "Current", sales: 2000, grossProfit: 1400, netProfit: 800, color: "#FEC6A1" }
     ]
   },
   {
-    name: "Steady state",
+    name: "Steady state, small retailer",
     positions: [
       { year: "Current", sales: 900, grossProfit: 600, netProfit: 300, color: "#C8C8C9" }
+    ]
+  },
+  {
+    name: "New entrant, e-commerce",
+    positions: [
+      { year: "Current", sales: 1100, grossProfit: 750, netProfit: 380, color: "#DAA520" }
     ]
   }
 ];
@@ -74,6 +81,10 @@ const Index = () => {
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#C8C8C9" }} />
                     <span>Steady State Area</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#DAA520" }} />
+                    <span>Similar Growth Area</span>
                   </div>
                 </div>
               </div>
