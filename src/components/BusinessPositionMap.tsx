@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
@@ -73,8 +72,8 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       canvas.height = 128;
       const context = canvas.getContext('2d');
       if (context) {
-        context.fillStyle = '#000000'; // Changed to black
-        context.font = 'bold 64px Arial'; // Increased font size for better visibility
+        context.fillStyle = '#B8860B'; // Dark gold color
+        context.font = '32px Arial'; // Smaller, non-bold font
         context.textAlign = 'center';
         context.textBaseline = 'middle';
         context.fillText(text, 128, 64);
@@ -83,7 +82,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
         const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
         const sprite = new THREE.Sprite(spriteMaterial);
         sprite.position.copy(position);
-        sprite.scale.set(5, 2.5, 1); // Increased scale for better visibility
+        sprite.scale.set(4, 2, 1); // Adjusted scale for smaller text
         scene.add(sprite);
       }
     };
@@ -112,9 +111,9 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
       if (context) {
-        context.font = '48px Arial';
-        context.fillStyle = '#000000'; // Changed to black
-        context.fillText(pos.year, 0, 48);
+        context.font = '24px Arial'; // Smaller, non-bold font
+        context.fillStyle = '#B8860B'; // Dark gold color
+        context.fillText(pos.year, 0, 24);
         
         const texture = new THREE.CanvasTexture(canvas);
         const labelMaterial = new THREE.SpriteMaterial({ map: texture });
@@ -124,7 +123,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
           sphere.position.y + 0.5,
           sphere.position.z
         );
-        sprite.scale.set(2, 1, 1);
+        sprite.scale.set(1.5, 0.75, 1); // Adjusted scale for smaller text
         scene.add(sprite);
       }
     });
