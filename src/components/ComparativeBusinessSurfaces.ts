@@ -27,9 +27,9 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     
     // Position the box
     box.position.set(
-      position.sales / 100 + xOffset,
-      position.netProfit / 100,
-      position.grossProfit / 100 + zOffset
+      pos.sales / 100 + xOffset,
+      pos.netProfit / 100,
+      pos.grossProfit / 100
     );
     
     scene.add(box);
