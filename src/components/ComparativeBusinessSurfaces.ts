@@ -47,13 +47,13 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       const vertices = new Float32Array([
         // Base triangle
         0, 0, 0,       // Origin
-        15, 0, 7.5,    // Point along diagonal on base
-        7.5, 0, 15,    // Point along diagonal on base
+        7.5, 0, 3.75,  // Point along diagonal on base
+        3.75, 0, 7.5,  // Point along diagonal on base
         
         // Top triangle (offset diagonally)
-        0, 15, 0,      // Top point at origin
-        15, 15, 7.5,   // Top point along diagonal
-        7.5, 15, 15,   // Top point along diagonal
+        0, 7.5, 0,     // Top point at origin
+        7.5, 7.5, 3.75,// Top point along diagonal
+        3.75, 7.5, 7.5 // Top point along diagonal
       ]);
 
       const indices = new Uint16Array([
@@ -130,3 +130,4 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     }
   });
 };
+
