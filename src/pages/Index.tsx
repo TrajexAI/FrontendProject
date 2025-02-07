@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import BusinessPositionMap from "@/components/BusinessPositionMap";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -57,7 +58,7 @@ const Index = () => {
           <Card>
             <CardHeader>
               <CardTitle className="text-xl font-bold text-gold">
-                Business Map
+                Business Performance Map (2022-2024)
               </CardTitle>
             </CardHeader>
             <CardContent>
