@@ -18,7 +18,7 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     // Create box geometry for each business area
     const geometry = new THREE.BoxGeometry(width, height, depth);
     const material = new THREE.MeshPhongMaterial({ 
-      color: position.color,
+      color: index === 0 ? '#FEC6A1' : (index === 1 ? '#C8C8C9' : '#DAA520'),
       transparent: true,
       opacity: 0.6
     });
@@ -28,8 +28,8 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     // Position the box
     box.position.set(
       position.sales / 100 + xOffset,
-      position.netProfit / 100,  // Swapped from previous
-      position.grossProfit / 100  // Swapped from previous
+      position.netProfit / 100,
+      position.grossProfit / 100 + zOffset
     );
     
     scene.add(box);
