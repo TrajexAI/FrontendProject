@@ -1,25 +1,11 @@
+
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-
-interface Position {
-  year: string;
-  sales: number;
-  grossProfit: number;
-  netProfit: number;
-  color: string;
-  isCurrent?: boolean;
-}
-
-interface ComparativeBusiness {
-  name: string;
-  positions: Position[];
-}
-
-interface BusinessPositionMapProps {
-  positions: Position[];
-  comparativeBusinesses: ComparativeBusiness[];
-}
+import { BusinessPositionMapProps } from '../types/business';
+import { createAxisLabel, addNumericLabel, createGrid } from '../utils/threeHelpers';
+import { addBusinessMarkers } from './BusinessMarkers';
+import { addComparativeBusinessSurfaces } from './ComparativeBusinessSurfaces';
 
 const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPositionMapProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -31,7 +17,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     const scene = new THREE.Scene();
     scene.background = new THREE.Color('#F1F0FB');
 
-    // Camera setup with adjusted position
+    // Camera setup
     const camera = new THREE.PerspectiveCamera(
       75,
       containerRef.current.clientWidth / containerRef.current.clientHeight,
@@ -46,13 +32,13 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight);
     containerRef.current.appendChild(renderer.domElement);
 
-    // Controls with adjusted target
+    // Controls setup
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.target.set(10, 5, 0);
     controls.update();
 
-    // Lighting
+    // Lighting setup
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
@@ -60,191 +46,36 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     directionalLight.position.set(10, 10, 10);
     scene.add(directionalLight);
 
-    // Create a custom grid that shows negative values only for z-axis (net profit)
-    const gridSize = 30;
-    const divisions = 30;
-    const gridGeometry = new THREE.BufferGeometry();
-    const gridMaterial = new THREE.LineBasicMaterial({ color: '#C8C8C9' });
-    
-    const vertices = [];
-    
-    // Create vertical lines (parallel to z-axis)
-    for (let i = 0; i <= gridSize; i++) {
-      vertices.push(i, 0, -gridSize/2); // Start from negative z
-      vertices.push(i, 0, gridSize/2);  // End at positive z
-    }
-    
-    // Create horizontal lines (parallel to x-axis)
-    for (let i = -gridSize/2; i <= gridSize/2; i++) { // Allow negative z values
-      vertices.push(0, 0, i);
-      vertices.push(gridSize, 0, i);
-    }
-    
-    gridGeometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
-    const grid = new THREE.LineSegments(gridGeometry, gridMaterial);
+    // Add grid
+    const grid = createGrid();
     scene.add(grid);
 
-    // Axes
+    // Add axes helper
     const axesHelper = new THREE.AxesHelper(15);
     scene.add(axesHelper);
 
-    // Add floating axis labels with numbers
-    const createAxisLabel = (text: string, position: THREE.Vector3) => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 256;
-      canvas.height = 128;
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.fillStyle = '#000000';
-        context.font = '32px Arial';
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
-        context.fillText(text, 128, 64);
-        
-        const texture = new THREE.CanvasTexture(canvas);
-        const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
-        const sprite = new THREE.Sprite(spriteMaterial);
-        sprite.position.copy(position);
-        sprite.scale.set(4, 2, 1);
-        scene.add(sprite);
-      }
-    };
+    // Add axis labels
+    createAxisLabel('Sales', new THREE.Vector3(16, 0, 0), scene);
+    createAxisLabel('Gross Profit', new THREE.Vector3(0, 16, 0), scene);
+    createAxisLabel('Net Profit', new THREE.Vector3(0, 0, 16), scene);
 
-    // Add numeric labels along axes
-    const addNumericLabel = (value: number, position: THREE.Vector3) => {
-      const canvas = document.createElement('canvas');
-      canvas.width = 128;
-      canvas.height = 64;
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.fillStyle = '#000000';
-        context.font = '24px Arial';
-        context.textAlign = 'center';
-        context.textBaseline = 'middle';
-        context.fillText(value.toString(), 64, 32);
-        
-        const texture = new THREE.CanvasTexture(canvas);
-        const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
-        const sprite = new THREE.Sprite(spriteMaterial);
-        sprite.position.copy(position);
-        sprite.scale.set(2, 1, 1);
-        scene.add(sprite);
-      }
-    };
-
-    // Add axis labels with positions adjusted for better visibility
-    createAxisLabel('Sales', new THREE.Vector3(16, 0, 0));
-    createAxisLabel('Gross Profit', new THREE.Vector3(0, 16, 0));
-    createAxisLabel('Net Profit', new THREE.Vector3(0, 0, 16));
-
-    // Add numeric labels along axes (every 500 units)
+    // Add numeric labels
     for (let i = 5; i <= 25; i += 5) {
-      addNumericLabel(i * 100, new THREE.Vector3(i, -0.5, 0)); // Sales axis
-      addNumericLabel(i * 100, new THREE.Vector3(0, i, -0.5)); // Gross Profit axis
+      addNumericLabel(i * 100, new THREE.Vector3(i, -0.5, 0), scene);
+      addNumericLabel(i * 100, new THREE.Vector3(0, i, -0.5), scene);
     }
 
-    // Add negative and positive labels for net profit axis
     for (let i = -15; i <= 25; i += 5) {
-      if (i !== 0) { // Skip zero to avoid duplicate label
-        addNumericLabel(i * 100, new THREE.Vector3(-0.5, 0, i));
+      if (i !== 0) {
+        addNumericLabel(i * 100, new THREE.Vector3(-0.5, 0, i), scene);
       }
     }
 
-    // Add current business position markers with consistent bright orange color
-    positions.forEach((pos) => {
-      const geometry = new THREE.SphereGeometry(0.4); // Slightly larger spheres
-      const material = new THREE.MeshPhongMaterial({ 
-        color: '#F97316', // Bright orange for all company markers
-        emissive: '#F97316',
-        emissiveIntensity: 0.2 // Add slight glow
-      });
-      const sphere = new THREE.Mesh(geometry, material);
-      
-      sphere.position.set(
-        pos.sales / 100,
-        pos.grossProfit / 100,
-        pos.netProfit / 100
-      );
-      
-      scene.add(sphere);
-
-      // Add year label
-      const canvas = document.createElement('canvas');
-      const context = canvas.getContext('2d');
-      if (context) {
-        context.font = '24px Arial';
-        context.fillStyle = '#000000';
-        context.fillText(pos.year, 0, 24);
-        
-        const texture = new THREE.CanvasTexture(canvas);
-        const labelMaterial = new THREE.SpriteMaterial({ map: texture });
-        const sprite = new THREE.Sprite(labelMaterial);
-        sprite.position.set(
-          sphere.position.x + 0.5,
-          sphere.position.y + 0.5,
-          sphere.position.z
-        );
-        sprite.scale.set(1.5, 0.75, 1);
-        scene.add(sprite);
-      }
-    });
+    // Add business markers
+    addBusinessMarkers(positions, scene);
 
     // Add comparative business surfaces
-    comparativeBusinesses.forEach((business, index) => {
-      const positions = business.positions;
-      const color = positions[0].color;
-      
-      // Create a parametric surface
-      const generateSurface = (u: number, v: number, target: THREE.Vector3) => {
-        const timeSpan = positions.length - 1;
-        const t = v * timeSpan;
-        const timeIndex = Math.floor(t);
-        const alpha = t - timeIndex;
-        
-        const pos1 = positions[timeIndex];
-        const pos2 = positions[Math.min(timeIndex + 1, positions.length - 1)];
-        
-        const x = (pos1.sales + (pos2.sales - pos1.sales) * alpha) / 100;
-        const y = (pos1.grossProfit + (pos2.grossProfit - pos1.grossProfit) * alpha) / 100;
-        const z = (pos1.netProfit + (pos2.netProfit - pos1.netProfit) * alpha) / 100;
-        
-        // Add wave effect
-        const width = index === 0 ? 1 : 2; // Similar growth has smaller width
-        const waveHeight = 0.5;
-        const frequency = 2;
-        const offset = Math.sin(u * Math.PI * frequency) * waveHeight;
-        
-        target.set(
-          x + Math.cos(u * Math.PI * 2) * width,
-          y + offset,
-          z
-        );
-      };
-
-      const geometry = new THREE.ParametricBufferGeometry(generateSurface, 50, 50);
-      const material = new THREE.MeshPhongMaterial({ 
-        color: color,
-        transparent: true,
-        opacity: 0.6,
-        side: THREE.DoubleSide
-      });
-      
-      const surface = new THREE.Mesh(geometry, material);
-      scene.add(surface);
-
-      // Add small spheres for data points
-      positions.forEach((pos) => {
-        const sphereGeometry = new THREE.SphereGeometry(0.15);
-        const sphereMaterial = new THREE.MeshPhongMaterial({ color: pos.color });
-        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-        sphere.position.set(
-          pos.sales / 100,
-          pos.grossProfit / 100,
-          pos.netProfit / 100
-        );
-        scene.add(sphere);
-      });
-    });
+    addComparativeBusinessSurfaces(comparativeBusinesses, scene);
 
     // Animation loop
     const animate = () => {
