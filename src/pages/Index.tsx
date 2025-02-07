@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import BusinessPositionMap from "@/components/BusinessPositionMap";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -66,32 +67,24 @@ const Index = () => {
                 comparativeBusinesses={comparativeBusinesses}
               />
               <div className="mt-4 space-y-4">
-                <div className="grid grid-cols-3 gap-4 text-sm">
+                <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#F97316" }} />
-                    <span>2024 (Current)</span>
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#ea384c" }} />
+                    <span>Tracked Company</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#8B5CF6" }} />
-                    <span>2023</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#1A1F2C" }} />
-                    <span>2022</span>
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#FEC6A1" }} />
+                    <span>Hypergrowth Area</span>
                   </div>
                 </div>
-                <div className="grid grid-cols-3 gap-4 text-sm">
+                <div className="grid grid-cols-2 gap-4 text-sm">
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#22C55E" }} />
-                    <span>Similar Growth</span>
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#C8C8C9" }} />
+                    <span>Steady State Area</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#3B82F6" }} />
-                    <span>High Growth</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#EC4899" }} />
-                    <span>Steady State</span>
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#DAA520" }} />
+                    <span>Similar Growth Area</span>
                   </div>
                 </div>
               </div>
