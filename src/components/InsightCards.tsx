@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import {
   Select,
@@ -23,6 +24,8 @@ const InsightCards = () => {
       navigate("/notifications");
     } else if (value === "forecast") {
       navigate("/forecast");
+    } else if (value === "ask-anything") {
+      navigate("/ask-anything");
     }
   };
 
@@ -37,6 +40,12 @@ const InsightCards = () => {
             <div className="space-y-1">
               <div className="font-semibold">Home</div>
               <p className="text-white/80 text-xs">Query your business data with Trajex SuperApp</p>
+            </div>
+          </SelectItem>
+          <SelectItem value="ask-anything" className="text-white hover:bg-forest-light focus:bg-forest-light">
+            <div className="space-y-1">
+              <div className="font-semibold">Ask Anything</div>
+              <p className="text-white/80 text-xs">Chat with your business data</p>
             </div>
           </SelectItem>
           <SelectItem value="notifications" className="text-white hover:bg-forest-light focus:bg-forest-light">
