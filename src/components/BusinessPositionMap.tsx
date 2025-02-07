@@ -58,23 +58,23 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
     directionalLight.position.set(10, 10, 10);
     scene.add(directionalLight);
 
-    // Grid helper
-    const gridHelper = new THREE.GridHelper(20, 20, '#8E9196', '#C8C8C9');
+    // Extended grid helper with more divisions
+    const gridHelper = new THREE.GridHelper(30, 30, '#8E9196', '#C8C8C9');
     scene.add(gridHelper);
 
     // Axes
-    const axesHelper = new THREE.AxesHelper(10);
+    const axesHelper = new THREE.AxesHelper(15);
     scene.add(axesHelper);
 
-    // Add floating axis labels
+    // Add floating axis labels with numbers
     const createAxisLabel = (text: string, position: THREE.Vector3) => {
       const canvas = document.createElement('canvas');
       canvas.width = 256;
       canvas.height = 128;
       const context = canvas.getContext('2d');
       if (context) {
-        context.fillStyle = '#000000'; // Changed back to black
-        context.font = '32px Arial'; // Keeping the smaller, non-bold font
+        context.fillStyle = '#000000';
+        context.font = '32px Arial';
         context.textAlign = 'center';
         context.textBaseline = 'middle';
         context.fillText(text, 128, 64);
@@ -83,23 +83,55 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
         const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
         const sprite = new THREE.Sprite(spriteMaterial);
         sprite.position.copy(position);
-        sprite.scale.set(4, 2, 1); // Keeping the adjusted scale
+        sprite.scale.set(4, 2, 1);
+        scene.add(sprite);
+      }
+    };
+
+    // Add numeric labels along axes
+    const addNumericLabel = (value: number, position: THREE.Vector3) => {
+      const canvas = document.createElement('canvas');
+      canvas.width = 128;
+      canvas.height = 64;
+      const context = canvas.getContext('2d');
+      if (context) {
+        context.fillStyle = '#000000';
+        context.font = '24px Arial';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(value.toString(), 64, 32);
+        
+        const texture = new THREE.CanvasTexture(canvas);
+        const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+        const sprite = new THREE.Sprite(spriteMaterial);
+        sprite.position.copy(position);
+        sprite.scale.set(2, 1, 1);
         scene.add(sprite);
       }
     };
 
     // Add axis labels with positions adjusted for better visibility
-    createAxisLabel('Sales', new THREE.Vector3(11, 0, 0));
-    createAxisLabel('Gross Profit', new THREE.Vector3(0, 11, 0));
-    createAxisLabel('Net Profit', new THREE.Vector3(0, 0, 11));
+    createAxisLabel('Sales', new THREE.Vector3(16, 0, 0));
+    createAxisLabel('Gross Profit', new THREE.Vector3(0, 16, 0));
+    createAxisLabel('Net Profit', new THREE.Vector3(0, 0, 16));
 
-    // Add current business position markers
+    // Add numeric labels along axes (every 500 units)
+    for (let i = 5; i <= 25; i += 5) {
+      addNumericLabel(i * 100, new THREE.Vector3(i, -0.5, 0)); // Sales axis
+      addNumericLabel(i * 100, new THREE.Vector3(0, i, -0.5)); // Gross Profit axis
+      addNumericLabel(i * 100, new THREE.Vector3(-0.5, 0, i)); // Net Profit axis
+    }
+
+    // Add current business position markers with consistent bright orange color
     positions.forEach((pos) => {
-      const geometry = new THREE.SphereGeometry(0.3);
-      const material = new THREE.MeshPhongMaterial({ color: pos.color });
+      const geometry = new THREE.SphereGeometry(0.4); // Slightly larger spheres
+      const material = new THREE.MeshPhongMaterial({ 
+        color: '#F97316', // Bright orange for all company markers
+        emissive: '#F97316',
+        emissiveIntensity: 0.2 // Add slight glow
+      });
       const sphere = new THREE.Mesh(geometry, material);
       
-      // Scale positions to fit in the visible area
       sphere.position.set(
         pos.sales / 100,
         pos.grossProfit / 100,
@@ -108,12 +140,12 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
       
       scene.add(sphere);
 
-      // Add label
+      // Add year label
       const canvas = document.createElement('canvas');
       const context = canvas.getContext('2d');
       if (context) {
-        context.font = '24px Arial'; // Keeping the smaller, non-bold font
-        context.fillStyle = '#000000'; // Changed back to black
+        context.font = '24px Arial';
+        context.fillStyle = '#000000';
         context.fillText(pos.year, 0, 24);
         
         const texture = new THREE.CanvasTexture(canvas);
@@ -124,7 +156,7 @@ const BusinessPositionMap = ({ positions, comparativeBusinesses }: BusinessPosit
           sphere.position.y + 0.5,
           sphere.position.z
         );
-        sprite.scale.set(1.5, 0.75, 1); // Keeping the adjusted scale
+        sprite.scale.set(1.5, 0.75, 1);
         scene.add(sprite);
       }
     });
