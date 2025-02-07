@@ -1,6 +1,5 @@
 
 import * as THREE from 'three';
-import { ParametricGeometry } from 'three/examples/jsm/geometries/ParametricGeometry';
 import { ComparativeBusiness } from '../types/business';
 
 export const addComparativeBusinessSurfaces = (comparativeBusinesses: ComparativeBusiness[], scene: THREE.Scene) => {
@@ -8,51 +7,71 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     const positions = business.positions;
     const color = positions[0].color;
     
-    const generateSurface = (u: number, v: number, target: THREE.Vector3) => {
-      const timeSpan = positions.length - 1;
-      const t = v * timeSpan;
-      const timeIndex = Math.floor(t);
-      const alpha = t - timeIndex;
+    // Create path points for the volume
+    positions.forEach((pos, timeIndex) => {
+      const width = 1.5;  // Width of the volume
+      const height = 1.0; // Height of the volume
+      const depth = 1.0;  // Depth of the volume
       
-      const pos1 = positions[timeIndex];
-      const pos2 = positions[Math.min(timeIndex + 1, positions.length - 1)];
-      
-      const x = (pos1.sales + (pos2.sales - pos1.sales) * alpha) / 100;
-      const y = (pos1.grossProfit + (pos2.grossProfit - pos1.grossProfit) * alpha) / 100;
-      const z = (pos1.netProfit + (pos2.netProfit - pos1.netProfit) * alpha) / 100;
-      
-      const width = index === 0 ? 1 : 2;
-      const waveHeight = 0.5;
-      const frequency = 2;
-      const offset = Math.sin(u * Math.PI * frequency) * waveHeight;
-      
-      target.set(
-        x + Math.cos(u * Math.PI * 2) * width,
-        y + offset,
-        z
-      );
-    };
+      // Offset the volumes to the sides based on index
+      const xOffset = index === 0 ? -5 : (index === 1 ? 5 : 0);
+      const zOffset = index === 2 ? 5 : 0;
 
-    const geometry = new ParametricGeometry(generateSurface, 50, 50);
-    const material = new THREE.MeshPhongMaterial({ 
-      color: color,
-      transparent: true,
-      opacity: 0.6,
-      side: THREE.DoubleSide
+      // Create box geometry for each position
+      const geometry = new THREE.BoxGeometry(width, height, depth);
+      const material = new THREE.MeshPhongMaterial({ 
+        color: color,
+        transparent: true,
+        opacity: 0.6
+      });
+      
+      const box = new THREE.Mesh(geometry, material);
+      
+      // Position the box
+      box.position.set(
+        pos.sales / 100 + xOffset,
+        pos.grossProfit / 100,
+        pos.netProfit / 100 + zOffset
+      );
+      
+      scene.add(box);
+
+      // Add connecting lines between boxes
+      if (timeIndex > 0) {
+        const prevPos = positions[timeIndex - 1];
+        const lineGeometry = new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(
+            prevPos.sales / 100 + xOffset,
+            prevPos.grossProfit / 100,
+            prevPos.netProfit / 100 + zOffset
+          ),
+          new THREE.Vector3(
+            pos.sales / 100 + xOffset,
+            pos.grossProfit / 100,
+            pos.netProfit / 100 + zOffset
+          )
+        ]);
+        
+        const lineMaterial = new THREE.LineBasicMaterial({ color: color });
+        const line = new THREE.Line(lineGeometry, lineMaterial);
+        scene.add(line);
+      }
     });
-    
-    const surface = new THREE.Mesh(geometry, material);
-    scene.add(surface);
 
     // Add small spheres for data points
     positions.forEach((pos) => {
       const sphereGeometry = new THREE.SphereGeometry(0.15);
       const sphereMaterial = new THREE.MeshPhongMaterial({ color: pos.color });
       const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+      
+      // Apply the same offset as the boxes
+      const xOffset = index === 0 ? -5 : (index === 1 ? 5 : 0);
+      const zOffset = index === 2 ? 5 : 0;
+      
       sphere.position.set(
-        pos.sales / 100,
+        pos.sales / 100 + xOffset,
         pos.grossProfit / 100,
-        pos.netProfit / 100
+        pos.netProfit / 100 + zOffset
       );
       scene.add(sphere);
     });
