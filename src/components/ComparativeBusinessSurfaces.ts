@@ -22,15 +22,15 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
       const geometry = new THREE.BufferGeometry();
       const vertices = new Float32Array([
         // Front face
-        0, 0, 0,
-        5, 5, 5,
-        -2, 0, -2,
-        3, 5, 3,
+        8, 0, 0,
+        13, 5, 5,
+        6, 0, -2,
+        11, 5, 3,
         // Add more vertices for volume
-        0, 0, 2,
-        5, 5, 7,
-        -2, 0, 0,
-        3, 5, 5,
+        8, 0, 2,
+        13, 5, 7,
+        6, 0, 0,
+        11, 5, 5,
       ]);
 
       const indices = new Uint16Array([
@@ -111,3 +111,4 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     }
   });
 };
+
