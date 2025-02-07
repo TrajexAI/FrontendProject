@@ -1,38 +1,34 @@
+
 import { useState } from "react";
-import ChartSection from "@/components/ChartSection";
-import MessageList from "@/components/MessageList";
+import BusinessPositionMap from "@/components/BusinessPositionMap";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import InsightCards from "@/components/InsightCards";
-import ChatInput from "@/components/ChatInput";
 
-const mockData = [
-  { date: "Jan", value: 4000 },
-  { date: "Feb", value: 3000 },
-  { date: "Mar", value: 5000 },
-  { date: "Apr", value: 2780 },
-  { date: "May", value: 1890 },
-  { date: "Jun", value: 2390 },
-  { date: "Jul", value: 3490 },
-];
-
-const messages = [
-  { content: "What happened in October?", isUser: true },
-  { content: "Analysing marketing data....", isUser: false },
-  { content: "It looks like content creation and posting was down 23% in September, which may have impacted sales.", isUser: false },
-  { content: "Analysing sales and inventory data....", isUser: false },
-  { content: "Looking at the sales by product breakdown for October, it looks like the AW24 Suede boots sales volume was down 15% in October.", isUser: false },
-  { content: "Looking at inventory for the period, the AW suede boots were out of stock from 25th September onwards for a period of 5 weeks. ", isUser: false },
+const businessPositions = [
+  {
+    year: "2024",
+    sales: 1200,
+    grossProfit: 800,
+    netProfit: 400,
+    color: "#F97316" // Current year (bright orange)
+  },
+  {
+    year: "2023",
+    sales: 1000,
+    grossProfit: 600,
+    netProfit: 300,
+    color: "#8B5CF6" // Last year (purple)
+  },
+  {
+    year: "2022",
+    sales: 800,
+    grossProfit: 500,
+    netProfit: 200,
+    color: "#1A1F2C" // Two years ago (dark)
+  }
 ];
 
 const Index = () => {
-  const [inputMessage, setInputMessage] = useState("");
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!inputMessage.trim()) return;
-    console.log("Message submitted:", inputMessage);
-    setInputMessage("");
-  };
-
   return (
     <div className="min-h-screen bg-white font-quicksand">
       <div className="w-full px-4 py-2 bg-white">
@@ -46,14 +42,31 @@ const Index = () => {
         <InsightCards />
       </div>
       <div className="p-4 md:p-8">
-        <div className="mx-auto max-w-4xl space-y-6 pb-20">
-          <ChartSection data={mockData} />
-          <MessageList messages={messages} />
-          <ChatInput
-            inputMessage={inputMessage}
-            setInputMessage={setInputMessage}
-            onSubmit={handleSubmit}
-          />
+        <div className="mx-auto max-w-4xl space-y-6">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl font-bold text-gold">
+                Business Performance Map (2022-2024)
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <BusinessPositionMap positions={businessPositions} />
+              <div className="mt-4 grid grid-cols-3 gap-4 text-sm">
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#F97316" }} />
+                  <span>2024 (Current)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#8B5CF6" }} />
+                  <span>2023</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "#1A1F2C" }} />
+                  <span>2022</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </div>
