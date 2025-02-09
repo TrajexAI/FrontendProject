@@ -125,9 +125,6 @@ const Today = () => {
                     </DialogContent>
                   </Dialog>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-white">Click the arrow to view this week's performance details</p>
-                </CardContent>
               </Card>
             </div>
           </div>
@@ -138,4 +135,3 @@ const Today = () => {
 };
 
 export default Today;
-
