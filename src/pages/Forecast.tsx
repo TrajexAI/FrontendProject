@@ -75,12 +75,12 @@ const Forecast = () => {
 
           <Card className="bg-black border border-[#F97316]/20">
             <div className="p-4">
-              <div>
+              <div className="text-center">
                 <h2 className="text-lg font-medium text-[#F97316]">Scenario Analysis</h2>
                 <div className="mt-2">
                   <h3 className="text-white">Hiring 1 FTE junior sales person</h3>
-                  <p className="text-[#1EAEDB] text-3xl font-medium text-center">2 months</p>
-                  <p className="text-white text-xs text-center">until profit recovers to pre-hiring level</p>
+                  <p className="text-[#1EAEDB] text-3xl font-medium">2 months</p>
+                  <p className="text-white text-xs">until profit recovers to pre-hiring level</p>
                 </div>
               </div>
             </div>
@@ -92,10 +92,10 @@ const Forecast = () => {
             </CardHeader>
             <div className="flex items-center justify-center py-4">
               <CircularProgress 
-                value={65}
-                currentValue="£5,436"
-                targetValue="£8,500"
-                label="of daily target"
+                value={70}
+                currentValue="70%"
+                targetValue="Variable Costs"
+                label="30% Fixed Costs"
                 size={180}
                 strokeWidth={12}
               />
