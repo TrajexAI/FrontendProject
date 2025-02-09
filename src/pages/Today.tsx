@@ -67,7 +67,7 @@ const Today = () => {
                 <CardContent>
                   <div className="h-[200px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={productData}>
+                      <BarChart data={productData} barSize={8}>
                         <XAxis 
                           dataKey="name" 
                           tick={{ fill: '#F97316', fontSize: 12 }}
@@ -137,3 +137,4 @@ const Today = () => {
 };
 
 export default Today;
+
