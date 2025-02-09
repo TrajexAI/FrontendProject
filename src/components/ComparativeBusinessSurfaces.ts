@@ -3,6 +3,9 @@ import * as THREE from 'three';
 import { ComparativeBusiness } from '../types/business';
 
 export const addComparativeBusinessSurfaces = (comparativeBusinesses: ComparativeBusiness[], scene: THREE.Scene) => {
+  // Scene setup with black background
+  scene.background = new THREE.Color('#000000');
+
   // Define common dimensions
   const width = 4.0;
   const height = 3.0;
@@ -25,7 +28,7 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
   if (context) {
     canvas.width = 256;
     canvas.height = 64;
-    context.fillStyle = '#000000';
+    context.fillStyle = '#F97316';
     context.font = 'bold 40px Arial';
     context.textAlign = 'left';
     context.fillText('Sales', 0, 40);
@@ -110,7 +113,7 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     if (context) {
       canvas.width = 512;
       canvas.height = 128;
-      context.fillStyle = '#000000';
+      context.fillStyle = '#F97316';
       context.font = 'bold 40px Arial';
       context.textAlign = 'center';
       context.fillText(business.name, 256, 64);
@@ -130,4 +133,3 @@ export const addComparativeBusinessSurfaces = (comparativeBusinesses: Comparativ
     }
   });
 };
-
