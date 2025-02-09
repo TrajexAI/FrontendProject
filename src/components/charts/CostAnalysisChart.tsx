@@ -28,11 +28,11 @@ const CostAnalysisChart = ({ costData }: CostAnalysisChartProps) => {
           <XAxis 
             dataKey="category" 
             stroke="#D4AF37"
-            tick={{ fill: '#D4AF37' }}
+            tick={{ fill: '#F97316' }}
           />
           <YAxis 
             stroke="#D4AF37"
-            tick={{ fill: '#D4AF37' }}
+            tick={{ fill: '#F97316' }}
             tickFormatter={(value) => `$${value.toLocaleString()}`}
           />
           <Tooltip
@@ -41,11 +41,11 @@ const CostAnalysisChart = ({ costData }: CostAnalysisChartProps) => {
               border: '1px solid #D4AF37',
               borderRadius: '4px',
             }}
-            labelStyle={{ color: '#D4AF37' }}
+            labelStyle={{ color: '#F97316' }}
             formatter={(value: number) => [`$${value.toLocaleString()}`, '']}
           />
           <Legend 
-            wrapperStyle={{ color: '#D4AF37' }}
+            wrapperStyle={{ color: '#F97316' }}
           />
           <Bar dataKey="fixed" name="Fixed Costs" fill="#D4AF37" />
           <Bar dataKey="variable" name="Variable Costs" fill="#8B7355" />

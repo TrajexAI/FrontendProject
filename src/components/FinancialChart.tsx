@@ -27,7 +27,7 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
 
   return (
     <div className={cn("w-full p-4", className)}>
-      <h2 className="mb-4 text-xl font-semibold text-black">Sales, Q3 and Q4 2024</h2>
+      <h2 className="mb-4 text-xl font-semibold text-white">Sales, Q3 and Q4 2024</h2>
       <div className="h-[200px]">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={chartData}>
@@ -42,13 +42,13 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
               stroke="#B8860B"
               tickLine={false}
               axisLine={false}
-              tick={{ fontSize: 12, fill: "#000000" }}
+              tick={{ fontSize: 12, fill: "#F97316" }}
             />
             <YAxis
               stroke="#B8860B"
               tickLine={false}
               axisLine={false}
-              tick={{ fontSize: 12, fill: "#000000" }}
+              tick={{ fontSize: 12, fill: "#F97316" }}
               tickFormatter={formatYAxis}
             />
             <Tooltip
@@ -57,7 +57,7 @@ const FinancialChart = ({ data, className }: FinancialChartProps) => {
                 border: "1px solid #B8860B",
                 borderRadius: "4px",
               }}
-              labelStyle={{ color: "#B8860B" }}
+              labelStyle={{ color: "#F97316" }}
               formatter={(value: number) => [new Intl.NumberFormat('en-US').format(value), "Sales"]}
             />
             <Area
