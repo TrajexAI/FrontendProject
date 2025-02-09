@@ -43,15 +43,15 @@ const ProgressScreen = () => {
     { month: 'Feb', salesCentile: 25, profitCentile: 50 },
   ];
 
-  // Create bell curve data points
+  // Create bell curve data points with increased height
   const bellCurveData = Array.from({ length: 100 }, (_, i) => {
     const x = (i - 50) / 10;
     const y = Math.exp(-(x * x) / 2) / Math.sqrt(2 * Math.PI);
     return {
       x: i,
-      y: y * 30, // Scale the curve height
-      salesMarker: i === 35 ? y * 30 : 0, // Mark 25th percentile at quarter of curve
-      profitMarker: i === 42 ? y * 30 : 0, // Mark 35th percentile halfway to peak
+      y: y * 50, // Increased scaling factor from 30 to 50 for more height
+      salesMarker: i === 35 ? y * 50 : 0,
+      profitMarker: i === 42 ? y * 50 : 0,
     };
   });
 
