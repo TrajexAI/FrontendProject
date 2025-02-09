@@ -17,7 +17,10 @@ const BreakevenChart = ({
   productName
 }: BreakevenChartProps) => {
   // Calculate break-even point in units
-  const breakevenUnits = fixedCosts / (pricePerUnit - variableCostPerUnit);
+  const breakevenUnits = Math.round(fixedCosts / (pricePerUnit - variableCostPerUnit));
+  
+  // Calculate break-even revenue/cost
+  const breakevenValue = breakevenUnits * pricePerUnit;
   
   // Generate data points
   const data = Array.from({ length: maxUnits / 50 + 1 }, (_, i) => {
@@ -88,9 +91,20 @@ const BreakevenChart = ({
             stroke="#ea384c"
             strokeDasharray="3 3"
             label={{
-              value: 'Break-even',
+              value: `Break-even: ${breakevenUnits.toLocaleString()} units`,
               fill: '#ea384c',
               position: 'top'
+            }}
+          />
+          {/* Add intersection point label */}
+          <ReferenceLine
+            y={breakevenValue}
+            x={breakevenUnits}
+            stroke="none"
+            label={{
+              value: `£${breakevenValue.toLocaleString()}`,
+              fill: '#ea384c',
+              position: 'right'
             }}
           />
         </LineChart>
