@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BottomNav from "./components/BottomNav";
 import Index from "./pages/Index";
+import Today from "./pages/Today";
 import Scorecard from "./pages/Scorecard";
 import InvestorReport from "./pages/InvestorReport";
 import ContributionMargin from "./pages/ContributionMargin";
@@ -25,7 +26,8 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Index />} />
+            <Route path="/" element={<Today />} />
+            <Route path="/index" element={<Index />} />
             <Route path="/ask-anything" element={<AskAnything />} />
             <Route path="/scorecard" element={<Scorecard />} />
             <Route path="/investor-report" element={<InvestorReport />} />
