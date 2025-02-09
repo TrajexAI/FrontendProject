@@ -1,4 +1,3 @@
-
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -76,7 +75,6 @@ const Forecast = () => {
           <Card className="bg-black border border-[#F97316]/20">
             <div className="p-4">
               <div className="text-center">
-                <h2 className="text-lg font-medium text-[#F97316]">Scenario Analysis</h2>
                 <div className="mt-2">
                   <h3 className="text-white">Hiring 1 FTE junior sales person</h3>
                   <p className="text-[#1EAEDB] text-3xl font-medium">2 months</p>
@@ -184,4 +182,3 @@ const Forecast = () => {
 };
 
 export default Forecast;
-
