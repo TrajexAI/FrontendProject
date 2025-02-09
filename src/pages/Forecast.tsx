@@ -41,16 +41,16 @@ const Forecast = () => {
                 <h2 className="text-lg font-semibold text-[#F97316] mb-2">SaaS Metrics</h2>
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
-                    <p className="text-[#F97316]/80">LTV:CAC</p>
+                    <p className="text-white">LTV:CAC</p>
                     <p className="text-[#1EAEDB] text-sm font-bold">3.5x</p>
                   </div>
                   <div>
-                    <p className="text-[#F97316]/80">Rule of 40</p>
+                    <p className="text-white">Rule of 40</p>
                     <p className="text-[#1EAEDB] text-sm font-bold">45%</p>
                   </div>
                   <div>
-                    <p className="text-[#F97316]/80">ARR</p>
-                    <p className="text-[#1EAEDB] text-sm font-bold">$2.4M</p>
+                    <p className="text-white">ARR</p>
+                    <p className="text-[#1EAEDB] text-sm font-bold">£2.4M</p>
                   </div>
                 </div>
               </div>
@@ -76,9 +76,9 @@ const Forecast = () => {
               <div>
                 <h2 className="text-lg font-medium text-[#F97316]">Scenario Analysis</h2>
                 <div className="mt-2">
-                  <h3 className="font-medium">Scenario 1: Hiring 1FTE</h3>
-                  <p className="text-[#1EAEDB] font-medium">2 months</p>
-                  <p className="text-white text-sm">until profit recovers to pre-hiring level</p>
+                  <h3 className="text-white">Hiring 1 FTE junior sales person</h3>
+                  <p className="text-[#1EAEDB] text-xl font-medium text-center">2 months</p>
+                  <p className="text-white text-xs">until profit recovers to pre-hiring level</p>
                 </div>
               </div>
               <ArrowRight className="h-4 w-4 text-[#F97316] cursor-pointer" />
@@ -86,16 +86,13 @@ const Forecast = () => {
           </Card>
 
           <Card className="bg-black border border-[#F97316]/20">
-            <div className="flex justify-between items-center p-4">
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-lg font-medium text-[#F97316]">Cost Analysis</CardTitle>
               <div className="flex items-center gap-2">
-                <h2 className="text-lg font-medium text-[#F97316]">Cost Analysis</h2>
-                <div className="flex items-center gap-2">
-                  <Activity className="h-4 w-4 text-[#F97316]" />
-                  <span className="text-[#F97316]">70% variable / 30% fixed</span>
-                </div>
+                <Activity className="h-4 w-4 text-[#F97316]" />
+                <span className="text-[#F97316]">70% variable / 30% fixed</span>
               </div>
-              <ArrowRight className="h-4 w-4 text-[#F97316] cursor-pointer" />
-            </div>
+            </CardHeader>
           </Card>
 
           <Dialog open={showMetricsDialog} onOpenChange={setShowMetricsDialog}>
@@ -117,7 +114,7 @@ const Forecast = () => {
                   <p className="text-white/80">Combined growth rate and profit margin should exceed 40%. Currently performing above benchmark.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2 text-white">ARR ($2.4M)</h3>
+                  <h3 className="font-semibold mb-2 text-white">ARR (£2.4M)</h3>
                   <p className="text-white/80">Annual Recurring Revenue, showing steady growth trajectory.</p>
                 </div>
               </div>
