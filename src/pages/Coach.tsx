@@ -42,7 +42,7 @@ const Coach = () => {
     <div className="flex flex-col min-h-screen bg-black text-[#F97316]">
       <TopBanner />
       <div className="flex-1 overflow-hidden flex flex-col p-4 pt-20">
-        <div className="max-w-4xl mx-auto w-full flex-1 overflow-y-auto mb-16">
+        <div className="max-w-4xl mx-auto w-full flex-1 overflow-y-auto mb-8">
           <MessageList messages={messages} />
         </div>
         <div>
