@@ -35,7 +35,6 @@ const Today = () => {
       <div className="p-4 pt-20">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
-            <h1 className="text-3xl font-bold">Today's Overview</h1>
             <div className="grid gap-4">
               <Card className="bg-black border border-[#F97316]/20">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -137,4 +136,3 @@ const Today = () => {
 };
 
 export default Today;
-
