@@ -5,20 +5,37 @@ import ChatInput from "@/components/ChatInput";
 import TopBanner from "@/components/TopBanner";
 
 const Coach = () => {
-  const [messages, setMessages] = useState<Array<{ content: string; isUser: boolean }>>([]);
+  const [messages, setMessages] = useState<Array<{ content: string; isUser: boolean }>>([
+    {
+      content: "Hi! I'm your AI assistant. How can I help you today?",
+      isUser: false,
+    },
+  ]);
   const [inputMessage, setInputMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputMessage.trim()) return;
+    if (!inputMessage.trim() || isLoading) return;
 
-    const newMessage = {
+    const userMessage = {
       content: inputMessage,
       isUser: true,
     };
 
-    setMessages((prev) => [...prev, newMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputMessage("");
+    setIsLoading(true);
+
+    // Simulate AI response with a delay
+    setTimeout(() => {
+      const aiResponse = {
+        content: "I'm a demo AI assistant. I'm not connected to a real AI model yet, but I can simulate responses!",
+        isUser: false,
+      };
+      setMessages((prev) => [...prev, aiResponse]);
+      setIsLoading(false);
+    }, 1000);
   };
 
   return (
@@ -34,6 +51,7 @@ const Coach = () => {
               inputMessage={inputMessage}
               setInputMessage={setInputMessage}
               onSubmit={handleSubmit}
+              isLoading={isLoading}
             />
           </div>
         </div>
@@ -43,4 +61,3 @@ const Coach = () => {
 };
 
 export default Coach;
-
