@@ -1,7 +1,8 @@
+
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Gauge, BarChart2, ArrowRight } from "lucide-react";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from "recharts";
 import { CircularProgress } from "@/components/ui/circular-progress";
 import {
   Dialog,
@@ -13,13 +14,13 @@ import {
 
 const Today = () => {
   const productData = [
-    { name: "Product A", sales: 320 },
-    { name: "Product B", sales: 450 },
-    { name: "Product C", sales: 280 },
-    { name: "Product D", sales: 390 },
-    { name: "Product E", sales: 200 },
-    { name: "Product F", sales: 340 },
-    { name: "Product G", sales: 280 },
+    { name: "Product A", sales: 320, lastWeekSales: 280 },
+    { name: "Product B", sales: 450, lastWeekSales: 420 },
+    { name: "Product C", sales: 280, lastWeekSales: 300 },
+    { name: "Product D", sales: 390, lastWeekSales: 360 },
+    { name: "Product E", sales: 200, lastWeekSales: 180 },
+    { name: "Product F", sales: 340, lastWeekSales: 310 },
+    { name: "Product G", sales: 280, lastWeekSales: 260 },
   ];
 
   const weekOverview = {
@@ -102,7 +103,15 @@ const Today = () => {
                           }}
                           labelStyle={{ color: '#FFFFFF' }}
                         />
-                        <Bar dataKey="sales" fill="#1EAEDB" />
+                        <Legend 
+                          verticalAlign="top"
+                          height={36}
+                          formatter={(value) => {
+                            return <span style={{ color: '#FFFFFF' }}>{value}</span>;
+                          }}
+                        />
+                        <Bar dataKey="sales" name="Current Week" fill="#1EAEDB" />
+                        <Bar dataKey="lastWeekSales" name="Last Week" fill="#F97316" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -151,3 +160,4 @@ const Today = () => {
 };
 
 export default Today;
+
