@@ -2,7 +2,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, Pedometer, X } from "lucide-react";
 import TopBanner from "@/components/TopBanner";
 import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -56,7 +56,7 @@ const Forecast = () => {
                 </div>
               </div>
               <ArrowRight 
-                className="w-6 h-6 text-[#F97316] cursor-pointer hover:text-[#F97316]/80 transition-colors"
+                className="h-4 w-4 text-[#F97316] cursor-pointer hover:text-[#F97316]/80 transition-colors"
                 onClick={() => setShowMetricsDialog(true)}
               />
             </div>
@@ -69,6 +69,33 @@ const Forecast = () => {
                 className="h-4 w-4 text-[#F97316] cursor-pointer"
                 onClick={() => setShowForecastDialog(true)}
               />
+            </div>
+          </Card>
+
+          <Card className="bg-black border border-[#F97316]/20">
+            <div className="flex justify-between items-center p-4">
+              <div>
+                <h2 className="text-lg font-medium text-[#F97316]">Scenario Analysis</h2>
+                <div className="mt-2">
+                  <h3 className="font-medium">Scenario 1: Hiring 1FTE</h3>
+                  <p className="text-[#1EAEDB] font-medium">2 months</p>
+                  <p className="text-white text-sm">until profit recovers to pre-hiring level</p>
+                </div>
+              </div>
+              <ArrowRight className="h-4 w-4 text-[#F97316] cursor-pointer" />
+            </div>
+          </Card>
+
+          <Card className="bg-black border border-[#F97316]/20">
+            <div className="flex justify-between items-center p-4">
+              <div className="flex items-center gap-2">
+                <h2 className="text-lg font-medium text-[#F97316]">Cost Analysis</h2>
+                <div className="flex items-center gap-2">
+                  <Pedometer className="h-4 w-4 text-[#F97316]" />
+                  <span className="text-[#F97316]">70% variable / 30% fixed</span>
+                </div>
+              </div>
+              <ArrowRight className="h-4 w-4 text-[#F97316] cursor-pointer" />
             </div>
           </Card>
 
