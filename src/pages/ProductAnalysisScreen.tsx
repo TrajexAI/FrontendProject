@@ -17,11 +17,11 @@ interface ProductAnalysisScreenProps {
 const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
   const navigate = useNavigate();
   const defaultData = [
-    { name: "Fashion Scarf", sales: 2000, margin: -800 },
-    { name: "Leather Wallet", sales: 15000, margin: 1500 },
-    { name: "Designer Bag", sales: 35000, margin: -1200 },
-    { name: "Premium Boots", sales: 55000, margin: 3500 },
-    { name: "Luxury Watch", sales: 85000, margin: 4200 },
+    { name: "Product A", sales: 2000, margin: -800 },
+    { name: "Product B", sales: 15000, margin: 1500 },
+    { name: "Product C", sales: 35000, margin: -1200 },
+    { name: "Product D", sales: 55000, margin: 3500 },
+    { name: "Product E", sales: 85000, margin: 4200 },
   ];
 
   const data = productData || defaultData;
