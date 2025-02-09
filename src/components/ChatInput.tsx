@@ -10,7 +10,7 @@ interface ChatInputProps {
 }
 
 const ChatInput = ({ inputMessage, setInputMessage, onSubmit, isLoading = false }: ChatInputProps) => (
-  <form onSubmit={onSubmit} className="bg-black/80 backdrop-blur-md">
+  <form onSubmit={onSubmit} className="bg-black">
     <div className="max-w-4xl mx-auto flex gap-2 items-center p-4">
       <Input
         type="text"

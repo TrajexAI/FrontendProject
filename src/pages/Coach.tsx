@@ -41,11 +41,11 @@ const Coach = () => {
   return (
     <div className="flex flex-col min-h-screen bg-black text-[#F97316]">
       <TopBanner />
-      <div className="flex-1 overflow-hidden flex flex-col p-4 pt-20">
-        <div className="max-w-4xl mx-auto w-full flex-1 overflow-y-auto mb-8">
+      <div className="flex-1 overflow-hidden flex flex-col p-4 pt-20 pb-24">
+        <div className="max-w-4xl mx-auto w-full flex-1 overflow-y-auto">
           <MessageList messages={messages} />
         </div>
-        <div>
+        <div className="fixed bottom-16 left-0 right-0">
           <ChatInput
             inputMessage={inputMessage}
             setInputMessage={setInputMessage}
