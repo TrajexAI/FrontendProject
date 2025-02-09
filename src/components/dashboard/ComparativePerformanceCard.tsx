@@ -80,14 +80,14 @@ const ComparativePerformanceCard = ({ centileHistory, bellCurveData }: Comparati
         </Dialog>
       </CardHeader>
       <CardContent>
-        <div className="h-[80px] mb-2">
+        <div className="h-[60px]">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={bellCurveData}>
               <Area
                 type="monotone"
                 dataKey="y"
-                stroke="#F97316"
-                fill="#F97316"
+                stroke="#1EAEDB"
+                fill="#1EAEDB"
                 fillOpacity={0.1}
               />
               <Area
@@ -108,13 +108,13 @@ const ComparativePerformanceCard = ({ centileHistory, bellCurveData }: Comparati
             </AreaChart>
           </ResponsiveContainer>
         </div>
-        <div className="flex justify-center space-x-8">
+        <div className="flex justify-center space-x-8 mt-1">
           <div className="flex flex-col items-center">
-            <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#0FA0CE] mb-1"></div>
+            <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#0FA0CE] mb-0.5"></div>
             <span className="text-xs text-white">Sales: 25th centile</span>
           </div>
           <div className="flex flex-col items-center">
-            <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#FF0000] mb-1"></div>
+            <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#FF0000] mb-0.5"></div>
             <span className="text-xs text-white">Gross Profit: 35th centile</span>
           </div>
         </div>
