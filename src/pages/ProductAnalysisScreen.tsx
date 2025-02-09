@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
@@ -48,10 +49,12 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
     shape: (props: any) => {
       const { cx, cy } = props;
       return (
-        <g onClick={() => navigate('/coach-screen-2')} style={{ cursor: 'pointer' }}>
+        <g 
+          onClick={() => navigate('/coach-screen-2')} 
+          style={{ cursor: 'pointer', pointerEvents: 'all' }}
+          transform={`translate(${cx - 25},${cy - 25})`}
+        >
           <Star
-            x={cx - 25}
-            y={cy - 25}
             size={50}
             color="#FEF7CD"
             fill="#FEF7CD"
@@ -141,15 +144,15 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           return entries[0]?.payload.name || '';
                         }}
                       />
-                      {/* Star highlight for negative margin products */}
-                      <Scatter 
-                        data={starHighlight}
-                        shape="star"
-                      />
                       {/* Regular product scatter points */}
                       <Scatter 
                         data={scatterData} 
                         fillOpacity={0.8}
+                      />
+                      {/* Star highlight for negative margin products */}
+                      <Scatter 
+                        data={starHighlight}
+                        shape="star"
                       />
                     </ScatterChart>
                   </ResponsiveContainer>
