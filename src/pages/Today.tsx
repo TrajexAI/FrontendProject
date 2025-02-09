@@ -47,16 +47,13 @@ const Today = () => {
                       </DialogTrigger>
                       <DialogContent className="bg-black border border-[#F97316]/20">
                         <DialogHeader>
-                          <DialogTitle className="text-[#F97316]">Tips to Meet Daily Target</DialogTitle>
+                          <DialogTitle className="text-[#F97316]">Today's Salient Points</DialogTitle>
                         </DialogHeader>
                         <div className="space-y-4 py-4">
                           <ul className="list-disc pl-5 space-y-2 text-white">
-                            <li>Focus on high-margin products during peak hours</li>
-                            <li>Implement upselling strategies for complementary items</li>
-                            <li>Ensure proper stock levels for top-selling products</li>
-                            <li>Monitor competitor pricing and adjust accordingly</li>
-                            <li>Leverage customer data for targeted promotions</li>
-                            <li>Optimize store layout for better product visibility</li>
+                            <li>Upselling with 10% discount for complementary items delivered 20% more profit in pop up store A last week</li>
+                            <li>Consider social media content push if daily target is not met</li>
+                            <li>Review and update custom plan with business context so your AI coach can refine targets</li>
                           </ul>
                         </div>
                       </DialogContent>
