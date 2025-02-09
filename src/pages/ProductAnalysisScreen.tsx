@@ -47,7 +47,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
             >
               <ArrowLeft className="h-6 w-6" />
             </button>
-            <h1 className="text-[#F97316] text-lg ml-4">Product Performance</h1>
+            <h1 className="text-[#F97316] text-lg ml-4">Product Profitability</h1>
           </div>
           <div className="w-full h-[300px] bg-black border border-[#F97316]/20 rounded-lg p-4">
             <div className="text-white text-sm mb-4">Product profitability vs Sales</div>
