@@ -1,3 +1,4 @@
+
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight, LineChart, PieChart, TrendingUp } from "lucide-react";
@@ -40,7 +41,11 @@ const ProgressScreen = () => {
               </CardHeader>
               <CardContent className="pb-2">
                 <div className="space-y-1">
-                  <Progress value={50} className="h-1.5 bg-[#1EAEDB]/20" indicatorClassName="bg-[#1EAEDB]" />
+                  <Progress 
+                    value={50} 
+                    className="h-1.5 bg-[#1EAEDB]/20"
+                    indicatorClassName="bg-[#1EAEDB]"
+                  />
                   <p className="text-xs text-white/60">Week 26 of 52</p>
                 </div>
               </CardContent>
