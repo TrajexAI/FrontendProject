@@ -36,15 +36,15 @@ const ProgressScreen = () => {
     { month: 'Feb', salesCentile: 25, profitCentile: 50 },
   ];
 
-  // Create bell curve data points with increased height
+  // Create bell curve data points with decreased height initially and then increased
   const bellCurveData = Array.from({ length: 100 }, (_, i) => {
     const x = (i - 50) / 10;
     const y = Math.exp(-(x * x) / 2) / Math.sqrt(2 * Math.PI);
     return {
       x: i,
-      y: y * 100, // Increased scaling factor from 80 to 100 for more height
-      salesMarker: i === 35 ? y * 100 : 0,
-      profitMarker: i === 42 ? y * 100 : 0,
+      y: y * 60, // First lower the curve by reducing from 100 to 60
+      salesMarker: i === 35 ? y * 120 : 0, // Then make markers higher by increasing to 120
+      profitMarker: i === 42 ? y * 120 : 0,
     };
   });
 
@@ -69,3 +69,4 @@ const ProgressScreen = () => {
 };
 
 export default ProgressScreen;
+
