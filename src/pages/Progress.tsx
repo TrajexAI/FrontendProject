@@ -1,4 +1,3 @@
-
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight, LineChart, PieChart, TrendingUp } from "lucide-react";
@@ -10,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
+import { LineChart as RechartsLineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from "recharts";
 
 const ProgressScreen = () => {
   const productData = [
@@ -27,6 +26,21 @@ const ProgressScreen = () => {
     grossProfit: "£45,678",
     profitMargin: "36.3%"
   };
+
+  const centileHistory = [
+    { month: 'Mar', salesCentile: 22, profitCentile: 48 },
+    { month: 'Apr', salesCentile: 24, profitCentile: 49 },
+    { month: 'May', salesCentile: 23, profitCentile: 47 },
+    { month: 'Jun', salesCentile: 24, profitCentile: 48 },
+    { month: 'Jul', salesCentile: 25, profitCentile: 49 },
+    { month: 'Aug', salesCentile: 24, profitCentile: 48 },
+    { month: 'Sep', salesCentile: 25, profitCentile: 49 },
+    { month: 'Oct', salesCentile: 24, profitCentile: 50 },
+    { month: 'Nov', salesCentile: 25, profitCentile: 50 },
+    { month: 'Dec', salesCentile: 25, profitCentile: 50 },
+    { month: 'Jan', salesCentile: 25, profitCentile: 50 },
+    { month: 'Feb', salesCentile: 25, profitCentile: 50 },
+  ];
 
   return (
     <div className="min-h-screen bg-black text-[#F97316]">
@@ -54,17 +68,65 @@ const ProgressScreen = () => {
             <Card className="bg-black border border-[#F97316]/20">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-lg font-medium text-[#F97316]">Centiles</CardTitle>
-                <PieChart className="h-4 w-4 text-[#F97316]" />
+                <Dialog>
+                  <DialogTrigger>
+                    <ArrowRight className="h-3 w-3 text-[#F97316] cursor-pointer" />
+                  </DialogTrigger>
+                  <DialogContent className="bg-black border border-[#F97316]/20 w-[90vw] max-w-2xl">
+                    <DialogHeader>
+                      <DialogTitle className="text-[#F97316]">Historical Centile Performance</DialogTitle>
+                    </DialogHeader>
+                    <div className="h-[400px] mt-4">
+                      <ResponsiveContainer width="100%" height="100%">
+                        <RechartsLineChart data={centileHistory}>
+                          <XAxis 
+                            dataKey="month" 
+                            stroke="#F97316" 
+                            tick={{ fill: '#FFFFFF' }}
+                          />
+                          <YAxis 
+                            stroke="#F97316"
+                            tick={{ fill: '#FFFFFF' }}
+                            tickFormatter={(value) => `${value}th`}
+                          />
+                          <Tooltip
+                            contentStyle={{
+                              backgroundColor: '#000',
+                              border: '1px solid #F97316',
+                              borderRadius: '4px',
+                            }}
+                            formatter={(value: number) => [`${value}th centile`, '']}
+                          />
+                          <Legend />
+                          <Line 
+                            type="monotone" 
+                            dataKey="salesCentile" 
+                            stroke="#F97316" 
+                            name="Sales Centile"
+                            dot={false}
+                          />
+                          <Line 
+                            type="monotone" 
+                            dataKey="profitCentile" 
+                            stroke="#1EAEDB" 
+                            name="Profit Centile"
+                            dot={false}
+                          />
+                        </RechartsLineChart>
+                      </ResponsiveContainer>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-white">Sales</span>
-                    <span className="text-[#F97316] font-bold">25th centile</span>
+              <CardContent className="pb-2">
+                <div className="grid grid-cols-2 gap-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-white">Sales</span>
+                    <span className="text-xs text-[#F97316] font-bold">25th</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white">Profit</span>
-                    <span className="text-[#F97316] font-bold">50th centile</span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-white">Profit</span>
+                    <span className="text-xs text-[#F97316] font-bold">50th</span>
                   </div>
                 </div>
               </CardContent>
