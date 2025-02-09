@@ -1,4 +1,3 @@
-
 import { ArrowLeft, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
@@ -56,6 +55,8 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
           color="#FEF7CD"
           fill="#FEF7CD"
           opacity={0.8}
+          className="cursor-pointer"
+          onClick={() => navigate('/ask-anything')}
         />
       );
     }
@@ -127,14 +128,6 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           color: '#FFFFFF'
                         }}
                         formatter={(value: any, name: string, props: any) => {
-                          if (props.payload.isHighlight) {
-                            return [
-                              <div key="tooltip" className="cursor-pointer text-[#F97316]" onClick={() => navigate('/ask-anything')}>
-                                Go to the conversation interface to explore variable costs →
-                              </div>,
-                              ""
-                            ];
-                          }
                           if (name === 'profit margin') {
                             return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
                           }
