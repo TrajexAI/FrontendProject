@@ -1,6 +1,7 @@
+
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { ArrowRight, LineChart, PieChart } from "lucide-react";
+import { ArrowRight, LineChart, PieChart, TrendingUp } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { CircularProgress } from "@/components/ui/circular-progress";
 import {
