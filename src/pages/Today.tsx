@@ -3,6 +3,7 @@ import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Gauge, BarChart2, ArrowRight } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
+import { CircularProgress } from "@/components/ui/circular-progress";
 import {
   Dialog,
   DialogContent,
@@ -42,19 +43,16 @@ const Today = () => {
                   <Gauge className="h-4 w-4 text-[#F97316]" />
                 </CardHeader>
                 <CardContent>
-                  <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-white">£5,436</div>
-                    <div className="flex items-center space-x-2">
-                      <div className="text-sm text-white">65%</div>
-                      <div className="h-2 w-16 rounded-full bg-[#F97316]/20">
-                        <div 
-                          className="h-2 rounded-full bg-[#F97316]" 
-                          style={{ width: '65%' }}
-                        />
-                      </div>
-                    </div>
+                  <div className="flex items-center justify-center">
+                    <CircularProgress 
+                      value={65}
+                      currentValue="£5,436"
+                      targetValue="£8,500"
+                      label="of daily target"
+                      size={140}
+                      strokeWidth={10}
+                    />
                   </div>
-                  <p className="text-xs text-white/60 mt-2">of daily target</p>
                 </CardContent>
               </Card>
 
@@ -135,3 +133,4 @@ const Today = () => {
 };
 
 export default Today;
+
