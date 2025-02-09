@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
 
-const Progress = () => {
+const ProgressScreen = () => {
   const productData = [
     { name: "Premium Boots", sales: 12000, margin: 3500 },
     { name: "Designer Bag", sales: 8000, margin: -1200 },
@@ -161,5 +161,4 @@ const Progress = () => {
   );
 };
 
-export default Progress;
-
+export default ProgressScreen;
