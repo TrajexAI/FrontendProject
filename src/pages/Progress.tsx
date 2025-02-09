@@ -1,7 +1,8 @@
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { ArrowRight, LineChart, PieChart, TrendingUp } from "lucide-react";
+import { ArrowRight, LineChart, PieChart } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
+import { CircularProgress } from "@/components/ui/circular-progress";
 import {
   Dialog,
   DialogContent,
@@ -49,18 +50,19 @@ const ProgressScreen = () => {
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
-                <CardTitle className="text-sm font-medium text-[#F97316]">Weekly Progress</CardTitle>
-                <LineChart className="h-3 w-3 text-[#F97316]" />
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-lg font-medium text-[#F97316]">Sales</CardTitle>
               </CardHeader>
-              <CardContent className="pb-2">
-                <div className="space-y-1">
-                  <Progress 
-                    value={50} 
-                    className="h-1.5 bg-[#1EAEDB]/20"
-                    indicatorClassName="bg-[#1EAEDB]"
+              <CardContent>
+                <div className="flex items-center justify-center py-4">
+                  <CircularProgress 
+                    value={65}
+                    currentValue="£5,436"
+                    targetValue="£8,500"
+                    label="of daily target"
+                    size={180}
+                    strokeWidth={12}
                   />
-                  <p className="text-xs text-white/60">Week 26 of 52</p>
                 </div>
               </CardContent>
             </Card>
