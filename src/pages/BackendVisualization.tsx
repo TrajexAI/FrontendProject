@@ -1,8 +1,8 @@
-
 import { useState } from "react";
 import BusinessPositionMap from "@/components/BusinessPositionMap";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import InsightCards from "@/components/InsightCards";
+import TopBanner from "@/components/TopBanner";
 
 const businessPositions = [
   { year: "Dec 2024", sales: 1200, grossProfit: 800, netProfit: 400, color: "#ea384c", isCurrent: true },
@@ -43,14 +43,8 @@ const comparativeBusinesses = [
 const BackendVisualization = () => {
   return (
     <div className="min-h-screen bg-black font-quicksand">
-      <div className="w-full px-4 py-2 bg-black">
-        <div className="flex justify-between items-center">
-          <img 
-            src="/lovable-uploads/d1aeb0e9-c67b-4f1b-96e0-94fd3225b22c.png" 
-            alt="Logo" 
-            className="h-24 object-contain"
-          />
-        </div>
+      <TopBanner />
+      <div className="w-full px-4 py-2 bg-black pt-20">
         <InsightCards />
       </div>
       <div className="p-4 md:p-8">
