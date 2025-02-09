@@ -8,6 +8,7 @@ import BottomNav from "./components/BottomNav";
 import Index from "./pages/Index";
 import Today from "./pages/Today";
 import Coach from "./pages/Coach";
+import CoachScreen2 from "./pages/CoachScreen2";
 import Progress from "./pages/Progress";
 import Customize from "./pages/Customize";
 import Forecast from "./pages/Forecast";
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/" element={<Today />} />
             <Route path="/index" element={<Index />} />
             <Route path="/ask-anything" element={<Coach />} />
+            <Route path="/coach-screen-2" element={<CoachScreen2 />} />
             <Route path="/scorecard" element={<Progress />} />
             <Route path="/notifications" element={<Customize />} />
             <Route path="/forecast" element={<Forecast />} />
