@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -36,7 +35,6 @@ const Forecast = () => {
       <TopBanner />
       <div className="pt-20 px-4 md:px-8">
         <div className="max-w-6xl mx-auto space-y-6">
-          {/* SaaS Metrics Card */}
           <Card className="bg-black border border-[#F97316]/20">
             <div className="flex justify-between items-center p-4">
               <div>
@@ -63,7 +61,6 @@ const Forecast = () => {
             </div>
           </Card>
 
-          {/* 3-way forecast Card */}
           <Card className="bg-black border border-[#F97316]/20">
             <div className="flex justify-between items-center p-4">
               <h2 className="text-lg font-medium text-[#F97316]">3-way forecast</h2>
@@ -74,9 +71,8 @@ const Forecast = () => {
             </div>
           </Card>
 
-          {/* Metrics Dialog */}
           <Dialog open={showMetricsDialog} onOpenChange={setShowMetricsDialog}>
-            <DialogContent className="bg-black border-[#F97316]/20 text-[#F97316]">
+            <DialogContent className="bg-black border-[#F97316]/20 text-[#F97316] w-[90%] max-w-lg">
               <div className="flex justify-between items-center">
                 <DialogTitle className="text-[#F97316]">SaaS Metrics Explained</DialogTitle>
                 <X 
@@ -101,11 +97,10 @@ const Forecast = () => {
             </DialogContent>
           </Dialog>
 
-          {/* Forecast Dialog */}
           <Dialog open={showForecastDialog} onOpenChange={setShowForecastDialog}>
-            <DialogContent className="bg-black border-[#F97316]/20 text-[#F97316] max-w-4xl">
-              <div className="flex justify-between items-center">
-                <DialogTitle className="text-[#F97316]">3-way Forecast Details</DialogTitle>
+            <DialogContent className="bg-black border-[#F97316]/20 text-[#F97316] w-[90%] max-w-2xl max-h-[90vh] overflow-y-auto">
+              <div className="flex justify-between items-center mb-4">
+                <DialogTitle className="text-[#F97316]">3-way forecast Details</DialogTitle>
                 <X 
                   className="h-4 w-4 cursor-pointer hover:text-[#F97316]/80" 
                   onClick={() => setShowForecastDialog(false)}
@@ -114,7 +109,7 @@ const Forecast = () => {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-semibold mb-4">Revenue Forecast</h3>
-                  <div className="h-[300px]">
+                  <div className="h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={revenueData}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#333" />
@@ -129,7 +124,7 @@ const Forecast = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold mb-4">Cashflow Forecast</h3>
-                  <div className="h-[300px]">
+                  <div className="h-[250px]">
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={cashflowData}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#333" />
@@ -158,4 +153,3 @@ const Forecast = () => {
 };
 
 export default Forecast;
-
