@@ -1,3 +1,4 @@
+
 import FinancialChart from "@/components/FinancialChart";
 
 interface ChartSectionProps {
