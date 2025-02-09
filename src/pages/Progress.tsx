@@ -1,3 +1,4 @@
+
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight, LineChart, PieChart, TrendingUp } from "lucide-react";
@@ -169,15 +170,15 @@ const ProgressScreen = () => {
                       <Area
                         type="monotone"
                         dataKey="salesMarker"
-                        stroke="#1EAEDB"
-                        fill="#1EAEDB"
+                        stroke="#0FA0CE"
+                        fill="#0FA0CE"
                         fillOpacity={0.8}
                       />
                       <Area
                         type="monotone"
                         dataKey="profitMarker"
-                        stroke="#1EAEDB"
-                        fill="#1EAEDB"
+                        stroke="#8B5CF6"
+                        fill="#8B5CF6"
                         fillOpacity={0.8}
                       />
                     </AreaChart>
@@ -185,11 +186,11 @@ const ProgressScreen = () => {
                 </div>
                 <div className="flex justify-center space-x-8">
                   <div className="flex flex-col items-center">
-                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#1EAEDB] mb-1"></div>
+                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#0FA0CE] mb-1"></div>
                     <span className="text-xs text-white">Sales: 25th centile</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#1EAEDB] mb-1"></div>
+                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#8B5CF6] mb-1"></div>
                     <span className="text-xs text-white">Gross Profit: 35th centile</span>
                   </div>
                 </div>
@@ -269,3 +270,4 @@ const ProgressScreen = () => {
 };
 
 export default ProgressScreen;
+
