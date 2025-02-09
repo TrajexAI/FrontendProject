@@ -12,6 +12,7 @@ import Progress from "./pages/Progress";
 import Customize from "./pages/Customize";
 import Forecast from "./pages/Forecast";
 import NotFound from "./pages/NotFound";
+import ProductAnalysisScreen from "./pages/ProductAnalysisScreen";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="/scorecard" element={<Progress />} />
             <Route path="/notifications" element={<Customize />} />
             <Route path="/forecast" element={<Forecast />} />
+            <Route path="/product-analysis" element={<ProductAnalysisScreen />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <BottomNav />
@@ -39,4 +41,3 @@ const App = () => (
 );
 
 export default App;
-
