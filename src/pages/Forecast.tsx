@@ -84,22 +84,6 @@ const Forecast = () => {
             </div>
           </Card>
 
-          <Card className="bg-black border border-[#F97316]/20">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-lg font-medium text-[#F97316]">Cost Analysis</CardTitle>
-            </CardHeader>
-            <div className="flex items-center justify-center py-4">
-              <CircularProgress 
-                value={70}
-                currentValue="70%"
-                targetValue="Variable Costs"
-                label="30% Fixed Costs"
-                size={180}
-                strokeWidth={12}
-              />
-            </div>
-          </Card>
-
           <Dialog open={showMetricsDialog} onOpenChange={setShowMetricsDialog}>
             <DialogContent className="bg-black border-[#F97316]/20 text-white w-[90%] max-w-lg">
               <div className="flex justify-between items-center">

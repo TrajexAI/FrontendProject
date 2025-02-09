@@ -4,6 +4,8 @@ import ProfitCard from "@/components/dashboard/ProfitCard";
 import ComparativePerformanceCard from "@/components/dashboard/ComparativePerformanceCard";
 import ProductAnalysisCard from "@/components/dashboard/ProductAnalysisCard";
 import SalesCard from "@/components/dashboard/SalesCard";
+import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { CircularProgress } from "@/components/ui/circular-progress";
 
 const ProgressScreen = () => {
   const productData = [
@@ -42,7 +44,7 @@ const ProgressScreen = () => {
     const y = Math.exp(-(x * x) / 2) / Math.sqrt(2 * Math.PI);
     return {
       x: i,
-      y: y * 300, // Increased scaling factor from 150 to 300 for double the height
+      y: y * 300,
       salesMarker: i === 35 ? y * 300 : 0,
       profitMarker: i === 42 ? y * 300 : 0,
     };
@@ -61,6 +63,21 @@ const ProgressScreen = () => {
             />
             <ProductAnalysisCard productData={productData} />
             <SalesCard />
+            <Card className="bg-black border border-[#F97316]/20">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-lg font-medium text-[#F97316]">Cost Analysis</CardTitle>
+              </CardHeader>
+              <div className="flex items-center justify-center py-4">
+                <CircularProgress 
+                  value={70}
+                  currentValue="70%"
+                  targetValue="Variable Costs"
+                  label="30% Fixed Costs"
+                  size={180}
+                  strokeWidth={12}
+                />
+              </div>
+            </Card>
           </div>
         </div>
       </div>
