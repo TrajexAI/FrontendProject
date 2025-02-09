@@ -1,4 +1,3 @@
-
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
@@ -106,7 +105,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                             return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
                           }
                           if (name === 'sales') {
-                            return [`£${props.payload.z.toLocaleString()}`, 'Sales Volume'];
+                            return [`£${props.payload.x.toLocaleString()}`, 'Sales'];
                           }
                           return [value, name];
                         }}
