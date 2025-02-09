@@ -20,10 +20,10 @@ const Message = ({ content, isUser = false, className, index }: MessageProps) =>
     >
       <div
         className={cn(
-          "max-w-[80%] rounded-2xl px-4 py-2 shadow-lg backdrop-blur-sm",
+          "max-w-[80%] rounded-2xl px-4 py-2 border",
           isUser
-            ? "bg-gold text-black"
-            : "bg-forest-light text-white",
+            ? "bg-[#F97316] text-white border-[#F97316]/20"
+            : "bg-black text-white border-[#F97316]/20",
         )}
       >
         <p className="text-sm md:text-base">{content}</p>
