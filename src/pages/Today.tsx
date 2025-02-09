@@ -1,4 +1,3 @@
-
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Gauge, BarChart2, ArrowRight } from "lucide-react";
@@ -40,7 +39,29 @@ const Today = () => {
               <Card className="bg-black border border-[#F97316]/20">
                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                   <CardTitle className="text-lg font-medium text-[#F97316]">Sales</CardTitle>
-                  <Gauge className="h-4 w-4 text-[#F97316]" />
+                  <div className="flex items-center gap-2">
+                    <Gauge className="h-4 w-4 text-[#F97316]" />
+                    <Dialog>
+                      <DialogTrigger>
+                        <ArrowRight className="h-4 w-4 text-[#F97316] cursor-pointer hover:text-[#F97316]/80 transition-colors" />
+                      </DialogTrigger>
+                      <DialogContent className="bg-black border border-[#F97316]/20">
+                        <DialogHeader>
+                          <DialogTitle className="text-[#F97316]">Tips to Meet Daily Target</DialogTitle>
+                        </DialogHeader>
+                        <div className="space-y-4 py-4">
+                          <ul className="list-disc pl-5 space-y-2 text-white">
+                            <li>Focus on high-margin products during peak hours</li>
+                            <li>Implement upselling strategies for complementary items</li>
+                            <li>Ensure proper stock levels for top-selling products</li>
+                            <li>Monitor competitor pricing and adjust accordingly</li>
+                            <li>Leverage customer data for targeted promotions</li>
+                            <li>Optimize store layout for better product visibility</li>
+                          </ul>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <div className="flex items-center justify-center">
@@ -133,4 +154,3 @@ const Today = () => {
 };
 
 export default Today;
-
