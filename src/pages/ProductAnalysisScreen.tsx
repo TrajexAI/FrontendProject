@@ -44,6 +44,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
     x: (negativeProducts[0].sales + negativeProducts[1].sales) / 2,
     y: (negativeProducts[0].margin + negativeProducts[1].margin) / 2,
     z: Math.max(...negativeProducts.map(p => p.sales)) * 1.5,
+    name: "Negative Margin Products",  // Added the required name property
     isHighlight: true,
     fill: '#FEF7CD',
     opacity: 0.8,
