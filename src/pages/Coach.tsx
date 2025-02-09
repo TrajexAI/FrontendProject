@@ -7,7 +7,7 @@ import TopBanner from "@/components/TopBanner";
 const Coach = () => {
   const [messages, setMessages] = useState<Array<{ content: string; isUser: boolean }>>([
     {
-      content: "Product A and Product C contribute negatively to your profit: You are losing money with Product A and C. Let's explore their variable costs",
+      content: "Need more details? Or about to take a business decision? Ask any question and get data-driven scenario analysis answers here",
       isUser: false,
     },
   ]);
@@ -59,3 +59,4 @@ const Coach = () => {
 };
 
 export default Coach;
+
