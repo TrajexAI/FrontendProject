@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BottomNav from "./components/BottomNav";
 import Index from "./pages/Index";
 import Scorecard from "./pages/Scorecard";
 import InvestorReport from "./pages/InvestorReport";
@@ -18,20 +19,23 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/ask-anything" element={<AskAnything />} />
-          <Route path="/scorecard" element={<Scorecard />} />
-          <Route path="/investor-report" element={<InvestorReport />} />
-          <Route path="/contribution-margin" element={<ContributionMargin />} />
-          <Route path="/notifications" element={<Notifications />} />
-          <Route path="/forecast" element={<Forecast />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <div className="pb-20">
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/ask-anything" element={<AskAnything />} />
+            <Route path="/scorecard" element={<Scorecard />} />
+            <Route path="/investor-report" element={<InvestorReport />} />
+            <Route path="/contribution-margin" element={<ContributionMargin />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/forecast" element={<Forecast />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <BottomNav />
+        </BrowserRouter>
+      </div>
     </TooltipProvider>
   </QueryClientProvider>
 );
