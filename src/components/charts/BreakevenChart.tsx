@@ -75,6 +75,7 @@ const BreakevenChart = ({
             stroke="#1EAEDB" 
             name="Total Revenue"
             strokeWidth={2}
+            dot={false}
           />
           <Line 
             type="monotone" 
@@ -82,6 +83,7 @@ const BreakevenChart = ({
             stroke="#FFFFFF" 
             name="Total Costs"
             strokeWidth={2}
+            dot={false}
           />
           <ReferenceLine
             x={breakevenUnits}
