@@ -7,7 +7,7 @@ import TopBanner from "@/components/TopBanner";
 const Coach = () => {
   const [messages, setMessages] = useState<Array<{ content: string; isUser: boolean }>>([
     {
-      content: "Hi! I'm your AI assistant. How can I help you today?",
+      content: "Need more details? Or about to take a business decision? Ask any question and get data-driven scenario analysis answers here",
       isUser: false,
     },
   ]);
