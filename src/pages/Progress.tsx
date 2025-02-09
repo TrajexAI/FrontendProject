@@ -3,11 +3,16 @@ import TopBanner from "@/components/TopBanner";
 import ProfitCard from "@/components/dashboard/ProfitCard";
 import ComparativePerformanceCard from "@/components/dashboard/ComparativePerformanceCard";
 import ProductAnalysisCard from "@/components/dashboard/ProductAnalysisCard";
-import SalesCard from "@/components/dashboard/SalesCard";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { CircularProgress } from "@/components/ui/circular-progress";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, X } from "lucide-react";
+import { useState } from "react";
 
 const ProgressScreen = () => {
+  const [showCostDialog, setShowCostDialog] = useState(false);
+  
   const productData = [
     { name: "Premium Boots", sales: 12000, margin: 3500 },
     { name: "Designer Bag", sales: 8000, margin: -1200 },
@@ -62,10 +67,13 @@ const ProgressScreen = () => {
               bellCurveData={bellCurveData}
             />
             <ProductAnalysisCard productData={productData} />
-            <SalesCard />
             <Card className="bg-black border border-[#F97316]/20">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-lg font-medium text-[#F97316]">Cost Analysis</CardTitle>
+                <ArrowRight 
+                  className="h-4 w-4 text-[#F97316] cursor-pointer hover:text-[#F97316]/80 transition-colors"
+                  onClick={() => setShowCostDialog(true)}
+                />
               </CardHeader>
               <div className="flex items-center justify-center py-4">
                 <CircularProgress 
@@ -81,6 +89,34 @@ const ProgressScreen = () => {
           </div>
         </div>
       </div>
+
+      <Dialog open={showCostDialog} onOpenChange={setShowCostDialog}>
+        <DialogContent className="bg-black border-[#F97316]/20 text-white w-[90%] max-w-lg">
+          <div className="flex justify-between items-center">
+            <DialogTitle className="text-white">Understanding Costs</DialogTitle>
+            <X 
+              className="h-4 w-4 cursor-pointer hover:text-white/80" 
+              onClick={() => setShowCostDialog(false)}
+            />
+          </div>
+          <div className="space-y-4">
+            <div>
+              <h3 className="font-semibold mb-2 text-white">Variable Costs (70%)</h3>
+              <p className="text-white/80">These costs change in proportion to your business activity. Examples include raw materials, direct labor, and sales commissions. As your production or sales increase, these costs increase accordingly.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2 text-white">Fixed Costs (30%)</h3>
+              <p className="text-white/80">These costs remain constant regardless of your business activity level. Examples include rent, insurance, and salaries of permanent staff. They don't change with production or sales volume.</p>
+            </div>
+            <Button 
+              className="w-full bg-white hover:bg-white/90 text-black"
+              onClick={() => console.log("Contacting advisor...")}
+            >
+              Talk to my advisor to discuss my costs
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
