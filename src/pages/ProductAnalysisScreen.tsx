@@ -44,7 +44,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center mb-4">
             <button
-              onClick={() => navigate('/progress')}
+              onClick={() => navigate('/scorecard')}
               className="text-[#F97316] hover:text-[#F97316]/80 transition-colors"
             >
               <ArrowLeft className="h-6 w-6" />
