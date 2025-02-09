@@ -37,15 +37,15 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
     fill: item.margin < 0 ? '#D946EF' : '#0EA5E9'  // Brighter magenta for negative, bright blue for positive
   }));
 
-  // Create data for highlight circle around negative margin products
+  // Create data for highlight circle around negative margin products with increased visibility
   const negativeProducts = data.filter(item => item.margin < 0);
   const highlightCircle = negativeProducts.length > 0 ? [{
     x: (negativeProducts[0].sales + negativeProducts[1].sales) / 2,
     y: (negativeProducts[0].margin + negativeProducts[1].margin) / 2,
-    z: Math.max(...negativeProducts.map(p => p.sales)) * 2,
+    z: Math.max(...negativeProducts.map(p => p.sales)) * 4, // Increased size
     isHighlight: true,
     fill: '#D946EF',
-    opacity: 0.2
+    opacity: 0.4  // Increased opacity
   }] : [];
 
   return (
@@ -132,7 +132,8 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                       {/* Highlight circle for negative margin products */}
                       <Scatter 
                         data={highlightCircle}
-                        fillOpacity={0.2}
+                        fill="#D946EF"
+                        fillOpacity={0.4}
                       />
                       {/* Regular product scatter points */}
                       <Scatter 
