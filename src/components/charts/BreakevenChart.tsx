@@ -51,7 +51,14 @@ const BreakevenChart = ({
             tick={{ fill: '#FFFFFF' }}
             tickFormatter={(value) => `£${value.toLocaleString()}`}
           >
-            <Label value="Revenue & Costs (£)" angle={-90} position="left" fill="#FFFFFF" />
+            <Label 
+              value="Revenue & Costs (£)" 
+              angle={-90} 
+              position="insideLeft" 
+              fill="#FFFFFF"
+              style={{ textAnchor: 'middle' }}
+              offset={0}
+            />
           </YAxis>
           <Tooltip
             contentStyle={{
