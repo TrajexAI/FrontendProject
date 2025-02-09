@@ -7,13 +7,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BottomNav from "./components/BottomNav";
 import Index from "./pages/Index";
 import Today from "./pages/Today";
-import Scorecard from "./pages/Scorecard";
-import InvestorReport from "./pages/InvestorReport";
-import ContributionMargin from "./pages/ContributionMargin";
-import Notifications from "./pages/Notifications";
+import Coach from "./pages/Coach";
+import Progress from "./pages/Progress";
+import Customize from "./pages/Customize";
 import Forecast from "./pages/Forecast";
-import AskAnything from "./pages/AskAnything";
-import BackendVisualization from "./pages/BackendVisualization";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,13 +25,10 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Today />} />
             <Route path="/index" element={<Index />} />
-            <Route path="/ask-anything" element={<AskAnything />} />
-            <Route path="/scorecard" element={<Scorecard />} />
-            <Route path="/investor-report" element={<InvestorReport />} />
-            <Route path="/contribution-margin" element={<ContributionMargin />} />
-            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/ask-anything" element={<Coach />} />
+            <Route path="/scorecard" element={<Progress />} />
+            <Route path="/notifications" element={<Customize />} />
             <Route path="/forecast" element={<Forecast />} />
-            <Route path="/backend-visualization" element={<BackendVisualization />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <BottomNav />
@@ -45,3 +39,4 @@ const App = () => (
 );
 
 export default App;
+

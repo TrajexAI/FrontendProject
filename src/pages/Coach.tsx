@@ -4,7 +4,7 @@ import MessageList from "@/components/MessageList";
 import ChatInput from "@/components/ChatInput";
 import TopBanner from "@/components/TopBanner";
 
-const AskAnything = () => {
+const Coach = () => {
   const [messages, setMessages] = useState<Array<{ content: string; isUser: boolean }>>([]);
   const [inputMessage, setInputMessage] = useState("");
 
@@ -42,4 +42,5 @@ const AskAnything = () => {
   );
 };
 
-export default AskAnything;
+export default Coach;
+

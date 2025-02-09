@@ -2,7 +2,7 @@
 import ScorecardHeader from "@/components/scorecard/ScorecardHeader";
 import ScorecardGrid from "@/components/scorecard/ScorecardGrid";
 
-const Scorecard = () => {
+const Progress = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-obsidian-dark via-obsidian-DEFAULT to-obsidian-light font-quicksand">
       <ScorecardHeader />
@@ -11,4 +11,5 @@ const Scorecard = () => {
   );
 };
 
-export default Scorecard;
+export default Progress;
+
