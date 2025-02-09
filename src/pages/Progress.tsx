@@ -1,4 +1,3 @@
-
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight, LineChart, PieChart, TrendingUp } from "lucide-react";
@@ -88,24 +87,6 @@ const ProgressScreen = () => {
                   <TrendingUp className="h-4 w-4 text-[#F97316]" />
                 </div>
                 <p className="text-xs text-white/60 mt-2">Expected this month</p>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-lg font-medium text-[#F97316]">Sales</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-center py-4">
-                  <CircularProgress 
-                    value={65}
-                    currentValue="£5,436"
-                    targetValue="£8,500"
-                    label="of daily target"
-                    size={180}
-                    strokeWidth={12}
-                  />
-                </div>
               </CardContent>
             </Card>
 
@@ -223,6 +204,24 @@ const ProgressScreen = () => {
                 <p className="text-sm text-white/60">Click arrow to view detailed analysis</p>
               </CardContent>
             </Card>
+
+            <Card className="bg-black border border-[#F97316]/20">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardTitle className="text-lg font-medium text-[#F97316]">Sales</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center justify-center py-4">
+                  <CircularProgress 
+                    value={65}
+                    currentValue="£5,436"
+                    targetValue="£8,500"
+                    label="of daily target"
+                    size={180}
+                    strokeWidth={12}
+                  />
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
@@ -231,4 +230,3 @@ const ProgressScreen = () => {
 };
 
 export default ProgressScreen;
-
