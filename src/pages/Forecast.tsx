@@ -1,8 +1,7 @@
-
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowRight, Pedometer, X } from "lucide-react";
+import { ArrowRight, Activity, X } from "lucide-react";
 import TopBanner from "@/components/TopBanner";
 import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -91,7 +90,7 @@ const Forecast = () => {
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-medium text-[#F97316]">Cost Analysis</h2>
                 <div className="flex items-center gap-2">
-                  <Pedometer className="h-4 w-4 text-[#F97316]" />
+                  <Activity className="h-4 w-4 text-[#F97316]" />
                   <span className="text-[#F97316]">70% variable / 30% fixed</span>
                 </div>
               </div>
