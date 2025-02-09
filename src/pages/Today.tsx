@@ -1,3 +1,4 @@
+
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Gauge, BarChart2, ArrowRight } from "lucide-react";
@@ -26,6 +27,7 @@ const Today = () => {
     name: item.name,
     lastWeekSales: item.lastWeekSales,
     difference: item.sales - item.lastWeekSales,
+    differenceColor: item.sales >= item.lastWeekSales ? "#4CAF50" : "#FF5252"
   }));
 
   const weekOverview = {
@@ -106,9 +108,10 @@ const Today = () => {
                           borderRadius: '4px',
                         }}
                         labelStyle={{ color: '#FFFFFF' }}
-                        formatter={(value, name) => {
+                        formatter={(value: number | string, name: string) => {
                           if (name === "Growth") {
-                            return [`${value > 0 ? '+' : ''}${value}`, 'Growth'];
+                            const numValue = Number(value);
+                            return [`${numValue >= 0 ? '+' : ''}${value}`, 'Growth'];
                           }
                           return [value, name];
                         }}
@@ -121,7 +124,7 @@ const Today = () => {
                         }}
                       />
                       <Bar stackId="sales" dataKey="lastWeekSales" name="Last Week" fill="#F97316" />
-                      <Bar stackId="sales" dataKey="difference" name="Growth" fill={({ difference }) => difference >= 0 ? "#4CAF50" : "#FF5252"} />
+                      <Bar stackId="sales" dataKey="difference" name="Growth" fill="#4CAF50" />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
