@@ -28,10 +28,11 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
 
   // Transform data for scatter plot
   const scatterData = data.map((item, index) => ({
-    x: index + 1,
+    x: item.sales,
     y: item.margin,
     z: item.sales,
     name: item.name,
+    isNegative: item.margin < 0
   }));
 
   return (
@@ -64,18 +65,18 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                 <XAxis 
                   type="number" 
                   dataKey="x" 
-                  name="category" 
-                  tick={false}
+                  name="sales" 
                   axisLine={{ stroke: '#F97316' }}
-                  domain={[0, 6]}
-                  fontSize={11}
+                  tick={{ fill: '#FFFFFF' }}
+                  label={{ value: 'Sales (£)', position: 'bottom', fill: '#FFFFFF' }}
                 />
                 <YAxis
                   type="number"
                   dataKey="y"
                   name="profit margin"
-                  tick={false}
                   axisLine={{ stroke: '#F97316' }}
+                  tick={{ fill: '#FFFFFF' }}
+                  label={{ value: 'Profit Margin (£)', angle: -90, position: 'left', fill: '#FFFFFF' }}
                 />
                 <ZAxis 
                   type="number" 
@@ -107,7 +108,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                 />
                 <Scatter 
                   data={scatterData} 
-                  fill="#F97316"
+                  fill={(entry) => entry.isNegative ? '#ea384c' : '#1EAEDB'}
                   fillOpacity={0.6}
                 />
               </ScatterChart>
