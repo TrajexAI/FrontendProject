@@ -59,22 +59,24 @@ const Today = () => {
               </Card>
 
               <Card className="bg-black border border-[#F97316]/20">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
                   <CardTitle className="text-lg font-medium text-[#F97316]">Product Leaderboard</CardTitle>
                   <BarChart2 className="h-4 w-4 text-[#F97316]" />
                 </CardHeader>
-                <CardContent>
-                  <div className="h-[200px]">
+                <CardContent className="pb-2">
+                  <div className="h-[160px]">
                     <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={productData} barSize={8}>
+                      <BarChart data={productData} barSize={8} margin={{ top: 5, right: 5, bottom: 5, left: 5 }}>
                         <XAxis 
                           dataKey="name" 
                           tick={{ fill: '#FFFFFF', fontSize: 12 }}
                           axisLine={{ stroke: '#FFFFFF' }}
+                          tickLine={{ stroke: '#FFFFFF' }}
                         />
                         <YAxis 
                           tick={{ fill: '#FFFFFF', fontSize: 12 }}
                           axisLine={{ stroke: '#FFFFFF' }}
+                          tickLine={{ stroke: '#FFFFFF' }}
                         />
                         <Tooltip
                           contentStyle={{
@@ -136,3 +138,4 @@ const Today = () => {
 };
 
 export default Today;
+
