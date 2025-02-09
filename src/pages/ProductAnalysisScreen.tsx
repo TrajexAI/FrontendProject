@@ -1,5 +1,5 @@
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
 import TopBanner from "@/components/TopBanner";
@@ -37,15 +37,28 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
     fill: item.margin < 0 ? '#D946EF' : '#0EA5E9'  // Brighter magenta for negative, bright blue for positive
   }));
 
-  // Create data for highlight circle around negative margin products
+  // Create data for star highlight for negative margin products
   const negativeProducts = data.filter(item => item.margin < 0);
-  const highlightCircle = negativeProducts.length > 0 ? [{
+  const starHighlight = negativeProducts.length > 0 ? [{
     x: (negativeProducts[0].sales + negativeProducts[1].sales) / 2,
     y: (negativeProducts[0].margin + negativeProducts[1].margin) / 2,
-    z: Math.max(...negativeProducts.map(p => p.sales)) * 2,
+    z: Math.max(...negativeProducts.map(p => p.sales)) * 1.5,
     isHighlight: true,
-    fill: '#D946EF',
-    opacity: 0.2
+    fill: '#FEF7CD',
+    opacity: 0.8,
+    shape: (props: any) => {
+      const { cx, cy } = props;
+      return (
+        <Star
+          x={cx - 25}
+          y={cy - 25}
+          size={50}
+          color="#FEF7CD"
+          fill="#FEF7CD"
+          opacity={0.8}
+        />
+      );
+    }
   }] : [];
 
   return (
@@ -107,14 +120,20 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           backgroundColor: '#000',
                           border: '1px solid #F97316',
                           borderRadius: '4px',
-                          fontSize: '12px'
+                          fontSize: '12px',
+                          padding: '8px'
                         }}
                         itemStyle={{
                           color: '#FFFFFF'
                         }}
                         formatter={(value: any, name: string, props: any) => {
                           if (props.payload.isHighlight) {
-                            return ["Product A and C need attention. Analyse variable costs as these products are negatively impacting your profit.", ""];
+                            return [
+                              <div key="tooltip" className="cursor-pointer text-[#F97316]" onClick={() => navigate('/ask-anything')}>
+                                Go to the conversation interface to explore variable costs →
+                              </div>,
+                              ""
+                            ];
                           }
                           if (name === 'profit margin') {
                             return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
@@ -129,10 +148,10 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           return entries[0]?.payload.name || '';
                         }}
                       />
-                      {/* Highlight circle for negative margin products */}
+                      {/* Star highlight for negative margin products */}
                       <Scatter 
-                        data={highlightCircle}
-                        fillOpacity={0.2}
+                        data={starHighlight}
+                        shape="star"
                       />
                       {/* Regular product scatter points */}
                       <Scatter 
