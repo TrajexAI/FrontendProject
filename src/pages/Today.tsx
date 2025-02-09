@@ -100,6 +100,12 @@ const Today = () => {
                         tick={{ fill: '#FFFFFF', fontSize: 12 }}
                         axisLine={{ stroke: '#FFFFFF' }}
                         tickLine={{ stroke: '#FFFFFF' }}
+                        label={{ 
+                          value: 'Units sold',
+                          angle: -90,
+                          position: 'insideLeft',
+                          style: { fill: '#FFFFFF' }
+                        }}
                       />
                       <Tooltip
                         contentStyle={{
