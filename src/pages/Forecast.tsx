@@ -63,10 +63,10 @@ const Forecast = () => {
             </div>
           </Card>
 
-          {/* 3-way Forecast Card */}
+          {/* 3-way forecast Card */}
           <Card className="bg-black border border-[#F97316]/20">
             <div className="flex justify-between items-center p-4">
-              <h2 className="text-lg font-medium text-[#F97316]">3-way Forecast</h2>
+              <h2 className="text-lg font-medium text-[#F97316]">3-way forecast</h2>
               <ArrowRight 
                 className="h-4 w-4 text-[#F97316] cursor-pointer"
                 onClick={() => setShowForecastDialog(true)}
@@ -118,11 +118,11 @@ const Forecast = () => {
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={revenueData}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                        <XAxis dataKey="month" stroke="#F97316" />
-                        <YAxis stroke="#F97316" />
-                        <Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #F97316', color: '#F97316' }} />
-                        <Line type="monotone" dataKey="actual" stroke="#F97316" strokeWidth={2} dot={{ fill: '#F97316' }} />
-                        <Line type="monotone" dataKey="forecast" stroke="#F97316" strokeWidth={2} strokeDasharray="5 5" dot={{ fill: '#F97316' }} />
+                        <XAxis dataKey="month" stroke="#FFFFFF" />
+                        <YAxis stroke="#FFFFFF" />
+                        <Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #F97316', color: '#FFFFFF' }} />
+                        <Line type="monotone" dataKey="actual" stroke="#1EAEDB" strokeWidth={2} dot={{ fill: '#1EAEDB' }} />
+                        <Line type="monotone" dataKey="forecast" stroke="#FFFFFF" strokeWidth={2} strokeDasharray="5 5" dot={{ fill: '#FFFFFF' }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </div>
@@ -133,11 +133,11 @@ const Forecast = () => {
                     <ResponsiveContainer width="100%" height="100%">
                       <LineChart data={cashflowData}>
                         <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                        <XAxis dataKey="month" stroke="#F97316" />
-                        <YAxis stroke="#F97316" />
-                        <Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #F97316', color: '#F97316' }} />
-                        <Line type="monotone" dataKey="inflow" stroke="#4CAF50" strokeWidth={2} dot={{ fill: '#4CAF50' }} />
-                        <Line type="monotone" dataKey="outflow" stroke="#F44336" strokeWidth={2} dot={{ fill: '#F44336' }} />
+                        <XAxis dataKey="month" stroke="#FFFFFF" />
+                        <YAxis stroke="#FFFFFF" />
+                        <Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #F97316', color: '#FFFFFF' }} />
+                        <Line type="monotone" dataKey="inflow" stroke="#1EAEDB" strokeWidth={2} dot={{ fill: '#1EAEDB' }} />
+                        <Line type="monotone" dataKey="outflow" stroke="#FFFFFF" strokeWidth={2} dot={{ fill: '#FFFFFF' }} />
                       </LineChart>
                     </ResponsiveContainer>
                   </div>
