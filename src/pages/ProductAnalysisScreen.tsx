@@ -1,7 +1,7 @@
 
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip } from "recharts";
+import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis } from "recharts";
 import TopBanner from "@/components/TopBanner";
 
 interface ProductDataType {
@@ -26,6 +26,14 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
 
   const data = productData || defaultData;
 
+  // Transform data for scatter plot
+  const scatterData = data.map((item, index) => ({
+    x: index + 1, // x position for spacing
+    y: item.margin, // y position based on margin
+    z: item.sales, // bubble size based on sales
+    name: item.name,
+  }));
+
   return (
     <div className="min-h-screen bg-black">
       <TopBanner />
@@ -42,31 +50,55 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
           </div>
           <div className="h-[600px] bg-black border border-[#F97316]/20 rounded-lg p-6">
             <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={data}
-                margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+              <ScatterChart
+                margin={{ top: 20, right: 20, bottom: 20, left: 60 }}
               >
                 <XAxis 
-                  dataKey="name" 
-                  tick={{ fill: '#FFFFFF' }}
+                  type="number" 
+                  dataKey="x" 
+                  name="category" 
+                  tick={false}
                   axisLine={{ stroke: '#F97316' }}
+                  domain={[0, 6]}
                 />
-                <YAxis 
+                <YAxis
+                  type="number"
+                  dataKey="y"
+                  name="profit margin"
                   tick={{ fill: '#FFFFFF' }}
                   axisLine={{ stroke: '#F97316' }}
                   tickFormatter={(value) => `£${value.toLocaleString()}`}
                 />
+                <ZAxis 
+                  type="number" 
+                  dataKey="z" 
+                  range={[50, 400]} 
+                  name="sales"
+                />
                 <Tooltip
+                  cursor={{ strokeDasharray: '3 3' }}
                   contentStyle={{
                     backgroundColor: '#000',
                     border: '1px solid #F97316',
                     borderRadius: '4px',
                   }}
-                  formatter={(value: number) => [`£${value.toLocaleString()}`, '']}
+                  formatter={(value: any, name: string, props: any) => {
+                    if (name === 'profit margin') {
+                      return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
+                    }
+                    if (name === 'sales') {
+                      return [`£${props.payload.z.toLocaleString()}`, 'Sales Volume'];
+                    }
+                    return [value, name];
+                  }}
+                  labelFormatter={(value, entries) => entries[0]?.payload.name || ''}
                 />
-                <Bar dataKey="sales" name="Sales" fill="#F97316" />
-                <Bar dataKey="margin" name="Profit Margin" fill="#1EAEDB" />
-              </BarChart>
+                <Scatter 
+                  data={scatterData} 
+                  fill="#F97316"
+                  fillOpacity={0.6}
+                />
+              </ScatterChart>
             </ResponsiveContainer>
           </div>
         </div>
