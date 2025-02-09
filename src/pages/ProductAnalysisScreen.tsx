@@ -27,12 +27,12 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
   const data = productData || defaultData;
 
   // Transform data for scatter plot
-  const scatterData = data.map((item, index) => ({
+  const scatterData = data.map((item) => ({
     x: item.sales,
     y: item.margin,
     z: item.sales,
     name: item.name,
-    isNegative: item.margin < 0
+    fill: item.margin < 0 ? '#ea384c' : '#1EAEDB'
   }));
 
   return (
@@ -108,7 +108,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                 />
                 <Scatter 
                   data={scatterData} 
-                  fill={(entry) => entry.isNegative ? '#ea384c' : '#1EAEDB'}
+                  fill="#1EAEDB"
                   fillOpacity={0.6}
                 />
               </ScatterChart>
