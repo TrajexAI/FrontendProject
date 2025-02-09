@@ -50,8 +50,8 @@ const ProgressScreen = () => {
     return {
       x: i,
       y: y * 30, // Scale the curve height
-      salesMarker: i === 55 ? y * 30 : 0, // Mark 25th percentile, moved right
-      profitMarker: i === 65 ? y * 30 : 0, // Mark 35th percentile, moved right
+      salesMarker: i === 35 ? y * 30 : 0, // Mark 25th percentile at quarter of curve
+      profitMarker: i === 42 ? y * 30 : 0, // Mark 35th percentile halfway to peak
     };
   });
 
