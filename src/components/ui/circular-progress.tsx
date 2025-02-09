@@ -57,11 +57,11 @@ export function CircularProgress({
         />
       </svg>
       <div className="absolute flex flex-col items-center justify-center text-center">
-        <span className="text-4xl font-bold text-white mb-1">{currentValue}</span>
+        <span className="text-2xl font-bold text-white mb-0.5">{currentValue}</span>
         {targetValue && (
-          <span className="text-sm text-white/60">Goal: {targetValue}</span>
+          <span className="text-xs text-white/60">Goal: {targetValue}</span>
         )}
-        {label && <span className="text-sm text-white/60 mt-1">{label}</span>}
+        {label && <span className="text-xs text-white/60">{label}</span>}
       </div>
     </div>
   );
