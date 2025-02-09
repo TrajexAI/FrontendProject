@@ -1,4 +1,3 @@
-
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight, LineChart, PieChart, TrendingUp } from "lucide-react";
@@ -157,7 +156,7 @@ const ProgressScreen = () => {
                 </Dialog>
               </CardHeader>
               <CardContent>
-                <div className="h-[100px] mb-4">
+                <div className="h-[80px] mb-2">
                   <ResponsiveContainer width="100%" height="100%">
                     <AreaChart data={bellCurveData}>
                       <Area
@@ -271,4 +270,3 @@ const ProgressScreen = () => {
 };
 
 export default ProgressScreen;
-
