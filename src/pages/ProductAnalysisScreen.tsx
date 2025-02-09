@@ -1,3 +1,4 @@
+
 import { ArrowLeft, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
@@ -56,7 +57,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
           fill="#FEF7CD"
           opacity={0.8}
           className="cursor-pointer"
-          onClick={() => navigate('/ask-anything')}
+          onClick={() => navigate('/coach')}
         />
       );
     }
