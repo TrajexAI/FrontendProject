@@ -28,13 +28,13 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
 
   const data = productData || defaultData;
 
-  // Transform data for scatter plot
+  // Transform data for scatter plot with brighter colors
   const scatterData = data.map((item) => ({
     x: item.sales,
     y: item.margin,
     z: item.sales,
     name: item.name,
-    fill: item.margin < 0 ? '#ea384c' : '#1EAEDB'
+    fill: item.margin < 0 ? '#D946EF' : '#0EA5E9'  // Brighter magenta for negative, bright blue for positive
   }));
 
   return (
@@ -102,6 +102,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           color: '#FFFFFF'
                         }}
                         formatter={(value: any, name: string, props: any) => {
+                          // Show only sales and profit margin in the tooltip
                           if (name === 'profit margin') {
                             return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
                           }
@@ -114,8 +115,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                       />
                       <Scatter 
                         data={scatterData} 
-                        fill="#1EAEDB"
-                        fillOpacity={0.6}
+                        fillOpacity={0.8}
                       />
                     </ScatterChart>
                   </ResponsiveContainer>
@@ -160,3 +160,4 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
 };
 
 export default ProductAnalysisScreen;
+
