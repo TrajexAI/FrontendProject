@@ -42,9 +42,9 @@ const ProgressScreen = () => {
     const y = Math.exp(-(x * x) / 2) / Math.sqrt(2 * Math.PI);
     return {
       x: i,
-      y: y * 80, // Increased scaling factor from 50 to 80 for more height
-      salesMarker: i === 35 ? y * 80 : 0,
-      profitMarker: i === 42 ? y * 80 : 0,
+      y: y * 100, // Increased scaling factor from 80 to 100 for more height
+      salesMarker: i === 35 ? y * 100 : 0,
+      profitMarker: i === 42 ? y * 100 : 0,
     };
   });
 
