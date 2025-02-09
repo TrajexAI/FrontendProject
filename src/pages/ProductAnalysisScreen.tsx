@@ -5,6 +5,7 @@ import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxi
 import TopBanner from "@/components/TopBanner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import BreakevenChart from "@/components/charts/BreakevenChart";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ProductDataType {
   name: string;
@@ -18,6 +19,8 @@ interface ProductAnalysisScreenProps {
 
 const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
+  
   const defaultData = [
     { name: "Product A", sales: 2000, margin: -800 },
     { name: "Product B", sales: 15000, margin: 1500 },
@@ -37,15 +40,16 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
     fill: item.margin < 0 ? '#D946EF' : '#0EA5E9'  // Brighter magenta for negative, bright blue for positive
   }));
 
-  // Create data for highlight circle around negative margin products with increased visibility
+  // Create data for highlight ellipse around negative margin products
   const negativeProducts = data.filter(item => item.margin < 0);
-  const highlightCircle = negativeProducts.length > 0 ? [{
+  const highlightEllipse = negativeProducts.length > 0 ? [{
     x: (negativeProducts[0].sales + negativeProducts[1].sales) / 2,
     y: (negativeProducts[0].margin + negativeProducts[1].margin) / 2,
-    z: Math.max(...negativeProducts.map(p => p.sales)) * 4, // Increased size
+    // Adjust z value to create an ellipse effect
+    z: Math.max(...negativeProducts.map(p => p.sales)) * 6,
     isHighlight: true,
-    fill: '#D946EF',
-    opacity: 0.4  // Increased opacity
+    fill: '#F97316',
+    opacity: 0.25
   }] : [];
 
   return (
@@ -107,7 +111,9 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           backgroundColor: '#000',
                           border: '1px solid #F97316',
                           borderRadius: '4px',
-                          fontSize: '12px'
+                          fontSize: isMobile ? '14px' : '12px',
+                          padding: isMobile ? '12px' : '8px',
+                          maxWidth: isMobile ? '280px' : 'none'
                         }}
                         itemStyle={{
                           color: '#FFFFFF'
@@ -129,11 +135,11 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           return entries[0]?.payload.name || '';
                         }}
                       />
-                      {/* Highlight circle for negative margin products */}
+                      {/* Highlight ellipse for negative margin products */}
                       <Scatter 
-                        data={highlightCircle}
-                        fill="#D946EF"
-                        fillOpacity={0.4}
+                        data={highlightEllipse}
+                        fill="#F97316"
+                        fillOpacity={0.25}
                       />
                       {/* Regular product scatter points */}
                       <Scatter 
