@@ -177,10 +177,11 @@ const ProgressScreen = () => {
                       <Area
                         type="monotone"
                         dataKey="profitMarker"
-                        stroke="#8B5CF6"
-                        fill="#8B5CF6"
+                        stroke="#FF0000"
+                        fill="#FF0000"
                         fillOpacity={0.8}
                       />
+                      <XAxis stroke="#FFFFFF" />
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
@@ -190,7 +191,7 @@ const ProgressScreen = () => {
                     <span className="text-xs text-white">Sales: 25th centile</span>
                   </div>
                   <div className="flex flex-col items-center">
-                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#8B5CF6] mb-1"></div>
+                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#FF0000] mb-1"></div>
                     <span className="text-xs text-white">Gross Profit: 35th centile</span>
                   </div>
                 </div>
