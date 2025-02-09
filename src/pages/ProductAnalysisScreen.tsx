@@ -1,10 +1,11 @@
 
-import { ArrowLeft, Star } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
+import { Star } from "lucide-react";
 import TopBanner from "@/components/TopBanner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import BreakevenChart from "@/components/charts/BreakevenChart";
+import ProductScatterPlot from "@/components/product-analysis/ProductScatterPlot";
+import ProductBreakevenSection from "@/components/product-analysis/ProductBreakevenSection";
 
 interface ProductDataType {
   name: string;
@@ -86,109 +87,14 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                 <CardTitle className="text-[#F97316] text-lg">Product Overview</CardTitle>
               </CardHeader>
               <CardContent className="p-4">
-                <div className="w-full h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <ScatterChart margin={{ top: 30, right: 20, bottom: 30, left: 20 }}>
-                      <CartesianGrid 
-                        strokeDasharray="3 3" 
-                        stroke="#FFFFFF" 
-                        strokeOpacity={0.2}
-                        horizontal={true}
-                        vertical={true}
-                      />
-                      <XAxis 
-                        type="number" 
-                        dataKey="x" 
-                        name="sales" 
-                        axisLine={{ stroke: '#F97316' }}
-                        tick={{ fill: '#FFFFFF' }}
-                        label={{ value: 'Sales (£)', position: 'bottom', fill: '#FFFFFF' }}
-                      />
-                      <YAxis
-                        type="number"
-                        dataKey="y"
-                        name="profit margin"
-                        axisLine={{ stroke: '#F97316' }}
-                        tick={{ fill: '#FFFFFF' }}
-                        label={{ value: 'Profit Margin (£)', angle: -90, position: 'left', fill: '#FFFFFF' }}
-                      />
-                      <ZAxis 
-                        type="number" 
-                        dataKey="z" 
-                        range={[40, 300]} 
-                        name="sales"
-                      />
-                      <Tooltip
-                        cursor={{ strokeDasharray: '3 3' }}
-                        contentStyle={{
-                          backgroundColor: '#000',
-                          border: '1px solid #F97316',
-                          borderRadius: '4px',
-                          fontSize: '12px',
-                          padding: '8px'
-                        }}
-                        itemStyle={{
-                          color: '#FFFFFF'
-                        }}
-                        formatter={(value: any, name: string, props: any) => {
-                          if (name === 'profit margin') {
-                            return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
-                          }
-                          if (name === 'sales') {
-                            return [`£${props.payload.x.toLocaleString()}`, 'Sales'];
-                          }
-                          return [value, name];
-                        }}
-                        labelFormatter={(value, entries) => {
-                          if (entries[0]?.payload.isHighlight) return "";
-                          return entries[0]?.payload.name || '';
-                        }}
-                      />
-                      {/* Regular product scatter points */}
-                      <Scatter 
-                        data={scatterData} 
-                        fillOpacity={0.8}
-                      />
-                      {/* Star highlight for negative margin products */}
-                      <Scatter 
-                        data={starHighlight}
-                        shape="star"
-                      />
-                    </ScatterChart>
-                  </ResponsiveContainer>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader className="p-4 pb-0">
-                <CardTitle className="text-[#F97316] text-lg">Product A Breakeven Analysis</CardTitle>
-              </CardHeader>
-              <CardContent className="p-4">
-                <BreakevenChart
-                  fixedCosts={80000}
-                  variableCostPerUnit={200}
-                  pricePerUnit={500}
-                  maxUnits={500}
-                  productName="Product A"
+                <ProductScatterPlot 
+                  scatterData={scatterData}
+                  starHighlight={starHighlight}
                 />
               </CardContent>
             </Card>
 
-            <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader className="p-4 pb-0">
-                <CardTitle className="text-[#F97316] text-lg">Product C Breakeven Analysis</CardTitle>
-              </CardHeader>
-              <CardContent className="p-4">
-                <BreakevenChart
-                  fixedCosts={120000}
-                  variableCostPerUnit={1500}
-                  pricePerUnit={3000}
-                  maxUnits={300}
-                  productName="Product C"
-                />
-              </CardContent>
-            </Card>
+            <ProductBreakevenSection />
           </div>
         </div>
       </div>
