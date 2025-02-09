@@ -48,13 +48,13 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
             </button>
             <h1 className="text-[#F97316] text-lg ml-4">Product Performance</h1>
           </div>
-          <div className="w-full h-[400px] bg-black border border-[#F97316]/20 rounded-lg p-4">
+          <div className="w-full h-[300px] bg-black border border-[#F97316]/20 rounded-lg p-4">
             <div className="text-[#F97316] text-sm mb-4">Product profitability vs Sales</div>
             <ResponsiveContainer width="100%" height="90%">
               <ScatterChart
                 margin={{ top: 10, right: 30, bottom: 20, left: 50 }}
               >
-                <CartesianGrid strokeDasharray="3 3" stroke="#333333" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#FFFFFF" strokeOpacity={0.2} />
                 <XAxis 
                   type="number" 
                   dataKey="x" 
@@ -63,6 +63,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                   axisLine={{ stroke: '#F97316' }}
                   domain={[0, 6]}
                   fontSize={11}
+                  centered={true}
                 />
                 <YAxis
                   type="number"
