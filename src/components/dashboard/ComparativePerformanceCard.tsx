@@ -86,8 +86,8 @@ const ComparativePerformanceCard = ({ centileHistory, bellCurveData }: Comparati
               <Area
                 type="monotone"
                 dataKey="y"
-                stroke="#F97316"
-                fill="#F97316"
+                stroke="#1EAEDB"
+                fill="#1EAEDB"
                 fillOpacity={0.1}
               />
               <Area
