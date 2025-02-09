@@ -38,68 +38,39 @@ const Forecast = () => {
         <div className="max-w-6xl mx-auto space-y-6">
           {/* SaaS Metrics Card */}
           <Card className="bg-black border border-[#F97316]/20">
-            <div className="flex justify-between items-center mb-6 p-6">
-              <h2 className="text-2xl font-semibold text-[#F97316]">SaaS Metrics</h2>
+            <div className="flex justify-between items-center p-4">
+              <div>
+                <h2 className="text-lg font-semibold text-[#F97316] mb-2">SaaS Metrics</h2>
+                <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div>
+                    <p className="text-[#F97316]/80">LTV:CAC</p>
+                    <p className="text-[#1EAEDB] text-sm font-bold">3.5x</p>
+                  </div>
+                  <div>
+                    <p className="text-[#F97316]/80">Rule of 40</p>
+                    <p className="text-[#1EAEDB] text-sm font-bold">45%</p>
+                  </div>
+                  <div>
+                    <p className="text-[#F97316]/80">ARR</p>
+                    <p className="text-[#1EAEDB] text-sm font-bold">$2.4M</p>
+                  </div>
+                </div>
+              </div>
               <ArrowRight 
                 className="w-6 h-6 text-[#F97316] cursor-pointer hover:text-[#F97316]/80 transition-colors"
                 onClick={() => setShowMetricsDialog(true)}
               />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-6 pt-0">
-              <div className="text-center p-4 border border-[#F97316]/20 rounded-lg">
-                <p className="text-[#F97316]/80 mb-2">LTV:CAC</p>
-                <p className="text-2xl font-bold text-[#F97316]">3.5x</p>
-              </div>
-              <div className="text-center p-4 border border-[#F97316]/20 rounded-lg">
-                <p className="text-[#F97316]/80 mb-2">Rule of 40</p>
-                <p className="text-2xl font-bold text-[#F97316]">45%</p>
-              </div>
-              <div className="text-center p-4 border border-[#F97316]/20 rounded-lg">
-                <p className="text-[#F97316]/80 mb-2">ARR</p>
-                <p className="text-2xl font-bold text-[#F97316]">$2.4M</p>
-              </div>
-            </div>
           </Card>
 
           {/* 3-way Forecast Card */}
           <Card className="bg-black border border-[#F97316]/20">
-            <div className="flex justify-between items-center mb-6 p-6">
-              <h2 className="text-2xl font-semibold text-[#F97316]">3-way Forecast</h2>
+            <div className="flex justify-between items-center p-4">
+              <h2 className="text-lg font-medium text-[#F97316]">3-way Forecast</h2>
               <ArrowRight 
-                className="w-6 h-6 text-[#F97316] cursor-pointer hover:text-[#F97316]/80 transition-colors"
+                className="h-4 w-4 text-[#F97316] cursor-pointer"
                 onClick={() => setShowForecastDialog(true)}
               />
-            </div>
-            <div className="h-[300px] p-6 pt-0">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={revenueData}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                  <XAxis dataKey="month" stroke="#F97316" />
-                  <YAxis stroke="#F97316" />
-                  <Tooltip 
-                    contentStyle={{ 
-                      backgroundColor: '#000', 
-                      border: '1px solid #F97316',
-                      color: '#F97316' 
-                    }} 
-                  />
-                  <Line 
-                    type="monotone" 
-                    dataKey="actual" 
-                    stroke="#F97316" 
-                    strokeWidth={2} 
-                    dot={{ fill: '#F97316' }} 
-                  />
-                  <Line 
-                    type="monotone" 
-                    dataKey="forecast" 
-                    stroke="#F97316" 
-                    strokeWidth={2} 
-                    strokeDasharray="5 5"
-                    dot={{ fill: '#F97316' }} 
-                  />
-                </LineChart>
-              </ResponsiveContainer>
             </div>
           </Card>
 
@@ -187,3 +158,4 @@ const Forecast = () => {
 };
 
 export default Forecast;
+
