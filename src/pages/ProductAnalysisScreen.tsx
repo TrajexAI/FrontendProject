@@ -1,3 +1,4 @@
+
 import { ArrowLeft } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
@@ -39,9 +40,9 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
   return (
     <div className="min-h-screen bg-black">
       <TopBanner />
-      <div className="p-4 pt-20">
+      <div className="p-2 pt-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center mb-6">
+          <div className="flex items-center mb-4">
             <button
               onClick={() => navigate('/progress')}
               className="text-[#F97316] hover:text-[#F97316]/80 transition-colors"
@@ -51,12 +52,12 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
             <h1 className="text-[#F97316] text-lg ml-4">Product Profitability</h1>
           </div>
           
-          <div className="grid gap-6">
+          <div className="grid gap-4">
             <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader>
+              <CardHeader className="p-4 pb-0">
                 <CardTitle className="text-[#F97316] text-lg">Product Overview</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4">
                 <div className="w-full h-[300px]">
                   <ResponsiveContainer width="100%" height="100%">
                     <ScatterChart margin={{ top: 30, right: 20, bottom: 30, left: 20 }}>
@@ -123,10 +124,10 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
             </Card>
 
             <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader>
+              <CardHeader className="p-4 pb-0">
                 <CardTitle className="text-[#F97316] text-lg">Premium Boots Breakeven Analysis</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4">
                 <BreakevenChart
                   fixedCosts={80000}
                   variableCostPerUnit={200}
@@ -138,10 +139,10 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
             </Card>
 
             <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader>
+              <CardHeader className="p-4 pb-0">
                 <CardTitle className="text-[#F97316] text-lg">Luxury Watch Breakeven Analysis</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-4">
                 <BreakevenChart
                   fixedCosts={120000}
                   variableCostPerUnit={1500}
