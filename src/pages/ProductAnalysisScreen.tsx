@@ -32,7 +32,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
     y: item.margin,
     z: item.sales,
     name: item.name,
-    fill: item.margin < 0 ? '#ea384c' : '#33C3F0'
+    fill: item.margin < 0 ? '#ea384c' : '#1EAEDB'
   }));
 
   return (
@@ -67,23 +67,16 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                   dataKey="x" 
                   name="sales" 
                   axisLine={{ stroke: '#F97316' }}
-                  tick={{ fill: '#C8C8C9', fontSize: 11 }}
-                  label={{ value: 'Sales (£)', position: 'bottom', fill: '#C8C8C9', fontSize: 12 }}
+                  tick={{ fill: '#FFFFFF' }}
+                  label={{ value: 'Sales (£)', position: 'bottom', fill: '#FFFFFF' }}
                 />
                 <YAxis
                   type="number"
                   dataKey="y"
                   name="profit margin"
                   axisLine={{ stroke: '#F97316' }}
-                  tick={{ fill: '#C8C8C9', fontSize: 11 }}
-                  label={{ 
-                    value: 'Profit Margin (£)', 
-                    angle: -90, 
-                    position: 'center', 
-                    fill: '#C8C8C9', 
-                    fontSize: 12,
-                    dx: -10
-                  }}
+                  tick={{ fill: '#FFFFFF' }}
+                  label={{ value: 'Profit Margin (£)', angle: -90, position: 'left', fill: '#FFFFFF' }}
                 />
                 <ZAxis 
                   type="number" 
@@ -97,7 +90,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                     backgroundColor: '#000',
                     border: '1px solid #F97316',
                     borderRadius: '4px',
-                    fontSize: '11px'
+                    fontSize: '12px'
                   }}
                   itemStyle={{
                     color: '#FFFFFF'
@@ -115,7 +108,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                 />
                 <Scatter 
                   data={scatterData} 
-                  fill="#33C3F0"
+                  fill="#1EAEDB"
                   fillOpacity={0.6}
                 />
               </ScatterChart>
