@@ -51,7 +51,7 @@ const ProgressScreen = () => {
       x: i,
       y: y * 30, // Scale the curve height
       salesMarker: i === 25 ? y * 30 : 0, // Mark 25th percentile
-      profitMarker: i === 50 ? y * 30 : 0, // Mark 50th percentile
+      profitMarker: i === 35 ? y * 30 : 0, // Mark 35th percentile
     };
   });
 
@@ -183,14 +183,14 @@ const ProgressScreen = () => {
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-white">Sales</span>
-                    <span className="text-xs text-[#F97316] font-bold">25th</span>
+                <div className="flex justify-center space-x-8">
+                  <div className="flex flex-col items-center">
+                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#1EAEDB] mb-1"></div>
+                    <span className="text-xs text-white">Sales: 25th centile</span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-white">Profit</span>
-                    <span className="text-xs text-[#F97316] font-bold">50th</span>
+                  <div className="flex flex-col items-center">
+                    <div className="w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[8px] border-t-[#1EAEDB] mb-1"></div>
+                    <span className="text-xs text-white">Gross Profit: 35th centile</span>
                   </div>
                 </div>
               </CardContent>
