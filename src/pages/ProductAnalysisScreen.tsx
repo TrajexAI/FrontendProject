@@ -49,7 +49,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
             <h1 className="text-[#F97316] text-lg ml-4">Product Performance</h1>
           </div>
           <div className="w-full h-[300px] bg-black border border-[#F97316]/20 rounded-lg p-4">
-            <div className="text-[#F97316] text-sm mb-4">Product profitability vs Sales</div>
+            <div className="text-white text-sm mb-4">Product profitability vs Sales</div>
             <ResponsiveContainer width="100%" height="90%">
               <ScatterChart
                 margin={{ top: 30, right: 20, bottom: 30, left: 20 }}
