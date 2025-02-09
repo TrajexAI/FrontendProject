@@ -30,7 +30,7 @@ const Coach = () => {
     // Simulate AI response with a delay
     setTimeout(() => {
       const aiResponse = {
-        content: "I'm a demo AI assistant. I'm not connected to a real AI model yet, but I can simulate responses!",
+        content: "Your have exceeded your profit target for 2 months in a row so now is a good time to consider hiring to offset possible tax liabilities. If you hire a junior sales person on 1rst March, your profit should be positive again by the end of May, assuming this person would deliver a sales increase on par with your current sales team.",
         isUser: false,
       };
       setMessages((prev) => [...prev, aiResponse]);
@@ -59,3 +59,4 @@ const Coach = () => {
 };
 
 export default Coach;
+
