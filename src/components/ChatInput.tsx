@@ -10,8 +10,8 @@ interface ChatInputProps {
 }
 
 const ChatInput = ({ inputMessage, setInputMessage, onSubmit, isLoading = false }: ChatInputProps) => (
-  <form onSubmit={onSubmit} className="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-md border-t border-[#F97316]/20">
-    <div className="max-w-4xl mx-auto flex gap-2 items-center">
+  <form onSubmit={onSubmit} className="bg-black/80 backdrop-blur-md border-t border-[#F97316]/20">
+    <div className="max-w-4xl mx-auto flex gap-2 items-center p-4">
       <Input
         type="text"
         placeholder="Ask me anything..."

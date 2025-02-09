@@ -39,21 +39,19 @@ const Coach = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black text-[#F97316]">
+    <div className="flex flex-col min-h-screen bg-black text-[#F97316]">
       <TopBanner />
-      <div className="p-4 pt-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-6">
-            <div className="mb-20">
-              <MessageList messages={messages} />
-            </div>
-            <ChatInput
-              inputMessage={inputMessage}
-              setInputMessage={setInputMessage}
-              onSubmit={handleSubmit}
-              isLoading={isLoading}
-            />
-          </div>
+      <div className="flex-1 overflow-hidden flex flex-col p-4 pt-20">
+        <div className="max-w-4xl mx-auto w-full flex-1 overflow-y-auto">
+          <MessageList messages={messages} />
+        </div>
+        <div className="pt-4">
+          <ChatInput
+            inputMessage={inputMessage}
+            setInputMessage={setInputMessage}
+            onSubmit={handleSubmit}
+            isLoading={isLoading}
+          />
         </div>
       </div>
     </div>
