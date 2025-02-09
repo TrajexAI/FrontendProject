@@ -57,7 +57,7 @@ const BreakevenChart = ({
               position="insideLeft" 
               fill="#FFFFFF"
               style={{ textAnchor: 'middle' }}
-              offset={0}
+              offset={-20}
             />
           </YAxis>
           <Tooltip
