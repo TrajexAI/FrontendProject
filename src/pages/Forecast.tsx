@@ -1,3 +1,4 @@
+
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -5,6 +6,7 @@ import { ArrowRight, Activity, X } from "lucide-react";
 import TopBanner from "@/components/TopBanner";
 import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { CircularProgress } from "@/components/ui/circular-progress";
 
 const Forecast = () => {
   const [showMetricsDialog, setShowMetricsDialog] = useState(false);
@@ -42,15 +44,15 @@ const Forecast = () => {
                 <div className="grid grid-cols-3 gap-4 text-sm">
                   <div>
                     <p className="text-white">LTV:CAC</p>
-                    <p className="text-[#1EAEDB] text-sm font-bold">3.5x</p>
+                    <p className="text-[#1EAEDB] text-2xl font-bold">3.5x</p>
                   </div>
                   <div>
                     <p className="text-white">Rule of 40</p>
-                    <p className="text-[#1EAEDB] text-sm font-bold">45%</p>
+                    <p className="text-[#1EAEDB] text-2xl font-bold">45%</p>
                   </div>
                   <div>
                     <p className="text-white">ARR</p>
-                    <p className="text-[#1EAEDB] text-sm font-bold">£2.4M</p>
+                    <p className="text-[#1EAEDB] text-2xl font-bold">£2.4M</p>
                   </div>
                 </div>
               </div>
@@ -72,27 +74,32 @@ const Forecast = () => {
           </Card>
 
           <Card className="bg-black border border-[#F97316]/20">
-            <div className="flex justify-between items-center p-4">
+            <div className="p-4">
               <div>
                 <h2 className="text-lg font-medium text-[#F97316]">Scenario Analysis</h2>
                 <div className="mt-2">
                   <h3 className="text-white">Hiring 1 FTE junior sales person</h3>
-                  <p className="text-[#1EAEDB] text-xl font-medium text-center">2 months</p>
-                  <p className="text-white text-xs">until profit recovers to pre-hiring level</p>
+                  <p className="text-[#1EAEDB] text-3xl font-medium text-center">2 months</p>
+                  <p className="text-white text-xs text-center">until profit recovers to pre-hiring level</p>
                 </div>
               </div>
-              <ArrowRight className="h-4 w-4 text-[#F97316] cursor-pointer" />
             </div>
           </Card>
 
           <Card className="bg-black border border-[#F97316]/20">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-lg font-medium text-[#F97316]">Cost Analysis</CardTitle>
-              <div className="flex items-center gap-2">
-                <Activity className="h-4 w-4 text-[#F97316]" />
-                <span className="text-[#F97316]">70% variable / 30% fixed</span>
-              </div>
             </CardHeader>
+            <div className="flex items-center justify-center py-4">
+              <CircularProgress 
+                value={65}
+                currentValue="£5,436"
+                targetValue="£8,500"
+                label="of daily target"
+                size={180}
+                strokeWidth={12}
+              />
+            </div>
           </Card>
 
           <Dialog open={showMetricsDialog} onOpenChange={setShowMetricsDialog}>
@@ -177,3 +184,4 @@ const Forecast = () => {
 };
 
 export default Forecast;
+
