@@ -1,10 +1,8 @@
-
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Gauge, BarChart2, ArrowRight, Share, Calendar } from "lucide-react";
+import { Gauge, BarChart2, ArrowRight } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend } from "recharts";
 import { CircularProgress } from "@/components/ui/circular-progress";
-import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -41,7 +39,7 @@ const Today = () => {
   return (
     <div className="min-h-screen bg-black text-[#F97316]">
       <TopBanner />
-      <div className="p-4 pt-20 pb-24">
+      <div className="p-4 pt-20">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             <Card className="bg-black border border-[#F97316]/20">
@@ -172,18 +170,6 @@ const Today = () => {
               </CardHeader>
             </Card>
           </div>
-        </div>
-      </div>
-      <div className="fixed bottom-20 left-0 right-0 p-4 bg-black border-t border-[#F97316]/20">
-        <div className="max-w-4xl mx-auto">
-          <Button 
-            className="w-full bg-white hover:bg-white/90 text-black flex items-center justify-center gap-2"
-            onClick={() => console.log("Share and book clicked")}
-          >
-            <Share className="h-4 w-4" />
-            <Calendar className="h-4 w-4" />
-            Share this with my advisor and book a 30-min slot to review progress
-          </Button>
         </div>
       </div>
     </div>
