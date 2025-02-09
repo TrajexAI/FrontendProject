@@ -70,12 +70,12 @@ const Today = () => {
                       <BarChart data={productData} barSize={8}>
                         <XAxis 
                           dataKey="name" 
-                          tick={{ fill: '#F97316', fontSize: 12 }}
-                          axisLine={{ stroke: '#F97316' }}
+                          tick={{ fill: '#FFFFFF', fontSize: 12 }}
+                          axisLine={{ stroke: '#FFFFFF' }}
                         />
                         <YAxis 
-                          tick={{ fill: '#F97316', fontSize: 12 }}
-                          axisLine={{ stroke: '#F97316' }}
+                          tick={{ fill: '#FFFFFF', fontSize: 12 }}
+                          axisLine={{ stroke: '#FFFFFF' }}
                         />
                         <Tooltip
                           contentStyle={{
@@ -83,9 +83,9 @@ const Today = () => {
                             border: '1px solid #F97316',
                             borderRadius: '4px',
                           }}
-                          labelStyle={{ color: '#F97316' }}
+                          labelStyle={{ color: '#FFFFFF' }}
                         />
-                        <Bar dataKey="sales" fill="#F97316" />
+                        <Bar dataKey="sales" fill="#1EAEDB" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
