@@ -1,5 +1,6 @@
 
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import {
   Dialog,
@@ -8,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend, AreaChart, Area } from "recharts";
+import { AreaChart, Area, XAxis, ResponsiveContainer } from "recharts";
 
 interface ComparativePerformanceProps {
   centileHistory: Array<{
@@ -35,46 +36,18 @@ const ComparativePerformanceCard = ({ centileHistory, bellCurveData }: Comparati
           </DialogTrigger>
           <DialogContent className="bg-black border border-[#F97316]/20 w-[90vw] max-w-2xl">
             <DialogHeader>
-              <DialogTitle className="text-[#F97316]">Historical Performance Distribution</DialogTitle>
+              <DialogTitle className="text-[#F97316]">Performance Benchmarking</DialogTitle>
             </DialogHeader>
-            <div className="h-[400px] mt-4">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={centileHistory}>
-                  <XAxis 
-                    dataKey="month" 
-                    stroke="#F97316" 
-                    tick={{ fill: '#FFFFFF' }}
-                  />
-                  <YAxis 
-                    stroke="#F97316"
-                    tick={{ fill: '#FFFFFF' }}
-                    tickFormatter={(value) => `${value}th`}
-                  />
-                  <Tooltip
-                    contentStyle={{
-                      backgroundColor: '#000',
-                      border: '1px solid #F97316',
-                      borderRadius: '4px',
-                    }}
-                    formatter={(value: number) => [`${value}th centile`, '']}
-                  />
-                  <Legend />
-                  <Line 
-                    type="monotone" 
-                    dataKey="salesCentile" 
-                    stroke="#F97316" 
-                    name="Sales Centile"
-                    dot={false}
-                  />
-                  <Line 
-                    type="monotone" 
-                    dataKey="profitCentile" 
-                    stroke="#1EAEDB" 
-                    name="Profit Centile"
-                    dot={false}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
+            <div className="space-y-6 py-4">
+              <p className="text-white/80 leading-relaxed">
+                Your advisor has conducted a comprehensive benchmarking analysis of your business performance against comparable businesses in your industry and adjacent sectors. This analysis helps assess your relative value creation and identify areas for potential improvement. The benchmarking takes into account various factors including market conditions, business size, and operational metrics to provide meaningful comparisons.
+              </p>
+              <Button 
+                className="w-full bg-white hover:bg-white/90 text-black"
+                onClick={() => console.log("Contact advisor clicked")}
+              >
+                Talk to my advisor for more details
+              </Button>
             </div>
           </DialogContent>
         </Dialog>
