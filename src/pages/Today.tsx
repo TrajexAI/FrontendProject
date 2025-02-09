@@ -1,4 +1,3 @@
-
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Gauge, BarChart2, ArrowRight } from "lucide-react";
@@ -138,7 +137,7 @@ const Today = () => {
             </Card>
 
             <Card className="bg-black border border-[#F97316]/20">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 py-4">
                 <CardTitle className="text-lg font-medium text-[#F97316]">Week Overview</CardTitle>
                 <Dialog>
                   <DialogTrigger>
