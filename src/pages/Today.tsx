@@ -110,8 +110,8 @@ const Today = () => {
                             return <span style={{ color: '#FFFFFF' }}>{value}</span>;
                           }}
                         />
-                        <Bar dataKey="sales" name="Current Week" fill="#1EAEDB" />
-                        <Bar dataKey="lastWeekSales" name="Last Week" fill="#F97316" />
+                        <Bar stackId="sales" dataKey="lastWeekSales" name="Last Week" fill="#F97316" />
+                        <Bar stackId="sales" dataKey="sales" name="Current Week" fill="#1EAEDB" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
