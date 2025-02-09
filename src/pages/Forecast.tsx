@@ -138,7 +138,7 @@ const Forecast = () => {
                   </div>
                 </div>
                 <Button 
-                  className="w-full bg-[#F97316] hover:bg-[#F97316]/80 text-black"
+                  className="w-full bg-white hover:bg-white/90 text-black"
                   onClick={() => console.log("Exporting forecast...")}
                 >
                   Export 3-way complete forecast
