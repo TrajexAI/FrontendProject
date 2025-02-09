@@ -1,4 +1,3 @@
-
 import TopBanner from "@/components/TopBanner";
 import ProfitCard from "@/components/dashboard/ProfitCard";
 import ComparativePerformanceCard from "@/components/dashboard/ComparativePerformanceCard";
@@ -6,7 +5,6 @@ import ProductAnalysisCard from "@/components/dashboard/ProductAnalysisCard";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { CircularProgress } from "@/components/ui/circular-progress";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import { ArrowRight, X } from "lucide-react";
 import { useState } from "react";
 
@@ -108,12 +106,6 @@ const ProgressScreen = () => {
               <h3 className="font-semibold mb-2 text-white">Fixed Costs (30%)</h3>
               <p className="text-white/80">These costs remain constant regardless of your business activity level. Examples include rent, insurance, and salaries of permanent staff. They don't change with production or sales volume.</p>
             </div>
-            <Button 
-              className="w-full bg-white hover:bg-white/90 text-black"
-              onClick={() => console.log("Contacting advisor...")}
-            >
-              Talk to my advisor to discuss my costs
-            </Button>
           </div>
         </DialogContent>
       </Dialog>
