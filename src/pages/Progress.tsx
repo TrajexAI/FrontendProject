@@ -10,7 +10,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { LineChart as RechartsLineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend, BarChart, Bar } from "recharts";
+import { LineChart as RechartsLineChart, Line, XAxis, YAxis, ResponsiveContainer, Tooltip, Legend, BarChart, Bar, Area, AreaChart } from "recharts";
 
 const ProgressScreen = () => {
   const productData = [
@@ -42,6 +42,18 @@ const ProgressScreen = () => {
     { month: 'Jan', salesCentile: 25, profitCentile: 50 },
     { month: 'Feb', salesCentile: 25, profitCentile: 50 },
   ];
+
+  // Create bell curve data points
+  const bellCurveData = Array.from({ length: 100 }, (_, i) => {
+    const x = (i - 50) / 10;
+    const y = Math.exp(-(x * x) / 2) / Math.sqrt(2 * Math.PI);
+    return {
+      x: i,
+      y: y * 30, // Scale the curve height
+      salesMarker: i === 25 ? y * 30 : 0, // Mark 25th percentile
+      profitMarker: i === 50 ? y * 30 : 0, // Mark 50th percentile
+    };
+  });
 
   return (
     <div className="min-h-screen bg-black text-[#F97316]">
@@ -92,14 +104,14 @@ const ProgressScreen = () => {
 
             <Card className="bg-black border border-[#F97316]/20">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-lg font-medium text-[#F97316]">Centiles</CardTitle>
+                <CardTitle className="text-lg font-medium text-[#F97316]">Comparative Performance</CardTitle>
                 <Dialog>
                   <DialogTrigger>
                     <ArrowRight className="h-3 w-3 text-[#F97316] cursor-pointer" />
                   </DialogTrigger>
                   <DialogContent className="bg-black border border-[#F97316]/20 w-[90vw] max-w-2xl">
                     <DialogHeader>
-                      <DialogTitle className="text-[#F97316]">Historical Centile Performance</DialogTitle>
+                      <DialogTitle className="text-[#F97316]">Historical Performance Distribution</DialogTitle>
                     </DialogHeader>
                     <div className="h-[400px] mt-4">
                       <ResponsiveContainer width="100%" height="100%">
@@ -143,7 +155,34 @@ const ProgressScreen = () => {
                   </DialogContent>
                 </Dialog>
               </CardHeader>
-              <CardContent className="pb-2">
+              <CardContent>
+                <div className="h-[100px] mb-4">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <AreaChart data={bellCurveData}>
+                      <Area
+                        type="monotone"
+                        dataKey="y"
+                        stroke="#F97316"
+                        fill="#F97316"
+                        fillOpacity={0.1}
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="salesMarker"
+                        stroke="#1EAEDB"
+                        fill="#1EAEDB"
+                        fillOpacity={0.8}
+                      />
+                      <Area
+                        type="monotone"
+                        dataKey="profitMarker"
+                        stroke="#1EAEDB"
+                        fill="#1EAEDB"
+                        fillOpacity={0.8}
+                      />
+                    </AreaChart>
+                  </ResponsiveContainer>
+                </div>
                 <div className="grid grid-cols-2 gap-2">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-white">Sales</span>
