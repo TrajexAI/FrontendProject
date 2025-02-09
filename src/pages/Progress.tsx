@@ -181,7 +181,7 @@ const ProgressScreen = () => {
                         fill="#FF0000"
                         fillOpacity={0.8}
                       />
-                      <XAxis stroke="#FFFFFF" />
+                      <XAxis stroke="#FFFFFF" tick={false} />
                     </AreaChart>
                   </ResponsiveContainer>
                 </div>
