@@ -49,6 +49,7 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
             <h1 className="text-[#F97316] text-lg ml-4">Product Performance</h1>
           </div>
           <div className="w-full h-[400px] bg-black border border-[#F97316]/20 rounded-lg p-4">
+            <div className="text-[#F97316] text-xs mb-2">Product profitability vs Sales</div>
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart
                 margin={{ top: 10, right: 30, bottom: 20, left: 50 }}
@@ -67,9 +68,8 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                   type="number"
                   dataKey="y"
                   name="profit margin"
-                  tick={{ fill: '#FFFFFF', fontSize: 11 }}
+                  tick={false}
                   axisLine={{ stroke: '#F97316' }}
-                  tickFormatter={(value) => `£${value.toLocaleString()}`}
                 />
                 <ZAxis 
                   type="number" 
