@@ -37,6 +37,17 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
     fill: item.margin < 0 ? '#D946EF' : '#0EA5E9'  // Brighter magenta for negative, bright blue for positive
   }));
 
+  // Create data for highlight circle around negative margin products
+  const negativeProducts = data.filter(item => item.margin < 0);
+  const highlightCircle = negativeProducts.length > 0 ? [{
+    x: (negativeProducts[0].sales + negativeProducts[1].sales) / 2,
+    y: (negativeProducts[0].margin + negativeProducts[1].margin) / 2,
+    z: Math.max(...negativeProducts.map(p => p.sales)) * 2,
+    isHighlight: true,
+    fill: '#D946EF',
+    opacity: 0.2
+  }] : [];
+
   return (
     <div className="min-h-screen bg-black">
       <TopBanner />
@@ -102,7 +113,9 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           color: '#FFFFFF'
                         }}
                         formatter={(value: any, name: string, props: any) => {
-                          // Show only sales and profit margin in the tooltip
+                          if (props.payload.isHighlight) {
+                            return ["Product A and C need attention. Analyse variable costs as these products are negatively impacting your profit.", ""];
+                          }
                           if (name === 'profit margin') {
                             return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
                           }
@@ -111,8 +124,17 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
                           }
                           return [value, name];
                         }}
-                        labelFormatter={(value, entries) => entries[0]?.payload.name || ''}
+                        labelFormatter={(value, entries) => {
+                          if (entries[0]?.payload.isHighlight) return "";
+                          return entries[0]?.payload.name || '';
+                        }}
                       />
+                      {/* Highlight circle for negative margin products */}
+                      <Scatter 
+                        data={highlightCircle}
+                        fillOpacity={0.2}
+                      />
+                      {/* Regular product scatter points */}
                       <Scatter 
                         data={scatterData} 
                         fillOpacity={0.8}
@@ -160,4 +182,3 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
 };
 
 export default ProductAnalysisScreen;
-
