@@ -1,3 +1,4 @@
+
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -72,26 +73,26 @@ const Forecast = () => {
           </Card>
 
           <Dialog open={showMetricsDialog} onOpenChange={setShowMetricsDialog}>
-            <DialogContent className="bg-black border-[#F97316]/20 text-[#F97316] w-[90%] max-w-lg">
+            <DialogContent className="bg-black border-[#F97316]/20 text-white w-[90%] max-w-lg">
               <div className="flex justify-between items-center">
-                <DialogTitle className="text-[#F97316]">SaaS Metrics Explained</DialogTitle>
+                <DialogTitle className="text-white">SaaS Metrics Explained</DialogTitle>
                 <X 
-                  className="h-4 w-4 cursor-pointer hover:text-[#F97316]/80" 
+                  className="h-4 w-4 cursor-pointer hover:text-white/80" 
                   onClick={() => setShowMetricsDialog(false)}
                 />
               </div>
               <div className="space-y-4">
                 <div>
-                  <h3 className="font-semibold mb-2">LTV:CAC (3.5x)</h3>
-                  <p className="text-[#F97316]/80">Lifetime Value to Customer Acquisition Cost ratio. A healthy ratio is 3:1 or higher.</p>
+                  <h3 className="font-semibold mb-2 text-white">LTV:CAC (3.5x)</h3>
+                  <p className="text-white/80">Lifetime Value to Customer Acquisition Cost ratio. A healthy ratio is 3:1 or higher.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">Rule of 40 (45%)</h3>
-                  <p className="text-[#F97316]/80">Combined growth rate and profit margin should exceed 40%. Currently performing above benchmark.</p>
+                  <h3 className="font-semibold mb-2 text-white">Rule of 40 (45%)</h3>
+                  <p className="text-white/80">Combined growth rate and profit margin should exceed 40%. Currently performing above benchmark.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold mb-2">ARR ($2.4M)</h3>
-                  <p className="text-[#F97316]/80">Annual Recurring Revenue, showing steady growth trajectory.</p>
+                  <h3 className="font-semibold mb-2 text-white">ARR ($2.4M)</h3>
+                  <p className="text-white/80">Annual Recurring Revenue, showing steady growth trajectory.</p>
                 </div>
               </div>
             </DialogContent>
