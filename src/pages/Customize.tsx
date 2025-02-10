@@ -70,7 +70,7 @@ const Customize = () => {
             </div>
 
             <div className="bg-black border border-[#F97316]/20 rounded-lg p-4">
-              <h2 className="text-base font-medium text-white mb-4">Find a growth plan that works for you</h2>
+              <h2 className="text-base font-medium text-white mb-4">Select a growth plan that works for you</h2>
               <div className="space-y-3">
                 {growthPlans.map((plan) => (
                   <div 
