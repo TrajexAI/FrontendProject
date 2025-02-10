@@ -38,16 +38,16 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
             dataKey="x" 
             name="sales" 
             axisLine={{ stroke: '#F97316' }}
-            tick={{ fill: '#FFFFFF' }}
-            label={{ value: 'Sales (£)', position: 'bottom', fill: '#FFFFFF' }}
+            tick={{ fill: '#FFFFFF', fontSize: 6 }}
+            label={{ value: 'Sales (£)', position: 'bottom', fill: '#FFFFFF', fontSize: 6 }}
           />
           <YAxis
             type="number"
             dataKey="y"
             name="profit margin"
             axisLine={{ stroke: '#F97316' }}
-            tick={{ fill: '#FFFFFF' }}
-            label={{ value: 'Profit Margin (£)', angle: -90, position: 'left', fill: '#FFFFFF' }}
+            tick={{ fill: '#FFFFFF', fontSize: 6 }}
+            label={{ value: 'Profit Margin (£)', angle: -90, position: 'left', fill: '#FFFFFF', fontSize: 6 }}
           />
           <ZAxis 
             type="number" 
@@ -61,7 +61,7 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
               backgroundColor: '#000',
               border: '1px solid #F97316',
               borderRadius: '4px',
-              fontSize: '12px',
+              fontSize: '6px',
               padding: '8px',
               whiteSpace: 'pre-line'
             }}
@@ -78,7 +78,7 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
                 const data = payload[0].payload;
                 return (
                   <div className="p-2">
-                    <p className="text-white">
+                    <p className="text-white text-xs">
                       {data.name}<br />
                       Sales: £{data.x.toLocaleString()}<br />
                       Profit Margin: £{data.y.toLocaleString()}
@@ -128,3 +128,4 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
 };
 
 export default ProductScatterPlot;
+
