@@ -1,6 +1,6 @@
 
 import TopBanner from "@/components/TopBanner";
-import { ArrowDown, ArrowRight, DollarSign, TrendingUp, PieChart, Building } from "lucide-react";
+import { ArrowDown, ArrowRight, DollarSign, TrendingUp, PieChart, Building, UserPlus } from "lucide-react";
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
@@ -83,6 +83,16 @@ const Customize = () => {
                 ))}
               </div>
             </div>
+
+            <div className="bg-black border border-[#F97316]/20 rounded-lg p-4">
+              <div className="flex justify-between items-center cursor-pointer">
+                <div className="flex items-center space-x-3">
+                  <UserPlus className="w-5 h-5 text-[#1EAEDB]" />
+                  <span className="text-base font-medium text-white">Connect your advisor, accountant, or bookkeeper to Trajex</span>
+                </div>
+                <ArrowRight className="w-5 h-5" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -91,4 +101,3 @@ const Customize = () => {
 };
 
 export default Customize;
-
