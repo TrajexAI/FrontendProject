@@ -47,7 +47,13 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
             name="profit margin"
             axisLine={{ stroke: '#F97316' }}
             tick={{ fill: '#FFFFFF' }}
-            label={{ value: 'Profit Margin (£)', angle: -90, position: 'left', fill: '#FFFFFF' }}
+            label={{ 
+              value: 'Profit Margin (£)', 
+              angle: -90, 
+              position: 'center', 
+              fill: '#FFFFFF',
+              offset: 0 
+            }}
           />
           <ZAxis 
             type="number" 
@@ -128,3 +134,4 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
 };
 
 export default ProductScatterPlot;
+
