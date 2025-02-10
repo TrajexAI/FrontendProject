@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import Message from "@/components/Message";
 import MessageList from "@/components/MessageList";
 import ChatInput from "@/components/ChatInput";
 import TopBanner from "@/components/TopBanner";
@@ -113,4 +114,3 @@ const Coach = () => {
 };
 
 export default Coach;
-
