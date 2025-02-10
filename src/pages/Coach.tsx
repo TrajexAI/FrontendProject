@@ -65,7 +65,6 @@ const Coach = () => {
     <div className="flex flex-col min-h-screen bg-black text-[#F97316]">
       <TopBanner />
       <div className="flex-1 overflow-hidden flex flex-col p-4 pt-20 pb-24">
-        <h1 className="text-2xl font-bold mb-4 text-center">Scenario Analysis</h1>
         <div className="max-w-4xl mx-auto w-full flex-1 overflow-y-auto">
           <div className="space-y-4">
             {messages.map((message, index) => (
