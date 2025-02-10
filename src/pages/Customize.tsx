@@ -1,7 +1,7 @@
 
 import TopBanner from "@/components/TopBanner";
 import { ArrowDown, ArrowRight, DollarSign, TrendingUp, PieChart, Building } from "lucide-react";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
 
@@ -43,24 +43,24 @@ const Customize = () => {
       <div className="p-4 pt-20">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
-            <Collapsible
+            <CollapsiblePrimitive.Root
               open={isOpen}
               onOpenChange={setIsOpen}
               className="bg-black border border-[#F97316]/20 rounded-lg p-6"
             >
-              <CollapsibleTrigger className="flex justify-between items-center w-full">
+              <CollapsiblePrimitive.Trigger className="flex justify-between items-center w-full">
                 <span className="text-xl font-medium">Connected platforms</span>
                 <ArrowDown className={`w-6 h-6 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-              </CollapsibleTrigger>
-              <CollapsibleContent className="mt-4 space-y-4">
+              </CollapsiblePrimitive.Trigger>
+              <CollapsiblePrimitive.Content className="mt-4 space-y-4">
                 {platforms.map((platform) => (
                   <div key={platform} className="flex justify-between items-center">
                     <span className="text-lg">{platform}</span>
                     <Switch />
                   </div>
                 ))}
-              </CollapsibleContent>
-            </Collapsible>
+              </CollapsiblePrimitive.Content>
+            </CollapsiblePrimitive.Root>
 
             <div className="bg-black border border-[#F97316]/20 rounded-lg p-6">
               <div className="flex justify-between items-center cursor-pointer">
