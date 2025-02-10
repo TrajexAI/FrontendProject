@@ -52,12 +52,12 @@ const ProductAnalysisScreen = ({ productData }: ProductAnalysisScreenProps) => {
       const { cx, cy } = props;
       return (
         <g 
-          onClick={() => navigate('/coach-screen-2')} 
+          onClick={() => navigate('/coach-negative-margin')} 
           style={{ 
             cursor: 'pointer', 
             pointerEvents: 'all',
             position: 'relative',
-            zIndex: 1000 // Ensure star is on top
+            zIndex: 1000
           }}
           transform={`translate(${cx - 25},${cy - 25})`}
         >

@@ -68,18 +68,13 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
               color: '#FFFFFF'
             }}
             formatter={(value: any, name: string, props: any) => {
-              if (name === 'profit margin') {
-                return [`£${props.payload.y.toLocaleString()}`, 'Profit Margin'];
-              }
-              if (name === 'sales') {
-                return [`£${props.payload.x.toLocaleString()}`, 'Sales'];
-              }
-              return [value, name];
+              const item = props.payload;
+              return [
+                `${item.name}\nSales: £${item.x.toLocaleString()}\nProfit Margin: £${item.y.toLocaleString()}`,
+                ''
+              ];
             }}
-            labelFormatter={(value, entries) => {
-              if (entries[0]?.payload.isHighlight) return "";
-              return entries[0]?.payload.name || '';
-            }}
+            labelFormatter={() => '')
           />
           {/* Regular product scatter points */}
           <Scatter 
