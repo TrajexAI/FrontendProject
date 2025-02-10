@@ -1,3 +1,4 @@
+
 import TopBanner from "@/components/TopBanner";
 import ProfitCard from "@/components/dashboard/ProfitCard";
 import ComparativePerformanceCard from "@/components/dashboard/ComparativePerformanceCard";
@@ -79,7 +80,7 @@ const ProgressScreen = () => {
                   currentValue="70%"
                   targetValue="Variable Costs"
                   label="30% Fixed Costs"
-                  size={180}
+                  size={126}
                   strokeWidth={12}
                 />
               </div>
