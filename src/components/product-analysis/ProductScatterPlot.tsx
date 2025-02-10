@@ -62,19 +62,32 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
               border: '1px solid #F97316',
               borderRadius: '4px',
               fontSize: '12px',
-              padding: '8px'
+              padding: '8px',
+              whiteSpace: 'pre-line'
             }}
             itemStyle={{
-              color: '#FFFFFF'
+              color: '#FFFFFF',
+              margin: 0,
+              padding: 0
             }}
             formatter={(value: any, name: string, props: any) => {
-              const item = props.payload;
-              return [
-                `${item.name}\nSales: £${item.x.toLocaleString()}\nProfit Margin: £${item.y.toLocaleString()}`,
-                ''
-              ];
+              return null; // This prevents multiple entries
             }}
-            labelFormatter={() => ''}
+            content={({ active, payload }) => {
+              if (active && payload && payload.length) {
+                const data = payload[0].payload;
+                return (
+                  <div className="p-2">
+                    <p className="text-white">
+                      {data.name}<br />
+                      Sales: £{data.x.toLocaleString()}<br />
+                      Profit Margin: £{data.y.toLocaleString()}
+                    </p>
+                  </div>
+                );
+              }
+              return null;
+            }}
           />
           {/* Regular product scatter points */}
           <Scatter 
@@ -84,7 +97,30 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
           {/* Star highlight for negative margin products */}
           <Scatter 
             data={starHighlight}
-            shape="star"
+            shape={(props: any) => {
+              const { cx, cy } = props;
+              return (
+                <g 
+                  onClick={() => navigate('/coach-negative-margin')} 
+                  style={{ 
+                    cursor: 'pointer',
+                    pointerEvents: 'all'
+                  }}
+                  transform={`translate(${cx - 25},${cy - 25})`}
+                >
+                  <Star
+                    size={50}
+                    color="#FEF7CD"
+                    fill="#FEF7CD"
+                    opacity={0.8}
+                    style={{ 
+                      pointerEvents: 'all',
+                      zIndex: 1000 
+                    }}
+                  />
+                </g>
+              );
+            }}
           />
         </ScatterChart>
       </ResponsiveContainer>
