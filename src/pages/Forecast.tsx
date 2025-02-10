@@ -2,7 +2,7 @@
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { ArrowRight, Activity, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 import TopBanner from "@/components/TopBanner";
 import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -64,23 +64,44 @@ const Forecast = () => {
           </Card>
 
           <Card className="bg-black border border-[#F97316]/20">
-            <div className="flex justify-between items-center p-4">
-              <h2 className="text-lg font-medium text-[#F97316]">3-way forecast</h2>
-              <ArrowRight 
-                className="h-4 w-4 text-[#F97316] cursor-pointer"
-                onClick={() => setShowForecastDialog(true)}
-              />
-            </div>
-          </Card>
-
-          <Card className="bg-black border border-[#F97316]/20">
             <div className="p-4">
-              <div className="text-center">
-                <h2 className="text-[#F97316] font-medium mb-2">What if?</h2>
-                <div className="mt-2">
-                  <h3 className="text-white">I hire a junior sales person</h3>
-                  <p className="text-[#1EAEDB] text-3xl font-medium">2 months</p>
-                  <p className="text-white text-xs">until profit recovers to pre-hiring level</p>
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-lg font-medium text-[#F97316]">3-way forecast</h2>
+                <ArrowRight 
+                  className="h-4 w-4 text-[#F97316] cursor-pointer"
+                  onClick={() => setShowForecastDialog(true)}
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="text-white mb-2 text-sm">Revenue Forecast</h3>
+                  <div className="h-[200px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart data={revenueData}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                        <XAxis dataKey="month" stroke="#FFFFFF" />
+                        <YAxis stroke="#FFFFFF" />
+                        <Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #F97316', color: '#FFFFFF' }} />
+                        <Line type="monotone" dataKey="actual" stroke="#1EAEDB" strokeWidth={2} dot={{ fill: '#1EAEDB' }} />
+                        <Line type="monotone" dataKey="forecast" stroke="#FFFFFF" strokeWidth={2} strokeDasharray="5 5" dot={{ fill: '#FFFFFF' }} />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-white mb-2 text-sm">Cashflow Forecast</h3>
+                  <div className="h-[200px]">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <LineChart data={cashflowData}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#333" />
+                        <XAxis dataKey="month" stroke="#FFFFFF" />
+                        <YAxis stroke="#FFFFFF" />
+                        <Tooltip contentStyle={{ backgroundColor: '#000', border: '1px solid #F97316', color: '#FFFFFF' }} />
+                        <Line type="monotone" dataKey="inflow" stroke="#1EAEDB" strokeWidth={2} dot={{ fill: '#1EAEDB' }} />
+                        <Line type="monotone" dataKey="outflow" stroke="#FFFFFF" strokeWidth={2} dot={{ fill: '#FFFFFF' }} />
+                      </LineChart>
+                    </ResponsiveContainer>
+                  </div>
                 </div>
               </div>
             </div>
@@ -180,3 +201,4 @@ const Forecast = () => {
 };
 
 export default Forecast;
+
