@@ -61,10 +61,6 @@ const ProgressScreen = () => {
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6">
             <ProfitCard profitDetails={profitDetails} />
-            <ComparativePerformanceCard 
-              centileHistory={centileHistory}
-              bellCurveData={bellCurveData}
-            />
             <ProductAnalysisCard productData={productData} />
             <Card className="bg-black border border-[#F97316]/20">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -85,6 +81,10 @@ const ProgressScreen = () => {
                 />
               </div>
             </Card>
+            <ComparativePerformanceCard 
+              centileHistory={centileHistory}
+              bellCurveData={bellCurveData}
+            />
           </div>
         </div>
       </div>
@@ -115,3 +115,4 @@ const ProgressScreen = () => {
 };
 
 export default ProgressScreen;
+
