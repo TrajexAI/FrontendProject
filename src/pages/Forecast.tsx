@@ -1,3 +1,4 @@
+
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
@@ -87,10 +88,11 @@ const Forecast = () => {
           <Card className="bg-black border border-[#F97316]/20">
             <div className="p-4">
               <Button 
-                className="w-full bg-white hover:bg-white/90 text-black text-xs sm:text-sm"
+                className="w-full bg-white hover:bg-white/90 text-black text-xs sm:text-sm flex flex-col gap-1"
                 onClick={() => console.log("Sharing forecast and booking slot...")}
               >
-                Share this with my advisor and book a 30-min slot to review the forecast
+                <span>Share this with my advisor</span>
+                <span>and book a 30-min slot to review the forecast</span>
               </Button>
             </div>
           </Card>
