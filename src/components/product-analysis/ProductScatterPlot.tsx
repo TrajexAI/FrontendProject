@@ -110,8 +110,8 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
                 >
                   <AlertTriangle
                     size={50}
-                    color="#FEF7CD"
-                    fill="#FEF7CD"
+                    color="#FF0000"
+                    fill="#FF0000"
                     opacity={0.8}
                     style={{ 
                       pointerEvents: 'all',
