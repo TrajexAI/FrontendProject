@@ -74,7 +74,7 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
                 ''
               ];
             }}
-            labelFormatter={() => '')
+            labelFormatter={() => ''}
           />
           {/* Regular product scatter points */}
           <Scatter 
