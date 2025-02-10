@@ -2,6 +2,7 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { ArrowRight, TriangleAlert } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import ProductScatterPlot from "../product-analysis/ProductScatterPlot";
 
 interface ProductDataType {
   name: string;
@@ -15,6 +16,18 @@ interface ProductAnalysisProps {
 
 const ProductAnalysisCard = ({ productData }: ProductAnalysisProps) => {
   const navigate = useNavigate();
+  
+  // Sample data for the scatter plot
+  const scatterData = [
+    { x: 50000, y: 25000, z: 100, name: "Product A", fill: "#1EAEDB" },
+    { x: 75000, y: 35000, z: 150, name: "Product B", fill: "#1EAEDB" },
+    { x: 25000, y: -5000, z: 80, name: "Product C", fill: "#1EAEDB" },
+    { x: 100000, y: 45000, z: 200, name: "Product D", fill: "#1EAEDB" },
+  ];
+
+  const starHighlight = [
+    { x: 25000, y: -5000, z: 80, name: "Product C" },
+  ];
 
   return (
     <Card className="bg-black border border-[#F97316]/20">
@@ -29,10 +42,16 @@ const ProductAnalysisCard = ({ productData }: ProductAnalysisProps) => {
         />
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-white/60">Click arrow to view detailed analysis</p>
+        <div className="w-full h-[300px]">
+          <ProductScatterPlot 
+            scatterData={scatterData} 
+            starHighlight={starHighlight}
+          />
+        </div>
       </CardContent>
     </Card>
   );
 };
 
 export default ProductAnalysisCard;
+
