@@ -26,7 +26,7 @@ const ProductAnalysisCard = ({ productData }: ProductAnalysisProps) => {
   ];
 
   const starHighlight = [
-    { x: 25000, y: -5000, z: 80, name: "Product C" },
+    { x: 25000, y: -5000, z: 80, name: "Product C", fill: "#FF0000" },
   ];
 
   return (
@@ -54,4 +54,3 @@ const ProductAnalysisCard = ({ productData }: ProductAnalysisProps) => {
 };
 
 export default ProductAnalysisCard;
-
