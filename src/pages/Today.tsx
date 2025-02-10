@@ -82,7 +82,7 @@ const Today = () => {
 
             <Card className="bg-black border border-[#F97316]/20">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-1">
-                <CardTitle className="text-lg font-medium text-[#F97316]">Product Leaderboard</CardTitle>
+                <CardTitle className="text-lg font-medium text-[#F97316]">Product Sales</CardTitle>
                 <BarChart2 className="h-4 w-4 text-[#F97316]" />
               </CardHeader>
               <CardContent className="pb-2">
