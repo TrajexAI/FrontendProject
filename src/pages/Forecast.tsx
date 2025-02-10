@@ -76,8 +76,9 @@ const Forecast = () => {
           <Card className="bg-black border border-[#F97316]/20">
             <div className="p-4">
               <div className="text-center">
+                <h2 className="text-[#F97316] font-medium mb-2">What if?</h2>
                 <div className="mt-2">
-                  <h3 className="text-white">Hiring 1 FTE junior sales person</h3>
+                  <h3 className="text-white">I hire a junior sales person</h3>
                   <p className="text-[#1EAEDB] text-3xl font-medium">2 months</p>
                   <p className="text-white text-xs">until profit recovers to pre-hiring level</p>
                 </div>
