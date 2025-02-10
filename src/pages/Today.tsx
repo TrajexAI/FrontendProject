@@ -1,3 +1,4 @@
+
 import TopBanner from "@/components/TopBanner";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Gauge, BarChart2, ArrowRight } from "lucide-react";
@@ -57,9 +58,8 @@ const Today = () => {
                       </DialogHeader>
                       <div className="space-y-4 py-4">
                         <ul className="list-disc pl-5 space-y-2 text-white">
-                          <li>Upselling with 10% discount for complementary items delivered 20% more profit in pop up store A last week</li>
-                          <li>Consider social media content push if daily target is not met</li>
-                          <li>Review and update custom plan with business context so your AI coach can refine targets</li>
+                          <li>Upselling with <strong>10%</strong> discount for complementary items delivered <strong>20%</strong> more profit in pop up store A last week</li>
+                          <li>Consider doing this to meet today's sales goal</li>
                         </ul>
                       </div>
                     </DialogContent>
