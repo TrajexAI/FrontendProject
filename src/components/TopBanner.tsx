@@ -46,6 +46,7 @@ const TopBanner = () => {
         </div>
         <div className="flex justify-between items-center mt-2">
           <User className="w-6 h-6 text-[#F97316]" />
+          <h1 className="text-[#F97316] text-lg font-medium">Your business performance</h1>
           <BellDot className="w-6 h-6 text-[#F97316]" />
         </div>
       </div>
