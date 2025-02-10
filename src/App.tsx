@@ -8,6 +8,7 @@ import BottomNav from "./components/BottomNav";
 import Index from "./pages/Index";
 import Today from "./pages/Today";
 import Coach from "./pages/Coach";
+import CoachNegativeMargin from "./pages/CoachNegativeMargin";
 import CoachScreen2 from "./pages/CoachScreen2";
 import Progress from "./pages/Progress";
 import Customize from "./pages/Customize";
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/" element={<Today />} />
             <Route path="/index" element={<Index />} />
             <Route path="/ask-anything" element={<Coach />} />
+            <Route path="/coach/negative-margin" element={<CoachNegativeMargin />} />
             <Route path="/coach-screen-2" element={<CoachScreen2 />} />
             <Route path="/scorecard" element={<Progress />} />
             <Route path="/notifications" element={<Customize />} />

@@ -71,7 +71,7 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
               padding: 0
             }}
             formatter={(value: any, name: string, props: any) => {
-              return null; // This prevents multiple entries
+              return null;
             }}
             content={({ active, payload }) => {
               if (active && payload && payload.length) {
@@ -89,19 +89,17 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
               return null;
             }}
           />
-          {/* Regular product scatter points */}
           <Scatter 
             data={scatterData} 
             fillOpacity={0.8}
           />
-          {/* Warning triangle for negative margin products */}
           <Scatter 
             data={starHighlight}
             shape={(props: any) => {
               const { cx, cy } = props;
               return (
                 <g 
-                  onClick={() => navigate('/coach-negative-margin')} 
+                  onClick={() => navigate('/coach/negative-margin')} 
                   style={{ 
                     cursor: 'pointer',
                     pointerEvents: 'all'
@@ -111,7 +109,8 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
                   <AlertTriangle
                     size={50}
                     color="#FF0000"
-                    fill="#FF0000"
+                    fill="transparent"
+                    strokeWidth={2}
                     opacity={0.8}
                     style={{ 
                       pointerEvents: 'all',
