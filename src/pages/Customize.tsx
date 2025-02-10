@@ -21,19 +21,19 @@ const Customize = () => {
   const growthPlans = [
     {
       title: "Improve working capital and cash flow",
-      icon: <DollarSign className="w-6 h-6" />
+      icon: <DollarSign className="w-5 h-5 text-[#1EAEDB]" />
     },
     {
       title: "Hypergrowth",
-      icon: <TrendingUp className="w-6 h-6" />
+      icon: <TrendingUp className="w-5 h-5 text-[#1EAEDB]" />
     },
     {
       title: "Improve profit margin",
-      icon: <PieChart className="w-6 h-6" />
+      icon: <PieChart className="w-5 h-5 text-[#1EAEDB]" />
     },
     {
       title: "Prepare for a sale or an exit",
-      icon: <Building className="w-6 h-6" />
+      icon: <Building className="w-5 h-5 text-[#1EAEDB]" />
     }
   ];
 
@@ -42,43 +42,43 @@ const Customize = () => {
       <TopBanner />
       <div className="p-4 pt-20">
         <div className="max-w-4xl mx-auto">
-          <div className="space-y-6">
+          <div className="space-y-4">
             <CollapsiblePrimitive.Root
               open={isOpen}
               onOpenChange={setIsOpen}
-              className="bg-black border border-[#F97316]/20 rounded-lg p-6"
+              className="bg-black border border-[#F97316]/20 rounded-lg p-4"
             >
               <CollapsiblePrimitive.Trigger className="flex justify-between items-center w-full">
-                <span className="text-xl font-medium">Connected platforms</span>
-                <ArrowDown className={`w-6 h-6 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                <span className="text-base font-medium text-white">Connected platforms</span>
+                <ArrowDown className={`w-5 h-5 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
               </CollapsiblePrimitive.Trigger>
-              <CollapsiblePrimitive.Content className="mt-4 space-y-4">
+              <CollapsiblePrimitive.Content className="mt-4 space-y-3">
                 {platforms.map((platform) => (
                   <div key={platform} className="flex justify-between items-center">
-                    <span className="text-lg">{platform}</span>
-                    <Switch />
+                    <span className="text-sm text-white">{platform}</span>
+                    <Switch className="data-[state=checked]:bg-green-500" />
                   </div>
                 ))}
               </CollapsiblePrimitive.Content>
             </CollapsiblePrimitive.Root>
 
-            <div className="bg-black border border-[#F97316]/20 rounded-lg p-6">
+            <div className="bg-black border border-[#F97316]/20 rounded-lg p-4">
               <div className="flex justify-between items-center cursor-pointer">
-                <span className="text-xl font-medium">Request a custom feature</span>
-                <ArrowRight className="w-6 h-6" />
+                <span className="text-base font-medium text-white">Request a custom feature</span>
+                <ArrowRight className="w-5 h-5" />
               </div>
             </div>
 
-            <div className="bg-black border border-[#F97316]/20 rounded-lg p-6">
-              <h2 className="text-xl font-medium mb-6">Find a growth plan that works for you</h2>
-              <div className="space-y-4">
+            <div className="bg-black border border-[#F97316]/20 rounded-lg p-4">
+              <h2 className="text-base font-medium text-white mb-4">Find a growth plan that works for you</h2>
+              <div className="space-y-3">
                 {growthPlans.map((plan) => (
                   <div 
                     key={plan.title}
-                    className="flex items-center space-x-4 p-4 border border-[#F97316]/20 rounded-lg cursor-pointer hover:bg-[#F97316]/5 transition-colors"
+                    className="flex items-center space-x-3 cursor-pointer hover:bg-[#F97316]/5 transition-colors rounded-lg py-2"
                   >
                     {plan.icon}
-                    <span className="text-lg">{plan.title}</span>
+                    <span className="text-sm text-white">{plan.title}</span>
                   </div>
                 ))}
               </div>
@@ -91,3 +91,4 @@ const Customize = () => {
 };
 
 export default Customize;
+
