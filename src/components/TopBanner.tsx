@@ -37,6 +37,8 @@ const TopBanner = () => {
         return 'Track Progress';
       case '/forecast':
         return 'Forecast';
+      case '/notifications':
+        return 'Customize Trajex';
       default:
         return 'Your business performance';
     }
