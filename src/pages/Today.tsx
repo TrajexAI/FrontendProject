@@ -31,10 +31,34 @@ const Today = () => {
   }));
 
   const weekOverview = {
-    sales: "£38,450",
-    expenses: "£15,230",
-    grossProfit: "£23,220",
-    netProfit: "£18,576",
+    sales: {
+      current: "£38,450",
+      lastWeek: "£35,200",
+      lastYear: "£29,800",
+      weekChange: "+9.2%",
+      yearChange: "+29.0%"
+    },
+    expenses: {
+      current: "£15,230",
+      lastWeek: "£14,800",
+      lastYear: "£12,500",
+      weekChange: "+2.9%",
+      yearChange: "+21.8%"
+    },
+    grossProfit: {
+      current: "£23,220",
+      lastWeek: "£20,400",
+      lastYear: "£17,300",
+      weekChange: "+13.8%",
+      yearChange: "+34.2%"
+    },
+    netProfit: {
+      current: "£18,576",
+      lastWeek: "£16,320",
+      lastYear: "£13,840",
+      weekChange: "+13.8%",
+      yearChange: "+34.2%"
+    }
   };
 
   return (
@@ -143,26 +167,56 @@ const Today = () => {
                   <DialogTrigger>
                     <ArrowRight className="h-4 w-4 text-[#F97316] cursor-pointer" />
                   </DialogTrigger>
-                  <DialogContent className="bg-black border border-[#F97316]/20">
+                  <DialogContent className="bg-black border-[#F97316]/20 text-white w-[90%] max-w-lg">
                     <DialogHeader>
                       <DialogTitle className="text-[#F97316]">This Week's Performance</DialogTitle>
                     </DialogHeader>
                     <div className="space-y-4 py-4">
-                      <div className="flex justify-between items-center">
+                      <div className="grid grid-cols-4 gap-2 pb-2 border-b border-[#F97316]/20">
+                        <span className="text-[#F97316]/80">Metric</span>
+                        <span className="text-[#F97316]/80 text-right">Current</span>
+                        <span className="text-[#F97316]/80 text-right">vs Last Week</span>
+                        <span className="text-[#F97316]/80 text-right">vs Last Year</span>
+                      </div>
+                      <div className="grid grid-cols-4 gap-2">
                         <span className="text-white">Sales</span>
-                        <span className="text-[#F97316] font-bold">{weekOverview.sales}</span>
+                        <span className="text-[#F97316] font-bold text-right">{weekOverview.sales.current}</span>
+                        <span className={`text-right ${weekOverview.sales.weekChange.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                          {weekOverview.sales.weekChange}
+                        </span>
+                        <span className={`text-right ${weekOverview.sales.yearChange.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                          {weekOverview.sales.yearChange}
+                        </span>
                       </div>
-                      <div className="flex justify-between items-center">
+                      <div className="grid grid-cols-4 gap-2">
                         <span className="text-white">Expenses</span>
-                        <span className="text-[#F97316] font-bold">{weekOverview.expenses}</span>
+                        <span className="text-[#F97316] font-bold text-right">{weekOverview.expenses.current}</span>
+                        <span className={`text-right ${weekOverview.expenses.weekChange.startsWith('+') ? 'text-red-500' : 'text-green-500'}`}>
+                          {weekOverview.expenses.weekChange}
+                        </span>
+                        <span className={`text-right ${weekOverview.expenses.yearChange.startsWith('+') ? 'text-red-500' : 'text-green-500'}`}>
+                          {weekOverview.expenses.yearChange}
+                        </span>
                       </div>
-                      <div className="flex justify-between items-center">
+                      <div className="grid grid-cols-4 gap-2">
                         <span className="text-white">Estimated Gross Profit</span>
-                        <span className="text-[#F97316] font-bold">{weekOverview.grossProfit}</span>
+                        <span className="text-[#F97316] font-bold text-right">{weekOverview.grossProfit.current}</span>
+                        <span className={`text-right ${weekOverview.grossProfit.weekChange.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                          {weekOverview.grossProfit.weekChange}
+                        </span>
+                        <span className={`text-right ${weekOverview.grossProfit.yearChange.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                          {weekOverview.grossProfit.yearChange}
+                        </span>
                       </div>
-                      <div className="flex justify-between items-center">
+                      <div className="grid grid-cols-4 gap-2">
                         <span className="text-white">Estimated Net Profit</span>
-                        <span className="text-[#F97316] font-bold">{weekOverview.netProfit}</span>
+                        <span className="text-[#F97316] font-bold text-right">{weekOverview.netProfit.current}</span>
+                        <span className={`text-right ${weekOverview.netProfit.weekChange.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                          {weekOverview.netProfit.weekChange}
+                        </span>
+                        <span className={`text-right ${weekOverview.netProfit.yearChange.startsWith('+') ? 'text-green-500' : 'text-red-500'}`}>
+                          {weekOverview.netProfit.yearChange}
+                        </span>
                       </div>
                     </div>
                   </DialogContent>
