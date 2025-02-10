@@ -31,15 +31,15 @@ const ContributionMarginDonut = ({ data, colors }: ContributionMarginDonutProps)
   };
 
   return (
-    <div className="h-[300px]">
+    <div className="h-[160px]">
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
-            innerRadius={60}
-            outerRadius={80}
+            innerRadius={40}
+            outerRadius={55}
             fill="#D4AF37"
             paddingAngle={5}
             dataKey="value"
@@ -57,3 +57,4 @@ const ContributionMarginDonut = ({ data, colors }: ContributionMarginDonutProps)
 };
 
 export default ContributionMarginDonut;
+
