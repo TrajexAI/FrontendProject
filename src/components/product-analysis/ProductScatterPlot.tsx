@@ -1,7 +1,7 @@
 
 import { useNavigate } from "react-router-dom";
 import { ScatterChart, Scatter, XAxis, YAxis, ResponsiveContainer, Tooltip, ZAxis, CartesianGrid } from "recharts";
-import { Star } from "lucide-react";
+import { AlertTriangle } from "lucide-react";
 
 interface ProductDataPoint {
   x: number;
@@ -94,7 +94,7 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
             data={scatterData} 
             fillOpacity={0.8}
           />
-          {/* Star highlight for negative margin products */}
+          {/* Warning triangle for negative margin products */}
           <Scatter 
             data={starHighlight}
             shape={(props: any) => {
@@ -108,7 +108,7 @@ const ProductScatterPlot = ({ scatterData, starHighlight }: ProductScatterPlotPr
                   }}
                   transform={`translate(${cx - 25},${cy - 25})`}
                 >
-                  <Star
+                  <AlertTriangle
                     size={50}
                     color="#FEF7CD"
                     fill="#FEF7CD"
