@@ -1,10 +1,12 @@
 
 import { BellDot, Signal, User } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const TopBanner = () => {
   const [currentTime, setCurrentTime] = useState("");
   const [batteryLevel, setBatteryLevel] = useState(100);
+  const location = useLocation();
 
   useEffect(() => {
     const updateTime = () => {
@@ -24,6 +26,21 @@ const TopBanner = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  const getTitle = () => {
+    switch (location.pathname) {
+      case '/':
+        return 'Your business performance';
+      case '/ask-anything':
+        return 'Scenario Analysis';
+      case '/scorecard':
+        return 'Track Progress';
+      case '/forecast':
+        return 'Forecast';
+      default:
+        return 'Your business performance';
+    }
+  };
 
   return (
     <div className="fixed top-0 left-0 right-0 bg-black text-white p-2 z-50">
@@ -46,7 +63,7 @@ const TopBanner = () => {
         </div>
         <div className="flex justify-between items-center mt-2">
           <User className="w-6 h-6 text-[#F97316]" />
-          <h1 className="text-[#F97316] text-lg font-medium">Scenario Analysis</h1>
+          <h1 className="text-[#F97316] text-lg font-medium">{getTitle()}</h1>
           <BellDot className="w-6 h-6 text-[#F97316]" />
         </div>
       </div>
@@ -55,3 +72,4 @@ const TopBanner = () => {
 };
 
 export default TopBanner;
+
