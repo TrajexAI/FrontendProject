@@ -69,7 +69,7 @@ const ProfitCard = ({ profitDetails }: ProfitCardProps) => {
       <CardContent>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <div className="text-2xl font-bold text-white">£45,678</div>
+            <div className="text-4xl font-bold text-white">£45,678</div>
             <div className={`text-sm ${showPositiveChange ? 'text-green-500' : 'text-red-500'} flex items-center gap-1`}>
               {showPositiveChange ? '+' : ''}{monthChange}%
               {showPositiveChange ? <TrendingUp className="h-3 w-3" /> : <TrendingDown className="h-3 w-3" />}
@@ -83,3 +83,4 @@ const ProfitCard = ({ profitDetails }: ProfitCardProps) => {
 };
 
 export default ProfitCard;
+
