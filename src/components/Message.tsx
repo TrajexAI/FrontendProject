@@ -1,5 +1,8 @@
 
 import { cn } from "@/lib/utils";
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import rehypeSanitize from "rehype-sanitize";
 
 interface MessageProps {
   content: string;
@@ -8,25 +11,28 @@ interface MessageProps {
   index: number;
 }
 
-const Message = ({ content, isUser = false, className, index }: MessageProps) => {
+const Message: React.FC<MessageProps> = ({ content, isUser, index }) => {
   return (
     <div
-      className={cn(
-        "flex w-full opacity-0",
-        isUser ? "justify-end" : "justify-start",
-        `animate-fade-in [animation-delay:${index * 750}ms] [animation-fill-mode:forwards]`,
-        className
-      )}
+      className={`flex w-full ${isUser ? "justify-end" : "justify-start"} ${
+        index > 0 ? "opacity-0 animate-fade-in [animation-fill-mode:forwards]" : ""
+      }`}
+      style={{ animationDelay: index > 0 ? `${200 * (index % 3)}ms` : "0ms" }}
     >
       <div
-        className={cn(
-          "max-w-[80%] rounded-2xl px-4 py-2 border",
+        className={`max-w-[80%] rounded-2xl px-4 py-2 ${
           isUser
-            ? "bg-[#F97316] text-white border-[#F97316]/20"
-            : "bg-black text-white border-[#F97316]/20"
-        )}
+            ? "bg-[#F97316] text-white"
+            : "border border-[#F97316]/20 bg-black text-white"
+        }`}
       >
-        <p className="text-sm md:text-base whitespace-pre-wrap">{content}</p>
+        <div className="markdown-content text-sm md:text-base">
+          <ReactMarkdown 
+            rehypePlugins={[rehypeSanitize]}
+          >
+            {content}
+          </ReactMarkdown>
+        </div>
       </div>
     </div>
   );
